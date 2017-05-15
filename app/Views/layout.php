@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title><?= $this->e($title) ?></title>
-
+	<?= $this->section('style') ?>
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
 </head>
 <body>
@@ -18,6 +18,7 @@
 
 		<footer>
 		</footer>
+		<?= $this->section('script') ?>
 	</div>
 </body>
 </html>
