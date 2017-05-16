@@ -3,13 +3,13 @@
 <head>
 	<meta charset="UTF-8">
 	<title><?= $this->e($title) ?></title>
-	<?= $this->section('style') ?>
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
+	<?= $this->section('style') ?>
 </head>
 <body>
 	<div class="container">
 		<header>
-			<h1>W :: <?= $this->e($title) ?></h1>
+			<h1><?= $this->e($title) ?></h1>
 		</header>
 
 		<section>
