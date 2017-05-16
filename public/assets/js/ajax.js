@@ -25,8 +25,10 @@ function request(_url){
   xhr.onreadystatechange = function(){
     console.log(xhr);
     if(xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0 )){
-      //console.log("xhr ready");
-      var response = JSON.parse(xhr.responseText);
+      console.log("xhr ready");
+      if(xhr.responseText){
+        var response = JSON.parse(xhr.responseText);
+      }
       console.log(response);
       fillOutput(response)
     } else {
@@ -63,6 +65,11 @@ function fillOutput(_data){
   }
 }
 
+function delRow(){
+  console.log(this.RowId);
+  request('http://localhost/wflyon/public/api/delArticle?id='+this.RowId);
+}
+
 function fillRow(_row){
   var tr=document.createElement('tr');
   for(var e in _row){
@@ -72,6 +79,13 @@ function fillRow(_row){
       tr.appendChild(td);
     }
   }
+    btn = document.createElement('button');
+    btn.className = "btn";
+    btn.className = "btn-default";
+    btn.innerHTML = "Delete";
+    tr.appendChild(btn);
+    btn.addEventListener('click', delRow);
+    btn.RowId = _row['id'];
    return tr;
 }
 

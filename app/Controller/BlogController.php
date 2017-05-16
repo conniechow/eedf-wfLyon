@@ -17,9 +17,10 @@ class BlogController extends Controller {
       $this->show('blog/AddArticle');
     }else{
       $this->ArticleModel->insert($_POST);
-      $this->redirectToRoute('admin_dashboard');
+      $this->redirectToRoute('blog_listArticles');
     }
   }
+
   public function listArticles(){
     $this->show('blog/listArticles');
   }

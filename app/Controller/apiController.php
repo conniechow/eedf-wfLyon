@@ -12,10 +12,18 @@ class apiController extends Controller {
     $this->ArticleModel = new article;
   }
 
-  public function getArticles(){
+  public function ajaxGetArticles(){
     //$this->show('api/articles');
     $data = $this->ArticleModel->findAll();
     $this->showJson($data);
+  }
+
+  public function delArticle(){
+    if(!isset($_GET['id'])){
+      $this->show('blog/listArticles');
+    }else{
+      $this->ArticleModel->delete($_GET['id']);
+    }
   }
 }
 
