@@ -20,6 +20,9 @@ class BlogController extends Controller {
       $this->redirectToRoute('admin_dashboard');
     }
   }
+  public function listArticles(){
+    $this->show('blog/listArticles');
+  }
 }
 
  ?>

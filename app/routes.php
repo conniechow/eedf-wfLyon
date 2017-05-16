@@ -7,4 +7,6 @@
 		['GET', '/gallery', 'Default#gallery', 'default_gallery'],
 		['GET', '/admin', 'Admin#dashboard', 'admin_dashboard'],
 		['GET|POST', '/admin/ajout-article', 'Blog#addArticle', 'blog_addArticle'],
+		['GET', '/admin/articles', 'Blog#listArticles', 'blog_listArticles'],
+		['GET', '/api/articles', 'API#getArticles', 'api_getArticle'],
 	);

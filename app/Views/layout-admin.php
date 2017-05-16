@@ -67,6 +67,11 @@
 	<footer>
 	</footer>
 	<script type="text/javascript" href="<?= $this->assetUrl('js/vendor/sb-admin-2.min.js') ?>">
+	</script>
+	<script type="text/javascript" src="<?= $this->assetUrl('js/ajax.js') ?>"  ></script>
 	<?= $this->section('script') ?>
+
+
+
 </body>
 </html>
