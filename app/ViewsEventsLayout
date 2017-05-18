@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="<?= $this->assetUrl('css/reset.css') ?>">
+</head>
+<body>
+	<div class="container">
+		<header>
+			<h1>W</h1>
+		</header>
+		<section>
+			<!-- CONTENU SPÉCIFIQUE À CHAQUE PAGE ICI -->
+			<?= $this->section('main_content') ?>
+		</section>
+		<footer><?= date('Y') ?> W</footer>
+	</div>
+</body>
+</html>
