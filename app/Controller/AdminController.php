@@ -4,7 +4,7 @@ namespace Controller;
 
 use \W\Controller\Controller;
 use \W\Security\AuthentificationModel;
-use \W\Model\UserModel;
+use \W\Model\UsersModel;
 
 class AdminController extends Controller {
 
@@ -23,7 +23,11 @@ class AdminController extends Controller {
     if($_SERVER['REQUEST_METHOD'] == 'GET'){
       $this->show('user/inscription');
     }else{
-
+      $_POST['password'] = $this->auth->hashPassword($_POST['password']);
+      $_POST['role'] = 'admin';
+      $newUser = $this->currentUser->insert($_POST);
+      $this->auth->logUserIn($newUser);
+      $this->redirectToRoute('default_home');
     }
   }
   public function login(){
