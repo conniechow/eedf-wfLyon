@@ -7,6 +7,10 @@
       <input type="text" class="form-control" name="titre" id="titre" value="">
     </div>
     <div class="form-group">
+      <label for="titre" class="col-sm-2 control-label">Slug</label>
+      <input type="text" class="form-control" name="slug" id="slug" value="">
+    </div>
+    <div class="form-group">
       <label for="contenu" class="col-sm-2 control-label">Contenu</label>
       <textarea id="contenu" class="form-control" name="contenu"></textarea>
     </div>
