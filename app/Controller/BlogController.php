@@ -13,6 +13,7 @@ class BlogController extends Controller {
   }
 
   public function addArticle(){
+    $this->allowTo('admin');
     if(!isset($_POST['titre'])){
       $this->show('blog/AddArticle');
     }else{
