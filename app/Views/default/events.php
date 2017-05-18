@@ -1,4 +1,4 @@
-<?php $this->layout('layout', ['title' => 'Events']) ?>
+<?php $this->layout('layout', ['title' => 'events']) ?>
 
 <?php $this->start('main_content') ?>
 	<h2>Calendrier:</h2>
