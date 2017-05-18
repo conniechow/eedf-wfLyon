@@ -10,4 +10,6 @@
 		['GET', '/admin/articles', 'Blog#listArticles', 'blog_listArticles'],
 		['GET', '/api/articles', 'API#ajaxGetArticles', 'api_getArticles'],
 		['GET', '/api/delArticle', 'API#delArticle', 'api_delArticle'],
+		//articles
+		['GET', '/articles/[:id]','Blog#voirArticle','blog_article'],
 	);

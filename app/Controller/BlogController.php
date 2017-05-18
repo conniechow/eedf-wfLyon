@@ -24,6 +24,11 @@ class BlogController extends Controller {
   public function listArticles(){
     $this->show('blog/listArticles');
   }
+
+  public function voirArticle($id){
+    $article = $this->ArticleModel->find($id);
+    $this->show('show/voirArticle',['article'=>$article]);
+  }
 }
 
  ?>
