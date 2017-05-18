@@ -1,18 +1,14 @@
-<?php $this->layout('layout-admin',['title'=>'Ajout d\'article']); ?>
+<?php $this->layout('layout-admin',['title'=>'Modifier l\'article']); ?>
 
 <?php $this->start('main_content') ?>
-  <form class="form-horizontal" action="<?= $this->url('blog_addArticle') ?>" method="post">
+  <form class="form-horizontal" action="<?= $this->url('blog_EditArticle',['id'=>article['id']]) ?>" method="post">
     <div class="form-group">
       <label for="titre" class="col-sm-2 control-label">Titre</label>
-      <input type="text" class="form-control" name="titre" id="titre" value="">
-    </div>
-    <div class="form-group">
-      <label for="titre" class="col-sm-2 control-label">Slug</label>
-      <input type="text" class="form-control" name="slug" id="slug" value="">
+      <input type="text" class="form-control" name="titre" id="titre" value="<?php print $article['titre'] ?>">
     </div>
     <div class="form-group">
       <label for="contenu" class="col-sm-2 control-label">Contenu</label>
-      <textarea id="contenu" class="form-control" name="contenu"></textarea>
+      <textarea id="contenu" class="form-control" name="contenu"><?php print $article['contenu']?></textarea>
     </div>
     <div class="form-group">
       <div class="">
