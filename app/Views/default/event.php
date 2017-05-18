@@ -1,4 +1,4 @@
-<?php $this->layout('layout', ['title' => 'Outing']) ?>
+<?php $this->layout('layout', ['title' => 'Events']) ?>
 
 <?php $this->start('main_content') ?>
 	<h2>Prochaines Sortie:</h2>
