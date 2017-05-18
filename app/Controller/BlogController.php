@@ -29,6 +29,16 @@ class BlogController extends Controller {
     $article = $this->ArticleModel->find($id);
     $this->show('show/voirArticle',['article'=>$article]);
   }
+  public function editArticle($id){
+    if($_SERVER['REQUEST_METHOD'] == 'GET'){
+      $article = $this->ArticleModel->find($id);
+      $this->show('blog/editArticle', ['article' => $article]);
+      //$this->show('blog/addArticle');
+    } else {
+      $this->ArticleModel->update($_POST, $id);
+      $this->redirectToRoute('blog_listArticles');
+    }
+  }
 }
 
  ?>

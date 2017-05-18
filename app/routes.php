@@ -12,4 +12,5 @@
 		['GET', '/api/delArticle', 'API#delArticle', 'api_delArticle'],
 		//articles
 		['GET', '/articles/[:id]','Blog#voirArticle','blog_article'],
+		['GET|POST','/admin/edit-article/[:id]','Blog#editArticle', 'Blog_EditArticle'],
 	);
