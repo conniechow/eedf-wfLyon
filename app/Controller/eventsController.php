@@ -4,9 +4,9 @@ namespace Controller;
 
 use \W\Controller\Controller;
 
-class AdminController extends Controller {
+class eventsController extends \W\Controller\Controller{
   public function dashboard(){
-    $this->show('admin/dashboard');
+    $this->show('default/events');
   }
 }
 
