@@ -5,7 +5,6 @@ namespace Controller;
 use \W\Controller\Controller;
 use \W\Security\AuthentificationModel;
 use \W\Model\UsersModel;
-//use \vendor\phpmailer\phpmailer\PHPMailer;
 
 class AdminController extends Controller {
 
@@ -63,6 +62,10 @@ class AdminController extends Controller {
 
   public function login(){
     $this->show('admin/login');
+  }
+
+  public function confirmation(){
+    //$this->currentUser->update(['confirm'=>'1'],'20');
   }
 
   private function sendEmail($address){
