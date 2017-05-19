@@ -36,4 +36,9 @@ class DefaultController extends Controller
 		$data = '2016-01_EEDF_Patinoire';
 		$this->show('default/gallery', ['data'=>$data,'path'=>'assets/images/']);
 	}
+
+	public function documents()
+	{
+		$this->show('default/documents');
+	}
 }

@@ -33,11 +33,11 @@
 
 			<ul class="nav navbar-top-links navbar-right">
 				<li>
-					<a class=""  href="<?= $this->url('default_home'); ?>">
+					<a class=""  href="<?= $this->url('admin_dashboard'); ?>">
 						Accueil
 					</a>
 				</li>
-				<li><a href="<?= $this->url('default_contact'); ?>">Contact</a></li>
+				<li><a href="<?= $this->url('default_home'); ?>">Déconnexion</a></li>
 			</ul>
 			<!-- /.navbar-top-links -->
 
@@ -45,7 +45,22 @@
 				<div class="sidebar-nav navbar-collapse">
 					<ul class="nav" id="side-menu">
 						<li>
-							<a href="<?= $this->url('admin_dashboard'); ?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+							<a href="<?= $this->url('admin_documents'); ?>"><i class="fa fa-dashboard fa-fw"></i> Document</a>
+							<ul>
+								<li><a href="<?= $this->url('admin_add_documents'); ?>"><i class="fa fa-dashboard fa-fw"></i> Ajout Document</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="<?= $this->url('admin_dashboard'); ?>"><i class="fa fa-dashboard fa-fw"></i> Photos</a>
+							<ul>
+								<li><a href="<?= $this->url('admin_add_documents'); ?>"><i class="fa fa-dashboard fa-fw"></i> Ajout Photos</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="<?= $this->url('admin_dashboard'); ?>"><i class="fa fa-dashboard fa-fw"></i> Evenements</a>
+							<ul>
+								<li><a href="<?= $this->url('admin_add_documents'); ?>"><i class="fa fa-dashboard fa-fw"></i> Ajout Evenement</a></li>
+							</ul>
 						</li>
 					</ul>
 				</div>
