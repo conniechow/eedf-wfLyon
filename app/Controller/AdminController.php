@@ -5,17 +5,20 @@ namespace Controller;
 use \W\Controller\Controller;
 use \W\Security\AuthentificationModel;
 use \W\Model\UsersModel;
+use \W\Security\StringUtils;
 
 class AdminController extends Controller {
 
   protected $currentUser;
   protected $auth;
   protected $mail;
+  protected $utils;
 
   public function __construct(){
     $this->currentUser = new UsersModel;
     $this->auth        = new AuthentificationModel;
     $this->mail        = new \PHPMailer();
+    $this->utils       = new StringUtils;
   }
 
   public function dashboard(){
@@ -31,11 +34,12 @@ class AdminController extends Controller {
       }else{
         $_POST['password'] = $this->auth->hashPassword($_POST['password']);
         $_POST['role'] = 'admin';
+        $_POST['token'] = $randString = $this->utils->randomString();
         $newUser = $this->currentUser->insert($_POST);
         $this->auth->logUserIn($newUser);
         //$this->redirectToRoute('default_home');
-        $isSentEmail = $this->sendEmail($_POST['email']);
-        $this->show('dev/output',['result'=>'email sent']);
+        $isSentEmail = $this->sendEmail($_POST['email'],$newUser['id'],$_POST['token']);
+        $this->show('dev/output',['result'=>'email sent','id'=>$newUser['id']]);
       }
     }
   }
@@ -65,10 +69,14 @@ class AdminController extends Controller {
   }
 
   public function confirmation(){
-    //$this->currentUser->update(['confirm'=>'1'],'20');
+    $randString = $this->utils->randomString();
+    $url = 'http://localhost/'.$this->generateUrl('admin_confirmation', ['id' => 4, 'token' => 'gfghfh']);
+    $url .= '?id=1';
+    $url .= '&token=';
+    $this->show('dev/output',['result'=>$randString,'url'=>$url]);
   }
 
-  private function sendEmail($address){
+  private function sendEmail($address,$userId,$token){
     $this->mail->isSMTP();
     $this->mail->isHTML(true);
     $this->mail->Host = "smtp.gmail.com";
@@ -80,7 +88,9 @@ class AdminController extends Controller {
     $this->mail->SetFrom('wf3lyon@gmail.com','BioForce3 Lyon');
     $this->mail->addAddress($address);
     $this->mail->Subject = 'EEDF Validation d\'email';
-    $bodyContent = '<p>Hola! Je suis EEDF</p>';
+    $url = generateTokenUrl($userId,$token);
+
+    $bodyContent = '<a href="'.$url.'">'.$token.' '.$userId.'</a><p></p>';
     $this->mail->Body = $bodyContent;
     if (!$this->mail->send()) {
         return "Mailer Error: " . $this->mail->ErrorInfo;
@@ -88,6 +98,12 @@ class AdminController extends Controller {
         return "Message sent!";
     }
   }
+}
+
+private function generateTokenUrl($userId, $token){
+  $url = 'http://localhost/'.$this->generateUrl('admin_confirmation');
+  $url .= '?id='   .$userId;
+  $url .= '&token='.$token
 }
 
  ?>
