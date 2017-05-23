@@ -6,9 +6,9 @@ use \W\Controller\Controller;
 
 class AdminController extends Controller {
 
-  	public function dashboard(){
-    	$this->show('admin/dashboard');
-  	}
+	public function dashboard(){
+  	$this->show('admin/dashboard');
+	}
 
  	public function documents(){
 		$this->show('document/documents');
@@ -21,7 +21,7 @@ class AdminController extends Controller {
 		}else{
 			$_POST['slug'] = urlencode($this->articlesModel->slugify($_POST['titre']));
             $this->articlesModel->insert($_POST);
-            $this->redirectToRoute('admin_documents');                                        
+            $this->redirectToRoute('admin_documents');
 		}
 	}
 
