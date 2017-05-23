@@ -24,6 +24,7 @@ class AdminController extends Controller {
   public function dashboard(){
     $this->show('admin/dashboard');
   }
+
   public function inscription(){
     if($_SERVER['REQUEST_METHOD'] == 'GET'){
       $this->show('user/inscription');
@@ -98,12 +99,11 @@ class AdminController extends Controller {
         return "Message sent!";
     }
   }
-}
 
-private function generateTokenUrl($userId, $token){
-  $url = 'http://localhost/'.$this->generateUrl('admin_confirmation');
-  $url .= '?id='   .$userId;
-  $url .= '&token='.$token
+  private function generateTokenUrl($userId, $token){
+    $url = 'http://localhost/'.$this->generateUrl('admin_confirmation');
+    $url .= '?id='   .$userId;
+    $url .= '&token='.$token;
+  }
 }
-
  ?>
