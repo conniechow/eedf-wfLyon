@@ -20,6 +20,6 @@
 		['GET|POST','/connexion','guillermo#connexion','login'],
 		['GET|POST','/deconnexion','guillermo#deconnexion','admin_deconnexion'],
 		['GET','/confirmation','guillermo#confirmation','admin_confirmation'],
-		['GET','/login','guillermo#login','guillermo_login'],
+		['POST','/login','UserManagement#loginUser','userManagement_login'],
 		['GET','/listUsers','UserManagement#listUsers','guillermo_userManagement_list'],
 	);
