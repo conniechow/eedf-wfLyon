@@ -30,8 +30,8 @@ class AdminController extends Controller {
       $this->show('user/inscription');
     }else{
       if($this->currentUser->emailExists($_POST['email'])){
-        //$this->show('dev/output',['result'=>'il existe deja']);
-        $this->show('user/inscription',['error'=>'emailExists']);
+        $this->show('dev/output',['result'=>'il existe deja']);
+        //$this->show('user/inscription',['error'=>'emailExists']);
       }else{
         $_POST['password'] = $this->auth->hashPassword($_POST['password']);
         $_POST['role'] = 'admin';
@@ -39,7 +39,7 @@ class AdminController extends Controller {
         $newUser = $this->currentUser->insert($_POST);
         $this->auth->logUserIn($newUser);
         //$this->redirectToRoute('default_home');
-        $isSentEmail = $this->sendEmail($_POST['email'],$newUser['id'],$_POST['token']);
+        $isSentEmail = $this->sendEmail($_POST['email'], $newUser['id'], $_POST['token']);
         $this->show('dev/output',['result'=>'email sent','id'=>$newUser['id']]);
       }
     }
@@ -70,11 +70,18 @@ class AdminController extends Controller {
   }
 
   public function confirmation(){
-    $randString = $this->utils->randomString();
-    $url = 'http://localhost/'.$this->generateUrl('admin_confirmation', ['id' => 4, 'token' => 'gfghfh']);
-    $url .= '?id=1';
-    $url .= '&token=';
-    $this->show('dev/output',['result'=>$randString,'url'=>$url]);
+    $result = array();
+    if($_GET['token']){
+      $result['token'] = $_GET['token'];
+    }
+    if($_GET['id']){
+      $result['id'] = $_GET['id'];
+    }
+    // Update on the database
+    $data = array('confirm'=>1);
+    $this->currentUser->update($data, $_GET['id']);
+
+    $this->show('dev/output',['result'=>$result]);
   }
 
   private function sendEmail($address,$userId,$token){
@@ -89,9 +96,9 @@ class AdminController extends Controller {
     $this->mail->SetFrom('wf3lyon@gmail.com','BioForce3 Lyon');
     $this->mail->addAddress($address);
     $this->mail->Subject = 'EEDF Validation d\'email';
-    $url = generateTokenUrl($userId,$token);
+    $url = $this->generateTokenUrl($userId,$token);
 
-    $bodyContent = '<a href="'.$url.'">'.$token.' '.$userId.'</a><p></p>';
+    $bodyContent = '<p>Verification</p><a href="'.$url.'">'.$token.' '.$userId.'</a><p></p>';
     $this->mail->Body = $bodyContent;
     if (!$this->mail->send()) {
         return "Mailer Error: " . $this->mail->ErrorInfo;
@@ -101,9 +108,10 @@ class AdminController extends Controller {
   }
 
   private function generateTokenUrl($userId, $token){
-    $url = 'http://localhost/'.$this->generateUrl('admin_confirmation');
+    $url = 'http://localhost'.$this->generateUrl('admin_confirmation');
     $url .= '?id='   .$userId;
     $url .= '&token='.$token;
+    return $url;
   }
 }
  ?>
