@@ -16,8 +16,10 @@
 		['GET|POST','/admin/edit-article/[:id]','Blog#editArticle', 'Blog_EditArticle'],
 		//['GET','/admin/login','Admin#login','login'],
 		//admin
-		['GET|POST','/inscription','admin#inscription','admin_inscription'],
-		['GET|POST','/connexion','admin#connexion','login'],
-		['GET|POST','/deconnexion','admin#deconnexion','admin_deconnexion'],
-		['GET','/confirmation','admin#confirmation','admin_confirmation'],
+		['GET|POST','/inscription','guillermo#inscription','admin_inscription'],
+		['GET|POST','/connexion','guillermo#connexion','login'],
+		['GET|POST','/deconnexion','guillermo#deconnexion','admin_deconnexion'],
+		['GET','/confirmation','guillermo#confirmation','admin_confirmation'],
+		['GET','/login','guillermo#login','guillermo_login'],
+		['GET','/listUsers','UserManagement#listUsers','guillermo_userManagement_list'],
 	);
