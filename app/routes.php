@@ -19,4 +19,5 @@
 		['GET|POST','/inscription','admin#inscription','admin_inscription'],
 		['GET|POST','/connexion','admin#connexion','login'],
 		['GET|POST','/deconnexion','admin#deconnexion','admin_deconnexion'],
+		['GET','/confirmation','admin#confirmation','admin_confirmation'],
 	);
