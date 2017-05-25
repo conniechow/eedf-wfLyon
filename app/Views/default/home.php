@@ -7,25 +7,18 @@
 <?php $this->start('main_content') ?>
 	<img src="<?= $this->assetUrl('images/logo.jpg') ?>" alt="">
 	<h5>Login</h5>
-	<form class="" action="" method="post">
-		<input type="text" name="email" value="" placeholder="email"><br>
+	<form class="" action="<?= $this->url('userManagement_login');  ?>" method="post">
+		<input type="text" name="email" value="gonzalezdecastro.guillermo@gmail.com" placeholder="email"><br>
 		<input type="text" name="password" value="" placeholder="password"><br>
 		<input type="submit" name="" value="Login"><br>
 		<button type="button" name="reset">Reset Password</button><br>
 	</form>
-	<h5>Sign up</h5>
-	<form class="" action="" method="post">
-		<input type="text" name="email" value="" placeholder="email"><br>
-		<input type="text" name="password" value="" placeholder="password"><br>
-		<input type="submit" name="" value="Sign Up">
-	</form>
+
 	<h2>Index</h2>
 	<ul>
-		<li><a href="<?= $this->url('default_gallery');   ?>">Gallerie</a></li>
-		<li><a href="<?= $this->url('admin_dashboard');   ?>">Dashboard</a></li>
-		<li><a href="<?= $this->url('blog_addArticle');        ?>">Ajout Article</a></li>
-		<li><a href="<?= $this->url('Blog_EditArticle');      ?>">Edit Article</a></li>
-		<li><a href="<?= $this->url('admin_inscription'); ?>">Inscription</a></li>
+		<li><a href="<?= $this->url('default_gallery');  ?>">Gallerie</a></li>
+		<li><a href="<?= $this->url('admin_dashboard');  ?>">Dashboard</a></li>
+		<li><a href="<?= $this->url('admin_inscription');?>">Inscription</a></li>
 	</ul>
 <?php $this->stop('main_content') ?>
 

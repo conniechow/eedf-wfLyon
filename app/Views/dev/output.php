@@ -1,20 +1,14 @@
 <?php
 
-print $result;
-
-if(isset($id)){
-  dumpOutput($id);
-}
-
-if(isset($url)){
-  dumpOutput($url);
+if(isset($result)){
+  dumpOut($result);
 }
 
 function showOutput($text){
   print '<p>'.$text.'</p>';
 }
 
-function dumpOutput($var){
+function dumpOut($var){
   print '<p>';
   var_dump($var);
   print '</p>';

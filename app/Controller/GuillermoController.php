@@ -7,7 +7,7 @@ use \W\Security\AuthentificationModel;
 use \W\Model\UsersModel;
 use \W\Security\StringUtils;
 
-class AdminController extends Controller {
+class GuillermoController extends Controller {
 
   protected $currentUser;
   protected $auth;
@@ -82,12 +82,6 @@ class AdminController extends Controller {
     $this->currentUser->update($data, $_GET['id']);
 
     $this->show('dev/output',['result'=>$result]);
-  }
-
-  public function addParticipant(){
-    $this->show('admin/addParticipant');
-    //$this->addParticipantModel->insert($_POST);
-    //$this->redirectToRoute('admin_participant');
   }
 
   private function sendEmail($address,$userId,$token){
