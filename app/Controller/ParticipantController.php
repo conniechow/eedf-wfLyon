@@ -21,10 +21,10 @@ public function addParticipant(){
 	$this->show('participant/addParticipant');
   }
 }
-
+/*
 public function showParticipant(){
     $this->show('participant/addParticipant');
     $this->redirectToRoute('participant_addParticipant');
   }
-
+*/
 }
