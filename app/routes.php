@@ -15,9 +15,11 @@
 		['GET', '/articles/[a:slug]','Blog#voirArticle','blog_slug_article'],
 		['GET|POST','/admin/edit-article/[:id]','Blog#editArticle', 'Blog_EditArticle'],
 		//['GET','/admin/login','Admin#login','login'],
+
 		//admin
 		['GET|POST','/inscription','admin#inscription','admin_inscription'],
 		['GET|POST','/connexion','admin#connexion','login'],
 		['GET|POST','/deconnexion','admin#deconnexion','admin_deconnexion'],
 		['GET','/confirmation','admin#confirmation','admin_confirmation'],
+		['GET|POST', '/admin/addParticipant', 'participant#addParticipant', 'participant_addParticipant'],
 	);

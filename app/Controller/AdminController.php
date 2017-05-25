@@ -77,6 +77,12 @@ class AdminController extends Controller {
     $this->show('dev/output',['result'=>$randString,'url'=>$url]);
   }
 
+  public function addParticipant(){
+    $this->show('admin/addParticipant');
+    //$this->addParticipantModel->insert($_POST);
+    //$this->redirectToRoute('admin_participant');
+  }
+
   private function sendEmail($address,$userId,$token){
     $this->mail->isSMTP();
     $this->mail->isHTML(true);
