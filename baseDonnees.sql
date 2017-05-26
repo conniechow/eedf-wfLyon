@@ -2,7 +2,7 @@
 /* CREATE TABLE Crée une nouvelle table SQL  */
 /*************************************************************/
 
-CREATE TABLE `Photo` (
+CREATE TABLE `photo` (
 	`id_photo` INT (4) NOT NULL AUTO_INCREMENT,
 	`id_event` INT NOT NULL,
 	`urlphoto` varchar(100) NOT NULL,
@@ -11,7 +11,7 @@ CREATE TABLE `Photo` (
 	PRIMARY KEY (`id_photo`)
 );
 
-CREATE TABLE `Users` (
+CREATE TABLE `users` (
 	`id_user` INT (4) NOT NULL AUTO_INCREMENT,
 	`username` varchar(60) NOT NULL,
 	`email` varchar(255) NOT NULL UNIQUE,
@@ -21,7 +21,7 @@ CREATE TABLE `Users` (
 	PRIMARY KEY (`id_user`)
 );
 
-CREATE TABLE `Participant` (
+CREATE TABLE `participant` (
 	`id_participant` INT (4) NOT NULL AUTO_INCREMENT,
 	`id_section` INT NOT NULL,
 	`id_user` INT NOT NULL,
@@ -42,20 +42,20 @@ CREATE TABLE `events` (
 	PRIMARY KEY (`id_event`)
 );
 
-CREATE TABLE `Sections` (
+CREATE TABLE `sections` (
 	`id_section` INT (2) NOT NULL AUTO_INCREMENT,
 	`rank` varchar(50) NOT NULL UNIQUE,
 	PRIMARY KEY (`id_section`)
 );
 
-CREATE TABLE `Gallery` (
+CREATE TABLE `gallery` (
 	`id_gallery` INT (4) NOT NULL AUTO_INCREMENT,
 	`id_event` INT(4) NOT NULL,
 	`galleryname` varchar(500) NOT NULL,
 	PRIMARY KEY (`id_gallery`)
 );
 
-CREATE TABLE `ListeParticipants` (
+CREATE TABLE `listeParticipants` (
 	`id_participant` INT(4) NOT NULL,
 	`id_event` INT (4) NOT NULL
 );
@@ -70,16 +70,16 @@ ALTER TABLE `photo` ADD INDEX(`id_event`);
 ALTER TABLE `events` ADD INDEX(`id_participant`);
 ALTER TABLE `participant` ADD INDEX(`id_section`);
 ALTER TABLE `participant` ADD INDEX(`id_user`);
-ALTER TABLE `listeparticipants` ADD INDEX(`id_participant`);
-ALTER TABLE `listeparticipants` ADD INDEX(`id_event`);
+ALTER TABLE `listeParticipants` ADD INDEX(`id_participant`);
+ALTER TABLE `listeParticipants` ADD INDEX(`id_event`);
 
 
 /******************** Création des contraintes  ********************/
 /*******************************************************************/
 
-ALTER TABLE `listeparticipants` ADD CONSTRAINT `listeparticipants_ibfk_1` FOREIGN KEY (`id_event`) REFERENCES `events` (`id_event`);
-ALTER TABLE `Photo` ADD CONSTRAINT `Photo_ibfk_1` FOREIGN KEY (`id_event`) REFERENCES `events`(`id_event`);
-ALTER TABLE `Users` ADD CONSTRAINT `Users_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `Participant`(`id_user`);
-ALTER TABLE `Participant` ADD CONSTRAINT `Participant_ibfk_1` FOREIGN KEY (`id_participant`) REFERENCES `ListeParticipants`(`id_participant`);
+ALTER TABLE `listeParticipants` ADD CONSTRAINT `listeparticipants_ibfk_1` FOREIGN KEY (`id_event`) REFERENCES `events` (`id_event`);
+ALTER TABLE `photo` ADD CONSTRAINT `Photo_ibfk_1` FOREIGN KEY (`id_event`) REFERENCES `events`(`id_event`);
+ALTER TABLE `users` ADD CONSTRAINT `Users_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `Participant`(`id_user`);
+ALTER TABLE `participant` ADD CONSTRAINT `Participant_ibfk_1` FOREIGN KEY (`id_participant`) REFERENCES `ListeParticipants`(`id_participant`);
 ALTER TABLE `events` ADD CONSTRAINT `events_ibfk_1` FOREIGN KEY (`id_event`) REFERENCES `Gallery`(`id_event`);
-ALTER TABLE `Sections` ADD CONSTRAINT `Sections_ibfk_1` FOREIGN KEY (`id_section`) REFERENCES `Participant`(`id_section`);
+ALTER TABLE `sections` ADD CONSTRAINT `Sections_ibfk_1` FOREIGN KEY (`id_section`) REFERENCES `Participant`(`id_section`);
