@@ -22,7 +22,12 @@ class AdminController extends Controller {
   }
 
   public function dashboard(){
-    $this->show('admin/dashboard');
+    $loggedUser = $this->getUser();
+    if($loggedUser['role'] == 'admin'){
+      $this->show('admin/dashboard');
+    } else{
+      $this->show('dev/output',['result'=>'no admin logged']);
+    }
   }
 
   public function inscription(){

@@ -46,9 +46,12 @@
 			<div class="navbar-default sidebar" role="navigation">
 				<div class="sidebar-nav navbar-collapse">
 					<ul class="nav" id="side-menu">
+						<li><a href="<?= $this->url('default_home');?>">Accueil</a></li>
 						<li>
 							<a href="<?= $this->url('admin_dashboard'); ?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
 						</li>
+						<li><a href="<?= $this->url('admin_inscription');?>">Inscription</a></li>
+						<li><a href="<?= $this->url('userManagement_list');?>">List Users</a></li>
 					</ul>
 				</div>
 				<!-- /.sidebar-collapse -->

@@ -19,7 +19,8 @@ class UserManagementController extends Controller {
 
   public function listUsers(){
 
-    $this->show('admin/manageUsers');
+    $usersList = $this->currentUser->findAll();
+    $this->show('admin/manageUsers',['usersList'=>$usersList]);
   }
   public function loginUser(){
 
@@ -30,5 +31,9 @@ class UserManagementController extends Controller {
     } else {
       $this->show('admin/manageUsers', ['error'=>'incorrect']);
     }
+  }
+  public function deleteUser($id){
+    $this->currentUser->delete($id);
+    $this->listUsers();
   }
 }

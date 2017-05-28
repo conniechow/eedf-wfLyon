@@ -19,7 +19,7 @@
 							</div>
 						<?php endIf ?>
 						<div class="form-group">
-							<input class="form-control" type="email" name="email" placeholder="E-mail" value="gonzalezdecastro.guillermo@gmail.com">
+							<input class="form-control" type="email" name="email" placeholder="E-mail" value="eedf@gonzalez.rocks">
 						</div>
 						<div class="form-group">
 							<input class="form-control" type="text" name="phone" placeholder="Téléphone" value="123456789">
