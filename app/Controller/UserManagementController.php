@@ -4,7 +4,8 @@ namespace Controller;
 
 use \W\Controller\Controller;
 use \W\Security\AuthentificationModel;
-use \W\Model\UsersModel;
+use \W\Security\StringUtils;
+use \Model\AdherentModel;
 
 class UserManagementController extends Controller {
 
@@ -14,9 +15,11 @@ class UserManagementController extends Controller {
   protected $mail;
 
   public function __construct(){
-    $this->currentUser = new UsersModel;
+    //$this->currentUser = new AdherentModel;
+    $this->currentUser = new AdherentModel;
     $this->auth        = new AuthentificationModel;
     $this->mail        = new \PHPMailer();
+    $this->utils       = new StringUtils;
   }
 
   public function listUsers(){
@@ -36,18 +39,39 @@ class UserManagementController extends Controller {
     if($_SERVER['REQUEST_METHOD'] == 'GET'){
       $this->show('user/inscription');
     }else{
+      $duplicates = false;
       if($this->currentUser->emailExists($_POST['email'])){
-        $this->show('dev/output',['result'=>'il existe deja']);
-        //$this->show('user/inscription',['error'=>'emailExists']);
-      }else{
+        $duplicates = true;
+      }
+      if($this->currentUser->phoneExists($_POST['email'])){
+        $duplicates = true;
+      }
+      if(!$duplicates){
+
         $_POST['password'] = $this->auth->hashPassword($_POST['password']);
         $_POST['role'] = 'admin';
         $_POST['token'] = $randString = $this->utils->randomString();
-        $newUser = $this->currentUser->insert($_POST);
+
+        try{
+          $newUser = $this->currentUser->insertAdherent($_POST);
+        }
+        catch(MySQLDuplicateKeyException $e){
+          $e->getMessage();
+        }
+        catch (MySQLException $e) {
+          // other mysql exception (not duplicate key entry)
+          $e->getMessage();
+        }
+        catch (Exception $e) {
+          // not a MySQL exception
+          $e->getMessage();
+        }
+
         $this->auth->logUserIn($newUser);
-        //$isSentEmail = $this->sendEmail($_POST['email'], $newUser['id'], $_POST['token']);
-        //$this->show('dev/output',['result'=>'email sent','id'=>$newUser['id']]);
-        $this->show('dev/output',['result'=>$newUser]);
+        $isSentEmail = $this->sendEmail($_POST['email'], $newUser['id_user'], $_POST['token']);
+        $this->show('dev/output',['result'=>'email sent','id'=>$newUser['id_user']]);
+      } else {
+        $this->show('dev/output',['result'=>'duplicate fields']);
       }
     }
   }

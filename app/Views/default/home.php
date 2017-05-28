@@ -8,8 +8,8 @@
 	<img src="<?= $this->assetUrl('images/logo.jpg') ?>" alt="">
 	<h5>Login</h5>
 	<form class="" action="<?= $this->url('userManagement_login');  ?>" method="post">
-		<input type="text" name="email" value="gonzalezdecastro.guillermo@gmail.com" placeholder="email"><br>
-		<input type="text" name="password" value="" placeholder="password"><br>
+		<input type="text" name="email" value="eedf@gonzalez.rocks" placeholder="email"><br>
+		<input type="text" name="password" value="gogol" placeholder="password"><br>
 		<input type="submit" name="" value="Login"><br>
 		<button type="button" name="reset">Reset Password</button><br>
 	</form>

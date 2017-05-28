@@ -17,7 +17,7 @@ CREATE TABLE `users` (
 	`email` varchar(255) NOT NULL UNIQUE,
 	`phone` varchar(10) NOT NULL UNIQUE,
 	`password` varchar(255) NOT NULL,
-	`role` varchar(255) NOT NULL UNIQUE,
+	`role` varchar(255) NOT NULL,
 	`token` varchar(255) NOT NULL,
 	`motivation` TEXT NOT NULL,
 	PRIMARY KEY (`id_user`)
