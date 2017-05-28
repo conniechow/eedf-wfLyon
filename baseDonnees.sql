@@ -20,6 +20,7 @@ CREATE TABLE `users` (
 	`role` varchar(255) NOT NULL UNIQUE,
 	`token` varchar(255) NOT NULL,
 	`motivation` TEXT NOT NULL,
+	`confirm` TINYINT NULL,
 	PRIMARY KEY (`id_user`)
 );
 
