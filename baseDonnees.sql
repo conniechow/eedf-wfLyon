@@ -71,7 +71,7 @@ ALTER TABLE `gallery` ADD INDEX(`id_event`);
 ALTER TABLE `photo` ADD INDEX(`id_event`);
 ALTER TABLE `events` ADD INDEX(`id_participant`);
 ALTER TABLE `participant` ADD INDEX(`id_section`);
-ALTER TABLE `participant` ADD INDEX(`id_user`);
+/*ALTER TABLE `participant` ADD INDEX(`id_user`);*/
 ALTER TABLE `listeParticipants` ADD INDEX(`id_participant`);
 ALTER TABLE `listeParticipants` ADD INDEX(`id_event`);
 
@@ -81,7 +81,7 @@ ALTER TABLE `listeParticipants` ADD INDEX(`id_event`);
 
 ALTER TABLE `listeParticipants` ADD CONSTRAINT `listeparticipants_ibfk_1` FOREIGN KEY (`id_event`) REFERENCES `events` (`id_event`);
 ALTER TABLE `photo` ADD CONSTRAINT `Photo_ibfk_1` FOREIGN KEY (`id_event`) REFERENCES `events`(`id_event`);
-ALTER TABLE `users` ADD CONSTRAINT `Users_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `Participant`(`id_user`);
+/*ALTER TABLE `users` ADD CONSTRAINT `Users_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `Participant`(`id_user`);*/
 ALTER TABLE `participant` ADD CONSTRAINT `Participant_ibfk_1` FOREIGN KEY (`id_participant`) REFERENCES `ListeParticipants`(`id_participant`);
 ALTER TABLE `events` ADD CONSTRAINT `events_ibfk_1` FOREIGN KEY (`id_event`) REFERENCES `Gallery`(`id_event`);
 ALTER TABLE `sections` ADD CONSTRAINT `Sections_ibfk_1` FOREIGN KEY (`id_section`) REFERENCES `Participant`(`id_section`);
