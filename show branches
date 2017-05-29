@@ -1,0 +1,278 @@
+[33mcommit b86a58877b6a9da750e8098abaf610e7fb69851e[m
+Author: Guilletr0n <guillermo@gonzalez.rocks>
+Date:   Sun May 28 14:47:49 2017 +0200
+
+    User login repared
+    
+    User login works with new database structure
+
+[33mcommit f00c3cdcdc3e5e06de29328195cd1901c445e420[m
+Author: Guilletr0n <guillermo@gonzalez.rocks>
+Date:   Sun May 28 10:50:32 2017 +0200
+
+    Enlever constraintes. Refactoring de AdminController
+    
+    Enlever constraintes de table user
+    Les contraintes sur la table user me empechent de creer un utilisateur,
+    donc j'ai mis des commentaires
+
+[33mcommit 209de3037ec42164733f3f0f419db27eda3fd70d[m
+Author: Guillermo <gonzalezdecastro.guillermo@gmail.com>
+Date:   Sat May 27 23:18:46 2017 +0200
+
+    add column Motivation to table Users
+
+[33mcommit b4836bcdadd6e08e3fed32aabdc69a5adda3e278[m
+Author: Guillermo <gonzalezdecastro.guillermo@gmail.com>
+Date:   Sat May 27 22:28:01 2017 +0200
+
+    Add column 'phone' to users table
+
+[33mcommit 3ffb4ca1ce9a1a3a10e7ba1f05e589e1f097d231[m
+Author: Guillermo <gonzalezdecastro.guillermo@gmail.com>
+Date:   Fri May 26 22:24:11 2017 +0200
+
+    Egaliser les noms de tables
+    
+    Les noms de tables en camelcase et les noms de colonnes en minuscules separés de tiret bas _
+
+[33mcommit 3ac372fdbbf0ca3549dea39a754b7a17dafcb2dc[m
+Merge: 733eeff 937cbd1
+Author: Guillermo <gonzalezdecastro.guillermo@gmail.com>
+Date:   Fri May 26 21:49:42 2017 +0200
+
+    Merge pull request #5 from Guilletr0n/Thibaut
+    
+    Thibaut
+
+[33mcommit 937cbd1b74597ce2368f28cd8a02e8c39ac12a6b[m
+Author: TobyMechant <thibaut.roux89@gmail.com>
+Date:   Fri May 26 14:33:40 2017 +0200
+
+    Update events.php
+
+[33mcommit e7582199826142fec9a3ddef1277c91022b85a7f[m
+Merge: cf5b77d 733eeff
+Author: TobyMechant <thibaut.roux89@gmail.com>
+Date:   Fri May 26 09:07:59 2017 +0200
+
+    Merge remote-tracking branch 'refs/remotes/origin/master' into Thibaut
+
+[33mcommit 733eeff6bb9472bce51cf28c90c07650c22ec444[m
+Merge: 50fc378 137b6e5
+Author: Guillermo <gonzalezdecastro.guillermo@gmail.com>
+Date:   Thu May 25 20:09:43 2017 +0200
+
+    Merge pull request #4 from Guilletr0n/Nowdine
+    
+    Nowdine
+
+[33mcommit 137b6e5f5dc886ac95253e3088d3dc82e57898aa[m
+Merge: b8c19f7 50fc378
+Author: Guillermo <gonzalezdecastro.guillermo@gmail.com>
+Date:   Thu May 25 20:09:27 2017 +0200
+
+    Merge branch 'master' into Nowdine
+
+[33mcommit b8c19f7f6f509de172346e85e855dfc4d873e4d0[m
+Author: Nowdine <Nordine.sebih@gmail.com>
+Date:   Thu May 25 19:34:21 2017 +0200
+
+    ok
+    
+    ok
+
+[33mcommit b1543fa54908828dc17b958d6f467145fe95b511[m
+Author: Nowdine <Nordine.sebih@gmail.com>
+Date:   Thu May 25 18:57:56 2017 +0200
+
+    New
+    
+    new
+
+[33mcommit 50fc3782f55c5f4580f3bd1c3c91d642e3dffd2e[m
+Author: Guillermo <gonzalezdecastro.guillermo@gmail.com>
+Date:   Wed May 24 12:26:44 2017 +0200
+
+    Login User
+    
+    Start a session with the user's infos
+
+[33mcommit b708c0d401397f75797c73e778cdea2a4279af94[m
+Author: Guillermo <gonzalezdecastro.guillermo@gmail.com>
+Date:   Wed May 24 10:30:54 2017 +0200
+
+    Creation de UserManagement Controller
+
+[33mcommit 6b21020873b6ac0711f8d0fd9e6261c532ea616a[m
+Merge: 7855f97 fb8cd53
+Author: Nowdine <Nordine.sebih@gmail.com>
+Date:   Wed May 24 10:21:33 2017 +0200
+
+    Merge remote-tracking branch 'refs/remotes/origin/master' into Nowdine
+
+[33mcommit a06d9311647172668c49fdae565d4da15ff6de68[m
+Author: Guillermo <gonzalezdecastro.guillermo@gmail.com>
+Date:   Wed May 24 10:08:55 2017 +0200
+
+    User confirmation from email
+    
+    AdminController now update the database to confirm the user's email
+
+[33mcommit fb8cd53dd92f81981e7c4967a1e195049f333c70[m
+Author: Guillermo <gonzalezdecastro.guillermo@gmail.com>
+Date:   Tue May 23 15:47:39 2017 +0200
+
+    Fix bug on Admin Controller
+
+[33mcommit 9d21115c696514ab7edb9b55811fbd6a9a7de0f1[m
+Merge: c0e2428 c245a4c
+Author: Guillermo <gonzalezdecastro.guillermo@gmail.com>
+Date:   Tue May 23 15:43:19 2017 +0200
+
+    Merge pull request #3 from Guilletr0n/Guillermo2
+    
+    email + token + id
+
+[33mcommit c245a4c0897259497c8060c3ae5de02e798d0e4b[m
+Author: Guillermo <gonzalezdecastro.guillermo@gmail.com>
+Date:   Fri May 19 16:53:57 2017 +0200
+
+    email + token + id
+    
+    Add token and id in the confirmation email
+
+[33mcommit cf5b77ddc7ee64fa0a7d351acbf31a28c15ab751[m
+Merge: a288554 7855f97
+Author: TobyMechant <thibaut.roux89@gmail.com>
+Date:   Fri May 19 14:35:09 2017 +0200
+
+    Merge branch 'master' into Thibaut
+
+[33mcommit c0e2428b02b73cf1e79f3f1585de43c3e7b745d9[m
+Author: Guillermo <gonzalezdecastro.guillermo@gmail.com>
+Date:   Fri May 19 14:26:50 2017 +0200
+
+    Uptaded table users
+    
+    Table Users updated. New url to confirm email.
+
+[33mcommit f758629b3928534c879024681d508bb19ff5f7d7[m
+Author: Guillermo <gonzalezdecastro.guillermo@gmail.com>
+Date:   Fri May 19 12:25:34 2017 +0200
+
+    Account Creation
+    
+    Checks if email exists. Sends email to the new user.
+
+[33mcommit a28855478704bd65e0f183be57bb3b05c142ef31[m
+Author: TobyMechant <thibaut.roux89@gmail.com>
+Date:   Fri May 19 11:15:21 2017 +0200
+
+    Update eventsLayout.php
+
+[33mcommit 623a51599c42f3f9e67ebc42a912a2d8282b4bbd[m
+Author: TobyMechant <thibaut.roux89@gmail.com>
+Date:   Fri May 19 11:13:11 2017 +0200
+
+    Update eventsLayout.php
+
+[33mcommit 8509d91dfcce8eb0b7c032133c31db720c3a4ee1[m
+Author: TobyMechant <thibaut.roux89@gmail.com>
+Date:   Fri May 19 11:11:12 2017 +0200
+
+    Update eventsController.php
+
+[33mcommit 7c3e66608d2628b2cb1c5460fa3944300bc30650[m
+Author: TobyMechant <thibaut.roux89@gmail.com>
+Date:   Fri May 19 11:07:16 2017 +0200
+
+    Create eventsController.php
+
+[33mcommit 7855f97092e001ec41fd426aecb2dbbaacb2f9bd[m
+Merge: 48057b5 0f70b96
+Author: Guillermo <gonzalezdecastro.guillermo@gmail.com>
+Date:   Thu May 18 16:56:10 2017 +0200
+
+    Merge pull request #1 from Guilletr0n/Guillermo
+    
+    User Signup and Login
+
+[33mcommit 0f70b965c87cea73320d3b43ad8efabc990d2c14[m
+Author: Guillermo <gonzalezdecastro.guillermo@gmail.com>
+Date:   Thu May 18 16:55:03 2017 +0200
+
+    Login and logout
+
+[33mcommit 971cba72772bb43fa6c094def9899cd4f2c6fff8[m
+Author: Guillermo <gonzalezdecastro.guillermo@gmail.com>
+Date:   Thu May 18 16:05:12 2017 +0200
+
+    Add User to the database
+    
+    New page inscription to add user into database
+
+[33mcommit 1eb53416c847dd21cdf96e313eaa65adaaf19831[m
+Author: Guillermo <gonzalezdecastro.guillermo@gmail.com>
+Date:   Thu May 18 15:05:33 2017 +0200
+
+    login
+
+[33mcommit 9cd533b38943df627b742a65949a1c5c91250796[m
+Merge: 299df18 48057b5
+Author: TobyMechant <thibaut.roux89@gmail.com>
+Date:   Thu May 18 14:04:12 2017 +0200
+
+    Merge branch 'master' into Thibaut
+
+[33mcommit 299df1801a4c33dd71d05687dd84418ee34cfd69[m
+Author: TobyMechant <thibaut.roux89@gmail.com>
+Date:   Thu May 18 13:54:33 2017 +0200
+
+    Create eventsLayout.php
+
+[33mcommit 9ab73c23312cffefea4c750cf4227d2a3055976a[m
+Author: TobyMechant <thibaut.roux89@gmail.com>
+Date:   Thu May 18 13:51:38 2017 +0200
+
+    Delete ViewsEventsLayout
+
+[33mcommit 7be97271de4d95bbadfc5a9fc9b3112b745322ef[m
+Author: TobyMechant <thibaut.roux89@gmail.com>
+Date:   Thu May 18 13:51:20 2017 +0200
+
+    Create ViewsEventsLayout
+
+[33mcommit 28178c105a452e6512f1d2a570eca53531f765ff[m
+Author: TobyMechant <thibaut.roux89@gmail.com>
+Date:   Thu May 18 13:50:37 2017 +0200
+
+    Create EventsModel.php
+
+[33mcommit 7d1e2688b9550ec78d6b0e160295611fb7a7a3a4[m
+Author: TobyMechant <thibaut.roux89@gmail.com>
+Date:   Thu May 18 12:13:29 2017 +0200
+
+    Create config.php
+
+[33mcommit fe400948b7cedcc48458bb2bcd777202140a64b1[m
+Author: Guillermo <gonzalezdecastro.guillermo@gmail.com>
+Date:   Thu May 18 12:01:54 2017 +0200
+
+    Edit Article
+
+[33mcommit ed3a3ff6336aee87b4ff8b00e11bc6ecd74e50d6[m
+Author: TobyMechant <thibaut.roux89@gmail.com>
+Date:   Thu May 18 11:33:58 2017 +0200
+
+    Update dashboard.php
+
+[33mcommit 4efb85bb08fbe2432857de1bce1754f25cf7555b[m
+Author: TobyMechant <thibaut.roux89@gmail.com>
+Date:   Thu May 18 11:30:59 2017 +0200
+
+    Update DefaultController.php
+
+[33mcommit 48057b58d277f0d666b0bfa5600f67f16a351166[m
+Author: TobyMechant <thibaut.roux89@gmail.com>
+Date:   Thu May 18 11:30:13 2017 

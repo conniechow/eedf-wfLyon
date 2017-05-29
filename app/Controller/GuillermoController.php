@@ -40,7 +40,7 @@ class GuillermoController extends Controller {
         $this->auth->logUserIn($newUser);
         //$this->redirectToRoute('default_home');
         $isSentEmail = $this->sendEmail($_POST['email'], $newUser['id'], $_POST['token']);
-        $this->show('dev/output',['result'=>'email sent','id'=>$newUser['id']]);
+        $this->show('admin/manageUsers');
       }
     }
   }

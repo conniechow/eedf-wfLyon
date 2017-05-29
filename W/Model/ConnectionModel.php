@@ -30,7 +30,7 @@ class ConnectionModel
 	public static function setNewDbh()
 	{
 		$app = getApp();
-		
+
 		try {
 		    //connexion à la base avec la classe PDO et le DSN
 		    self::$dbh = new PDO('mysql:host='.$app->getConfig('db_host').';dbname='.$app->getConfig('db_name'), $app->getConfig('db_user'), $app->getConfig('db_pass'), array(
