@@ -1,5 +1,5 @@
 DROP DATABASE `wflyon`;
-CREATE DATABASE `wflyon` COLLATE 1utf8_general_ci;
+CREATE DATABASE `wflyon` COLLATE `utf8_general_ci;
 USE `wflyon`;
 
 /******************** Création des tables ********************/
