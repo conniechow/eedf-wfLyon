@@ -26,6 +26,7 @@
 	<iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;showTz=0&amp;mode=WEEK&amp;height=600&amp;wkst=2&amp;hl=fr&amp;bgcolor=%23FFFFFF&amp;src=eg295kbq80r81gn67nn6srj4eg%40group.calendar.google.com&amp;color=%235229A3&amp;ctz=Europe%2FParis" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
 	<h2>Prochains Evénements</h2>
+
 	<div class="container col-md-12">
 					<div class="col-md-4">
 						<h4>Sortie dedans</h4>
@@ -74,15 +75,28 @@
 		// On affiche chaque entrée une à une
 		while ($donnees = $reponse->fetch()){
 ?>
-				<div id="event" class="container hidden">
-				    <p>
-					    <strong>Sortie "</strong> : <?php echo $donnees['title']; ?><strong> "</strong><br />
-					    Durée de l'événement: du <?php echo $donnees['startdate']; ?> au <?php echo $donnees['enddate']; ?>.<br />
-					    Description :  <?php echo $donnees['description']; ?>.<br />
-					    Les participants déjà inscrits sont : <?php echo $donnees['id_participant']; ?>
-					  </p>
-			 <div>
-<?php
+				<?php foreach ($donnees as $key => $value){ ?>
+						<?php	if( $key < 3 ){ ?>
+									<div class="container">
+											<p>
+												<strong>Sortie "</strong> : <?php echo $donnees['title']; ?><strong> "</strong><br />
+												Durée de l'événement: du <?php echo $donnees['startdate']; ?> au <?php echo $donnees['enddate']; ?>.<br />
+												Description :  <?php echo $donnees['description']; ?>.<br />
+												Les participants déjà inscrits sont : <?php echo $donnees['id_participant']; ?>
+											</p>
+								  <div>
+						<?php	}else{ ?>
+									<div id="event" class="container hidden">
+											<p>
+												<strong>Sortie "</strong> : <?php echo $donnees['title']; ?><strong> "</strong><br />
+												Durée de l'événement: du <?php echo $donnees['startdate']; ?> au <?php echo $donnees['enddate']; ?>.<br />
+												Description :  <?php echo $donnees['description']; ?>.<br />
+												Les participants déjà inscrits sont : <?php echo $donnees['id_participant']; ?>
+											</p>
+								  <div>
+<?php						 }
+
+				}
 		}
 		$reponse->closeCursor(); // Termine le traitement de la requête
 ?>
