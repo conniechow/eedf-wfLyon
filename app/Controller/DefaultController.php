@@ -41,7 +41,7 @@ class DefaultController extends Controller
 	public function documents()
 	{
 		$this->show('default/documents');
-
+	}
 	/**
 	 * Page des événements
 	 */

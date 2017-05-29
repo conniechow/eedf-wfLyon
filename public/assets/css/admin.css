@@ -1,7 +1,11 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
 
-header nav#navhaut{
-	background-color: orange;
+header nav.navbar{
+	background: #f4a62a;
+}
+header nav.navbar a.navbar-brand{
+	color: black;
+	font-size: 27px;
 }
 
 header #sidebar ul{
@@ -26,6 +30,10 @@ header #sidebar ul li ul li a:hover{
 	color: black;
 }
 
+
+
+// DOCUMENTS
+#zonenoire{}
 #zonenoire{
 	background-color: #2c3e50;
 	color: #fff;
@@ -38,4 +46,26 @@ header #sidebar ul li ul li a:hover{
 
 #zoneblanche #docsecondaires a i{
 	font-size: 150px;
+}
+
+
+// AJOUT DOCUMENT
+
+form#ajoutdocform{}
+form#ajoutdocform label{
+	font-size: 18px;
+	margin: 20px 0px 10px 0px;
+}
+
+form #formdoc2{
+	margin-top: 20px;
+}
+
+button[type=submit]#btnadddoc{
+	margin-top: 20px;
+}
+
+form select#id_categorie{ //changer l'id en categorie sur le html
+	font-weight: bold;
+	margin: 5px 0px 5px 0px;
 }

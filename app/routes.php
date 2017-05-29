@@ -11,8 +11,9 @@
 		['GET|POST', '/admin/ajout-article', 'Blog#addArticle', 'blog_addArticle'],
 		['GET', '/admin/articles', 'Blog#listArticles', 'blog_listArticles'],
 
-		['GET', '/admin/documents', 'Admin#documents', 'admin_documents'],
-		['GET', '/admin/ajout-documents', 'Admin#add_documents', 'admin_add_documents'],
+		
+		['GET|POST', '/admin/documents', 'Document#documents', 'document_documents'],
+		['GET|POST', '/admin/ajout-documents', 'Document#add_documents', 'document_add_documents'],
 
 		['GET', '/api/articles', 'API#ajaxGetArticles', 'api_getArticles'],
 		['GET', '/api/delArticle', 'API#delArticle', 'api_delArticle'],

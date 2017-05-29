@@ -7,8 +7,12 @@
 			<?php foreach ($documents as $key => $document) {
 				if($document['id_categorie'] == '1'){ ?>
 				<h3><?= $document['docname'].'<br />';?> </h3>
-				<h4><?= $document['docdescription'].'<br />';?></h4>
-					<?= '<a href="'. $this->assetUrl($document['docfile']).'" target="_blank"><i class="material-icons">cloud_download</i></a>';
+				<h5><?= $document['docdescription'].'<br />';?></h5>
+					<?= '<a href="'. $this->assetUrl($document['docfile']).'" target="_blank"><i class="material-icons">cloud_download</i></a>
+					<br />
+					<a href="" class="btn btn-xs btn-success">Modifier</a>
+					<a href="" class="btn btn-xs btn-danger">Supprimer</a>';
+
 				}
 			} 
 			?>
@@ -20,7 +24,7 @@
 			<?php foreach ($documents as $key => $document) {
 				if($document['id_categorie'] == '2'){ ?>
 					<h3><?= $document['docname'].'<br />';?></h3>
-					<h4><?= $document['docdescription'].'<br />';?></h4>
+					<h5><?= $document['docdescription'].'<br />';?></h5>
 					<?= '<a href="'. $this->assetUrl($document['docfile']).'" target="_blank"><i class="material-icons">cloud_download</i></a>';
 				}
 			} 
@@ -29,7 +33,3 @@
 	</div>
 	
 <?php $this->stop('main_content') ?>
-
-
-
-
