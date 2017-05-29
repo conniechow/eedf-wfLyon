@@ -2,19 +2,27 @@
 
 <?php $this->start('main_content') ?>
 
-<form class="form-horizontal" action="<?= $this->url('admin_add_documents') ?>" method="post" enctype="multipart/form-data">
+<form class="form-horizontal" action="<?= $this->url('document_add_documents') ?>" method="post" enctype="multipart/form-data">
     <div class="form-group">
-        <label for="titredoc" class="control-label">Titre du document</label>
-        <input type="text" class="form-control" name="titredoc" id="titredoc" value="" required>
+        <label for="docname" class="control-label">Titre du document</label>
+        <input type="text" class="form-control" name="docname" id="docname" value="" required>
   </div>
   <div class="form-group">
-        <label for="descriptiondoc" class="control-label">Description du document</label>
-        <textarea id="descriptiondoc" class="form-control" name="descriptiondoc"></textarea>
+        <label for="docdescription" class="control-label">Description du document</label>
+        <textarea id="docdescription" class="form-control" name="docdescription"></textarea>
+  </div>
+  <div class="form-group">
+      <label for="id_categorie" class="control-label">Catégorie de document</label>
+         <select id="id_categorie" name="id_categorie">
+            <option value="">-- Sélectionner un type de doc --</option>
+               <option value="1" id="id_categorie">Document principal</option>
+               <option value="2" id="id_categorie">Document de sortie</option>
+      </select>
   </div>
   <!-- Ajout fichier -->
   <div class="form-group">
-        <label for="documentfile" class="control-label">Fichier</label>
-        <input type="file" name="documentfile" class="form-control" id="documentfile" required>
+        <label for="docfile" class="control-label">Fichier</label>
+        <input type="file" name="docfile" class="form-control" id="docfile" required>
   </div>
   <!-- -->
   <div class="form-group">
