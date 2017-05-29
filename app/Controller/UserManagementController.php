@@ -4,10 +4,8 @@ namespace Controller;
 
 use \W\Controller\Controller;
 use \W\Security\AuthentificationModel;
-use Model\AdminModel;
-use Model\AdherentModel;
 use \W\Security\StringUtils;
-use Model\Globals;
+use \Model\AdherentModel;
 
 class UserManagementController extends Controller {
 
@@ -17,43 +15,88 @@ class UserManagementController extends Controller {
   protected $mail;
 
   public function __construct(){
+    //$this->currentUser = new AdherentModel;
     $this->currentUser = new AdherentModel;
-    $this->adminUser   = new AdminModel;
     $this->auth        = new AuthentificationModel;
-    $this->utils       = new StringUtils;
     $this->mail        = new \PHPMailer();
+    $this->utils       = new StringUtils;
   }
 
+  public function listUsers(){
+
+    $this->show('admin/manageUsers');
+  }
+  public function loginUser(){
+    if($this->auth->isValidLoginInfo($_POST['email'], $_POST['password'])){
+      $utilisateur = $this->currentUser->getUserByUsernameOrEmail($_POST['email']);
+      $this->auth->logUserIn($utilisateur);
+      $this->show('admin/manageUsers',['email'=>$_POST['email'], 'password'=>$_POST['password'], 'logged'=>$this->auth->getLoggedUser()]);
+    } else {
+      $this->show('admin/manageUsers', ['error'=>'incorrect']);
+    }
+  }
   public function inscription(){
     if($_SERVER['REQUEST_METHOD'] == 'GET'){
       $this->show('user/inscription');
     }else{
+      $duplicates = false;
       if($this->currentUser->emailExists($_POST['email'])){
-        $this->show('dev/output',['result'=>'il existe deja']);
-        //$this->show('user/inscription',['error'=>'emailExists']);
-      }else{
+        $duplicates = true;
+      }
+      if($this->currentUser->phoneExists($_POST['email'])){
+        $duplicates = true;
+      }
+      if(!$duplicates){
+
         $_POST['password'] = $this->auth->hashPassword($_POST['password']);
-        $_POST['role'] = Globals::ADHERENT;
+        $_POST['role'] = 'admin';
         $_POST['token'] = $randString = $this->utils->randomString();
-        $newUser = $this->currentUser->insert($_POST);
-        //$this->auth->logUserIn($newUser);
-        $isSentEmail = $this->sendEmail($_POST['email'], $newUser['id'], $_POST['token']);
-        $this->show('default/home',['message'=>'On a envoye un email pour valider ton compte' ]);
+
+        try{
+          $newUser = $this->currentUser->insertAdherent($_POST);
+        }
+        catch(MySQLDuplicateKeyException $e){
+          $e->getMessage();
+        }
+        catch (MySQLException $e) {
+          // other mysql exception (not duplicate key entry)
+          $e->getMessage();
+        }
+        catch (Exception $e) {
+          // not a MySQL exception
+          $e->getMessage();
+        }
+
+        $this->auth->logUserIn($newUser);
+        $isSentEmail = $this->sendEmail($_POST['email'], $newUser['id_user'], $_POST['token']);
+        $this->show('dev/output',['result'=>'email sent','id'=>$newUser['id_user']]);
+      } else {
+        $this->show('dev/output',['result'=>'duplicate fields']);
+
       }
     }
   }
-  public function listUsers(){
 
-    $data = array('role'=>Globals::ADHERENT);
-    $usersList = $this->currentUser->search($data);
-    $this->show('admin/manageUsers',['usersList'=>$usersList]);
+  public function connexion(){
+    if($_SERVER['REQUEST_METHOD'] == 'GET'){
+      $this->show('user/connexion');
+    } else {
+      $user = $this->auth->isValidLoginInfo($_POST['usernameOrEmail'], $_POST['password']);
+      if($user != 0){
+        $this->auth->logerUserIn($this->currentUser->find($user));
+        $this->redirectToRoute('default_home');
+      }else{
+        $_SESSION['error'] = "Identifiant ou mot de passe incorrect";
+        $this->redirectToRoute('login');
+      }
+    }
   }
-  public function listAdmins(){
-    $data = array('role'=>Globals::ADMIN);
-    $usersList = $this->currentUser->search($data);
-    $this->show('admin/manageUsers',['usersList'=>$usersList]);
+
+  public function deconnexion(){
+    $this->auth->logUserOut();
+    $this->redirectToRoute('default_home');
   }
-  public function loginUser(){
+
 
     if($this->auth->isValidLoginInfo($_POST['email'], $_POST['password'])){
       $utilisateur = $this->currentUser->getUserByUsernameOrEmail($_POST['email']);
@@ -73,12 +116,16 @@ class UserManagementController extends Controller {
       $this->show('admin/manageUsers', ['newAdmin'=>$newAdmin]);
     }else{
       $this->show('admin/manageUsers', ['error'=>'incorrect']);
+
+    if($_GET['id']){
+      $result['id'] = $_GET['id'];
     }
+    // Update on the database
+    $data = array('confirm'=>1);
+    $this->currentUser->update($data, $_GET['id']);
+    $this->show('dev/output',['result'=>$result]);
   }
-  public function deleteUser($id){
-    $this->currentUser->delete($id);
-    $this->listUsers();
-  }
+
   private function sendEmail($address,$userId,$token){
     $this->mail->isSMTP();
     $this->mail->isHTML(true);
@@ -92,7 +139,6 @@ class UserManagementController extends Controller {
     $this->mail->addAddress($address);
     $this->mail->Subject = 'EEDF Validation d\'email';
     $url = $this->generateTokenUrl($userId,$token);
-
     $bodyContent = '<p>Verification</p><a href="'.$url.'">'.$token.' '.$userId.'</a><p></p>';
     $this->mail->Body = $bodyContent;
     if (!$this->mail->send()) {

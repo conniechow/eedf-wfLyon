@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="<?= $this->assetUrl('css/home.css') ?>">
 <?php $this->stop('style') ?>
 <?php $this->start('main_content') ?>
+
 <img src="<?= $this->assetUrl('images/logo.jpg') ?>" alt="">
 	<?php if(isset($message)): ?>
 		<p><?php var_dump($message) ?></p>
@@ -27,14 +28,25 @@
 
 <?php if(isset($user) && $user['role'] == 'admin' ): ?>
 	<h2>Admin pages</h2>
+
+	<img src="<?= $this->assetUrl('images/logo.jpg') ?>" alt="">
+	<h5>Login</h5>
+	<form class="" action="<?= $this->url('userManagement_login');  ?>" method="post">
+		<input type="text" name="email" value="eedf@gonzalez.rocks" placeholder="email"><br>
+		<input type="text" name="password" value="gogol" placeholder="password"><br>
+		<input type="submit" name="" value="Login"><br>
+		<button type="button" name="reset">Reset Password</button><br>
+	</form>
+
+	<h2>Index</h2>
+
 	<ul>
 		<li><a href="<?= $this->url('default_gallery');  ?>">Gallerie</a></li>
 		<li><a href="<?= $this->url('admin_dashboard');  ?>">Dashboard</a></li>
 		<li><a href="<?= $this->url('userManagement_inscription');?>">Inscription</a></li>
 		<li><a href="<?= $this->url('default_events'); ?>">Calendrier/Evénements</a></li>
-		<li><a href="<?= $this->url('admin_deconnexion');  ?>">deconnexion</a></li>
-		<li><a href="<?= $this->url('userManagement_list');?>">List Users</a></li>
 	</ul>
+
 <?php endif ?>
 
 <?php if(isset($role) && $role == 'adherent'): ?>
@@ -42,6 +54,7 @@
 		<li><a href="<?= $this->url('userManagement_inscription');?>">Inscription</a></li>
 		<li><a href="<?= $this->url('admin_deconnexion');  ?>">deconnexion</a></li>
 <?php endif ?>
+
 
 <?php $this->stop('main_content') ?>
 

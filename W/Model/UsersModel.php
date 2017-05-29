@@ -20,6 +20,26 @@ class UsersModel extends Model
 	}
 
 	/**
+	 * Récupère une ligne de la table en fonction d'un identifiant
+	 *
+	 * @param  integer Identifiant
+	 * @return mixed Les données sous forme de tableau associatif
+	 */
+	public function find($id)
+	{
+		if (!is_numeric($id)){
+			return false;
+		}
+		$idColumn = $app->getConfig('security_id_property');
+		$sql = 'SELECT * FROM ' . $this->table . ' WHERE ' . $this->primaryKey .'  = :id LIMIT 1';
+		$sth = $this->dbh->prepare($sql);
+		$sth->bindValue(':'.$idColumn, $id);
+		$sth->execute();
+
+		return $sth->fetch();
+	}
+
+	/**
 	 * Récupère un utilisateur en fonction de son email ou de son pseudo
 	 * @param string $usernameOrEmail Le pseudo ou l'email d'un utilisateur
 	 * @return mixed L'utilisateur, ou false si non trouvé
@@ -29,15 +49,15 @@ class UsersModel extends Model
 
 		$app = getApp();
 
-		$sql = 'SELECT * FROM ' . $this->table . 
-			   ' WHERE ' . $app->getConfig('security_username_property') . ' = :username' . 
+		$sql = 'SELECT * FROM ' . $this->table .
+			   ' WHERE ' . $app->getConfig('security_username_property') . ' = :username' .
 			   ' OR ' . $app->getConfig('security_email_property') . ' = :email LIMIT 1';
 
 		$dbh = ConnectionModel::getDbh();
 		$sth = $dbh->prepare($sql);
 		$sth->bindValue(':username', $usernameOrEmail);
 		$sth->bindValue(':email', $usernameOrEmail);
-		
+
 		if($sth->execute()){
 			$foundUser = $sth->fetch();
 			if($foundUser){

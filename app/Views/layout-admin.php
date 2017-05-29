@@ -14,7 +14,10 @@
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/vendor/sb-admin-2.min.css') ?>">
-
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+	<link rel="stylesheet" href="<?= $this->assetUrl('css/admin.css') ?>">
+	
 	<?= $this->section('style') ?>
 
 </head>
@@ -48,21 +51,21 @@
 					<ul class="nav" id="side-menu">
 						<li><a href="<?= $this->url('default_home');?>">Accueil</a></li>
 						<li>
-							<a href="<?= $this->url('admin_documents'); ?>"><i class="fa fa-dashboard fa-fw"></i> Document</a>
+							<a href="<?= $this->url('document_documents'); ?>" class="text-uppercase"><i class="fa fa-dashboard fa-fw"></i> Document</a>
 							<ul>
-								<li><a href="<?= $this->url('admin_add_documents'); ?>"><i class="fa fa-dashboard fa-fw"></i> Ajout Document</a></li>
+								<li><a href="<?= $this->url('document_add_documents'); ?>">Ajout Document <i class="fa fa-plus-circle fa-lg"></i></a></li>
 							</ul>
 						</li>
 						<li>
-							<a href="<?= $this->url('admin_dashboard'); ?>"><i class="fa fa-dashboard fa-fw"></i> Photos</a>
+							<a href="<?= $this->url('admin_dashboard'); ?>" class="text-uppercase"><i class="fa fa-dashboard fa-fw"></i> Photos</a>
 							<ul>
-								<li><a href="<?= $this->url('admin_add_documents'); ?>"><i class="fa fa-dashboard fa-fw"></i> Ajout Photos</a></li>
+								<li><a href="<?= $this->url('document_add_documents'); ?>">Ajout Photos <i class="fa fa-plus-circle fa-lg"></i></a></li>
 							</ul>
 						</li>
 						<li>
-							<a href="<?= $this->url('admin_dashboard'); ?>"><i class="fa fa-dashboard fa-fw"></i> Evenements</a>
+							<a href="<?= $this->url('admin_dashboard'); ?>" class="text-uppercase"><i class="fa fa-dashboard fa-fw"></i> Evenements</a>
 							<ul>
-								<li><a href="<?= $this->url('admin_add_documents'); ?>"><i class="fa fa-dashboard fa-fw"></i> Ajout Evenement</a></li>
+								<li><a href="<?= $this->url('document_add_documents'); ?>">Ajout Evenement <i class="fa fa-plus-circle fa-lg"></i></a></li>
 							</ul>
 						</li>
 						<li><a href="<?= $this->url('userManagement_inscription');?>">Inscription</a></li>
