@@ -5,8 +5,14 @@
 <?php $this->stop('style') ?>
 
 <?php $this->start('main_content') ?>
-	<img src="<?= $this->assetUrl('images/logo.jpg') ?>" alt="">
-	<?php if(!$role): ?>
+<img src="<?= $this->assetUrl('images/logo.jpg') ?>" alt="">
+	<?php if(isset($message)): ?>
+		<p><?php var_dump($message) ?></p>
+	<?php endif ?>
+	<?php if(isset($user)): ?>
+		<p>Salut, <?php print $user['username'] ?></p>
+	<?php endif ?>
+	<?php if(!isset($user)): ?>
 		<h5>Login</h5>
 		<form class="" action="<?= $this->url('userManagement_login');  ?>" method="post">
 			<input type="text" name="email" value="eedf@gonzalez.rocks" placeholder="email"><br>
@@ -16,17 +22,24 @@
 			<a href="">Reset Password</a>
 		</form>
 	<?php endif ?>
-	<?php if($role == 'admin'): ?>
-		<h2>Admin pages</h2>
-		<ul>
-			<li><a href="<?= $this->url('default_gallery');  ?>">Gallerie</a></li>
-			<li><a href="<?= $this->url('admin_dashboard');  ?>">Dashboard</a></li>
-			<li><a href="<?= $this->url('admin_inscription');?>">Inscription</a></li>
-			<li><a href="<?= $this->url('default_events'); ?>">Calendrier/Evénements</a></li>
-			<li><a href="<?= $this->url('admin_deconnexion');  ?>">deconnexion</a></li>
-		</ul>
-	<?php endif ?>
-	<?php if($role == 'user'): ?>
+
+
+
+<!-- ROLE ADMIN INSIDE USER DATA -->
+
+<?php if(isset($user) && $user['role'] == 'admin' ): ?>
+	<h2>Admin pages</h2>
+	<ul>
+		<li><a href="<?= $this->url('default_gallery');  ?>">Gallerie</a></li>
+		<li><a href="<?= $this->url('admin_dashboard');  ?>">Dashboard</a></li>
+		<li><a href="<?= $this->url('admin_inscription');?>">Inscription</a></li>
+		<li><a href="<?= $this->url('default_events'); ?>">Calendrier/Evénements</a></li>
+		<li><a href="<?= $this->url('admin_deconnexion');  ?>">deconnexion</a></li>
+		<li><a href="<?= $this->url('userManagement_list');?>">List Users</a></li>
+	</ul>
+<?php endif ?>
+
+	<?php if(isset($role) && $role == 'adherent'): ?>
 		<h2>Pages d'access publique</h2>
 			<li><a href="<?= $this->url('admin_inscription');?>">Inscription</a></li>
 			<li><a href="<?= $this->url('admin_deconnexion');  ?>">deconnexion</a></li>

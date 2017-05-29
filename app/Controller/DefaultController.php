@@ -13,7 +13,7 @@ class DefaultController extends Controller
 	public function home()
 	{
 		$loggedUser = $this->getUser();
-		$this->show('default/home',['role'=>$loggedUser['role']]);
+		$this->show('default/home',['role'=>$loggedUser['role'],'user'=>$loggedUser]);
 	}
 	/**
 	 * Page de contact
