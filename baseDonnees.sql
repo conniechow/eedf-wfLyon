@@ -1,3 +1,7 @@
+DROP DATABASE `wflyon`;
+CREATE DATABASE `wflyon` COLLATE `utf8_general_ci`;
+USE `wflyon`;
+
 /******************** Création des tables ********************/
 /* CREATE TABLE Crée une nouvelle table SQL  */
 /*************************************************************/
@@ -16,7 +20,7 @@ CREATE TABLE `Users` (
 	`username` varchar(60) NOT NULL,
 	`email` varchar(255) NOT NULL UNIQUE,
 	`password` varchar(255) NOT NULL,
-	`role` varchar(255) NOT NULL UNIQUE,
+	`role` varchar(255) NOT NULL,
 	`token` varchar(255) NOT NULL,
 	`motivation` text CHARACTER SET utf8,
   	`phone` varchar(10) NOT NULL,
