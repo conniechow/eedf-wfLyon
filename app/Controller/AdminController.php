@@ -10,6 +10,7 @@ use Model\Globals;
 
 class AdminController extends Controller {
 
+
   protected $currentUser;
   protected $auth;
 
