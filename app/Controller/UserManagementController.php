@@ -72,6 +72,7 @@ class UserManagementController extends Controller {
         $this->show('dev/output',['result'=>'email sent','id'=>$newUser['id_user']]);
       } else {
         $this->show('dev/output',['result'=>'duplicate fields']);
+
       }
     }
   }
@@ -96,15 +97,26 @@ class UserManagementController extends Controller {
     $this->redirectToRoute('default_home');
   }
 
-  public function login(){
-    $this->show('admin/login');
-  }
 
-  public function confirmation(){
-    $result = array();
-    if($_GET['token']){
-      $result['token'] = $_GET['token'];
+    if($this->auth->isValidLoginInfo($_POST['email'], $_POST['password'])){
+      $utilisateur = $this->currentUser->getUserByUsernameOrEmail($_POST['email']);
+      $this->auth->logUserIn($utilisateur);
+      $this->show('admin/manageUsers',['user'=>$utilisateur]);
+    } else {
+      $this->show('admin/manageUsers', ['message'=>'login incorrect']);
     }
+  }
+  public function getLoggedUser(){
+    $this->show('admin/manageUsers', ['logged'=>$this->auth->getLoggedUser()]);
+  }
+  public function addAdmin(){
+    $_POST['role'] = Globals::ADMIN;
+    $_POST['password'] = $this->auth->hashPassword($_POST['password']);
+    if($newAdmin = $this->adminUser->insertAdmin($_POST)){
+      $this->show('admin/manageUsers', ['newAdmin'=>$newAdmin]);
+    }else{
+      $this->show('admin/manageUsers', ['error'=>'incorrect']);
+
     if($_GET['id']){
       $result['id'] = $_GET['id'];
     }

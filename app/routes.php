@@ -15,13 +15,18 @@
 		['GET', '/articles/[i:id]','Blog#voirArticle','blog_id_article'],
 		['GET', '/articles/[a:slug]','Blog#voirArticle','blog_slug_article'],
 		['GET|POST','/admin/edit-article/[:id]','Blog#editArticle', 'Blog_EditArticle'],
-		//['GET','/admin/login','Admin#login','login'],
+		['GET|POST', '/admin/addParticipant', 'participant#addParticipant', 'participant_addParticipant'],
+		['GET|POST','/inscription','UserManagement#inscription','userManagement_inscription'],
+		['GET','/listUsers','UserManagement#listUsers','userManagement_list'],
+		['GET','/listAdmins','UserManagement#listAdmins','userManagement_list_admins'],
+		['GET|POST','/deleteUser/[:id]','UserManagement#deleteUser','userManagement_delete_user'],
+		['POST','/ajouterAdmin','UserManagement#addAdmin','userManagement_add_user_admin'],
+		['GET','/voirSession','UserManagement#getLoggedUser','userManagement_get_logged_user']
     ['GET|POST','/inscription','userManagement#inscription','admin_inscription'],
 		['GET|POST','/connexion','userManagement#connexion','login'],
 		['GET|POST','/deconnexion','userManagement#deconnexion','admin_deconnexion'],
 		['GET','/confirmation','userManagement#confirmation','admin_confirmation'],
 		['GET|POST', '/admin/addParticipant', 'participant#addParticipant', 'participant_addParticipant'],
-		//admin
     ['POST','/login','userManagement#loginUser','userManagement_login'],
-		['GET','/listUsers','userManagement#listUsers','guillermo_userManagement_list'],
+		['GET','/listUsers','userManagement#listUsers','guillermo_userManagement_list']
 	);
