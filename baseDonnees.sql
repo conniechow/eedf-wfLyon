@@ -1,3 +1,7 @@
+DROP DATABASE `wflyon`;
+CREATE DATABASE `wflyon` COLLATE `utf8_general_ci`;
+USE `wflyon`;
+
 /******************** Création des tables ********************/
 /* CREATE TABLE Crée une nouvelle table SQL  */
 /*************************************************************/
