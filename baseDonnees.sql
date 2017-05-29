@@ -20,7 +20,7 @@ CREATE TABLE `Users` (
 	`username` varchar(60) NOT NULL,
 	`email` varchar(255) NOT NULL UNIQUE,
 	`password` varchar(255) NOT NULL,
-	`role` varchar(255) NOT NULL UNIQUE,
+	`role` varchar(255) NOT NULL,
 	`token` varchar(255) NOT NULL,
 	`motivation` text CHARACTER SET utf8,
   	`phone` varchar(10) NOT NULL,
