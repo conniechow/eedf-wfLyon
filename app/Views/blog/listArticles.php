@@ -8,6 +8,7 @@
     <thead>
       <tr>
         <th>Titre</th>
+        <th>Slug</th>
         <th>Contenu</th>
         <th>Date</th>
       </tr>

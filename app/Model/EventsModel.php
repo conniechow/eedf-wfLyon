@@ -2,7 +2,7 @@
 
 namespace Model;
 
-class ArticlesModel extends \W\Model\Model{
+class EventsModel extends \W\Model\Model{
   public function slugify($text)
   {
   // replace non letter or digits by -

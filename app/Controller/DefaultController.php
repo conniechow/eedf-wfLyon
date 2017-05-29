@@ -12,7 +12,8 @@ class DefaultController extends Controller
 	 */
 	public function home()
 	{
-		$this->show('default/home');
+		$loggedUser = $this->getUser();
+		$this->show('default/home',['role'=>$loggedUser['role'],'user'=>$loggedUser]);
 	}
 	/**
 	 * Page de contact
@@ -40,5 +41,13 @@ class DefaultController extends Controller
 	public function documents()
 	{
 		$this->show('default/documents');
+
+	/**
+	 * Page des événements
+	 */
+	public function events()
+	{
+		$this->show('default/events');
+
 	}
 }

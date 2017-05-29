@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title><?= $this->e($title) ?></title>
+	<?= $this->section('googleapis') ?>
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -15,6 +16,7 @@
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/vendor/sb-admin-2.min.css') ?>">
 
 	<?= $this->section('style') ?>
+
 </head>
 <body>
 	<header>
@@ -44,6 +46,7 @@
 			<div class="navbar-default sidebar" role="navigation">
 				<div class="sidebar-nav navbar-collapse">
 					<ul class="nav" id="side-menu">
+						<li><a href="<?= $this->url('default_home');?>">Accueil</a></li>
 						<li>
 							<a href="<?= $this->url('admin_documents'); ?>"><i class="fa fa-dashboard fa-fw"></i> Document</a>
 							<ul>
@@ -62,6 +65,9 @@
 								<li><a href="<?= $this->url('admin_add_documents'); ?>"><i class="fa fa-dashboard fa-fw"></i> Ajout Evenement</a></li>
 							</ul>
 						</li>
+						<li><a href="<?= $this->url('admin_inscription');?>">Inscription</a></li>
+						<li><a href="<?= $this->url('userManagement_list');?>">List Adherents</a></li>
+						<li><a href="<?= $this->url('userManagement_list_admins');?>">List Admins</a></li>
 					</ul>
 				</div>
 				<!-- /.sidebar-collapse -->
