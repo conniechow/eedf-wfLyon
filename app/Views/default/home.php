@@ -3,7 +3,6 @@
 <?php $this->start('style') ?>
 <link rel="stylesheet" href="<?= $this->assetUrl('css/home.css') ?>">
 <?php $this->stop('style') ?>
-
 <?php $this->start('main_content') ?>
 <img src="<?= $this->assetUrl('images/logo.jpg') ?>" alt="">
 	<?php if(isset($message)): ?>
@@ -19,11 +18,10 @@
 			<input type="text" name="password" value="" placeholder="password"><br>
 			<input type="submit" name="" value="Login"><br>
 			<br><br>
-			<a href="">Reset Password</a>
+			<a href="#">Reset Password</a><br><br>
+			<a href="<?= $this->url('userManagement_inscription');?>">Inscription</a>
 		</form>
 	<?php endif ?>
-
-
 
 <!-- ROLE ADMIN INSIDE USER DATA -->
 
@@ -32,22 +30,18 @@
 	<ul>
 		<li><a href="<?= $this->url('default_gallery');  ?>">Gallerie</a></li>
 		<li><a href="<?= $this->url('admin_dashboard');  ?>">Dashboard</a></li>
-		<li><a href="<?= $this->url('admin_inscription');?>">Inscription</a></li>
+		<li><a href="<?= $this->url('userManagement_inscription');?>">Inscription</a></li>
 		<li><a href="<?= $this->url('default_events'); ?>">Calendrier/Evénements</a></li>
 		<li><a href="<?= $this->url('admin_deconnexion');  ?>">deconnexion</a></li>
 		<li><a href="<?= $this->url('userManagement_list');?>">List Users</a></li>
 	</ul>
 <?php endif ?>
 
-	<?php if(isset($role) && $role == 'adherent'): ?>
-		<h2>Pages d'access publique</h2>
-			<li><a href="<?= $this->url('admin_inscription');?>">Inscription</a></li>
-			<li><a href="<?= $this->url('admin_deconnexion');  ?>">deconnexion</a></li>
-	<?php endif ?>
-
-
-
-
+<?php if(isset($role) && $role == 'adherent'): ?>
+	<h2>Pages d'access publique</h2>
+		<li><a href="<?= $this->url('userManagement_inscription');?>">Inscription</a></li>
+		<li><a href="<?= $this->url('admin_deconnexion');  ?>">deconnexion</a></li>
+<?php endif ?>
 
 <?php $this->stop('main_content') ?>
 

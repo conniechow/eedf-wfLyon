@@ -6,10 +6,11 @@
 		<div class="col-md-4 col-md-offset-4">
 			<div class="login-panel panel panel-default">
 				<div class="panel-heading">
+					<a href="<?= $this->url('default_home'); ?>">Accueil</a>
 					<h3>Inscription</h3>
 				</div>
 				<div class="panel-body">
-					<form method="POST" action="<?= $this->url('admin_inscription') ?>">
+					<form method="POST" action="<?= $this->url('userManagement_inscription') ?>">
 						<div class="form-group">
 							<input class="form-control" type="text" name="username" placeholder="Nom">
 						</div>

@@ -50,9 +50,10 @@
 						<li>
 							<a href="<?= $this->url('admin_dashboard'); ?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
 						</li>
-						<li><a href="<?= $this->url('admin_inscription');?>">Inscription</a></li>
-						<li><a href="<?= $this->url('userManagement_list');?>">List Adherents</a></li>
-						<li><a href="<?= $this->url('userManagement_list_admins');?>">List Admins</a></li>
+						<li><a href="<?= $this->url('userManagement_inscription');?>">Inscription</a></li>
+						<li><a href="<?= $this->url('userManagement_list');?>">Liste Adherents</a></li>
+						<li><a href="<?= $this->url('userManagement_list_admins');?>">Liste Admins</a></li>
+						<li><a href="<?= $this->url('userManagement_get_logged_user');?>">Voir connexion</a></li>
 					</ul>
 				</div>
 				<!-- /.sidebar-collapse -->

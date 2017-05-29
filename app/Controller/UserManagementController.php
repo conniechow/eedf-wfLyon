@@ -36,7 +36,7 @@ class UserManagementController extends Controller {
         $_POST['role'] = Globals::ADHERENT;
         $_POST['token'] = $randString = $this->utils->randomString();
         $newUser = $this->currentUser->insert($_POST);
-        $this->auth->logUserIn($newUser);
+        //$this->auth->logUserIn($newUser);
         $isSentEmail = $this->sendEmail($_POST['email'], $newUser['id'], $_POST['token']);
         $this->show('default/home',['message'=>'On a envoye un email pour valider ton compte' ]);
       }
@@ -58,10 +58,13 @@ class UserManagementController extends Controller {
     if($this->auth->isValidLoginInfo($_POST['email'], $_POST['password'])){
       $utilisateur = $this->currentUser->getUserByUsernameOrEmail($_POST['email']);
       $this->auth->logUserIn($utilisateur);
-      $this->show('admin/manageUsers',['email'=>$_POST['email'], 'password'=>$_POST['password'], 'logged'=>$this->auth->getLoggedUser()]);
+      $this->show('admin/manageUsers',['user'=>$utilisateur]);
     } else {
-      $this->show('admin/manageUsers', ['error'=>'incorrect']);
+      $this->show('admin/manageUsers', ['message'=>'login incorrect']);
     }
+  }
+  public function getLoggedUser(){
+    $this->show('admin/manageUsers', ['logged'=>$this->auth->getLoggedUser()]);
   }
   public function addAdmin(){
     $_POST['role'] = Globals::ADMIN;

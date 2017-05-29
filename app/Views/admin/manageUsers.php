@@ -23,7 +23,11 @@ if(isset($logged)){
   var_dump($logged);
 }
 ?></p>
-
+<p>
+<?php if(isset($user)): ?>
+  <p>Salut, <?php print $user['username'] ?></p>
+<?php endif ?>
+</p>
 <!-- LIST ADHERENTS -->
 
 <?php if($w_current_route == 'userManagement_list'):?>
