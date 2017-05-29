@@ -52,7 +52,7 @@
 						</ul>
 					</div>
 	</div>
-	<input type="button" value="Afficher plus d'éléments" class="btn-info btn-md" >
+	<input  id="afficheElements" type="button" value="Afficher plus d'éléments" class="btn-info btn-md">
 
 <?php
 		try
@@ -74,12 +74,14 @@
 		// On affiche chaque entrée une à une
 		while ($donnees = $reponse->fetch()){
 ?>
-		    <p>
-		    <strong>Sortie "</strong> : <?php echo $donnees['title']; ?><strong> "</strong><br />
-		    Durée de l'événement: du <?php echo $donnees['startdate']; ?> au <?php echo $donnees['enddate']; ?>.<br />
-		    Description :  <?php echo $donnees['description']; ?>.<br />
-		    Les participants déjà inscrits sont : <?php echo $donnees['id_participant']; ?>
-		   </p>
+				<div id="event" class="container hidden">
+				    <p>
+					    <strong>Sortie "</strong> : <?php echo $donnees['title']; ?><strong> "</strong><br />
+					    Durée de l'événement: du <?php echo $donnees['startdate']; ?> au <?php echo $donnees['enddate']; ?>.<br />
+					    Description :  <?php echo $donnees['description']; ?>.<br />
+					    Les participants déjà inscrits sont : <?php echo $donnees['id_participant']; ?>
+					  </p>
+			 <div>
 <?php
 		}
 		$reponse->closeCursor(); // Termine le traitement de la requête
@@ -89,4 +91,9 @@
 
 <?php $this->start('script') ?>
 	<script src="<?= $this->assetUrl('js/home.js') ?>" type="text/javascript"></script>
+	<script>
+			$('#afficheElements').on('click',function(){
+					$('#event').removeClass('hidden');
+			});
+	</script>
 <?php $this->stop('script') ?>
