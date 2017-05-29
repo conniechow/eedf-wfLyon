@@ -1,6 +1,7 @@
 DROP DATABASE `wflyon`;
 CREATE DATABASE `wflyon` COLLATE `utf8_general_ci`;
 USE `wflyon`;
+INSERT INTO `users` (`id_user`, `username`, `email`, `phone`, `password`, `role`, `token`, `motivation`) VALUES (NULL, 'nordine', 'nordine', '1', '$2y$10$iCI5Bmf5SlqF.oKuNt6feOW.OHOoC0772gmY3mVrQ46PhbgCGVg26', 'superadmin', '', '');
 
 /******************** Création des tables ********************/
 /* CREATE TABLE Crée une nouvelle table SQL  */
