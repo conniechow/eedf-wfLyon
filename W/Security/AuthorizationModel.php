@@ -48,5 +48,4 @@ class AuthorizationModel
 		$controller = new \W\Controller\Controller();
 		$controller->redirectToRoute($app->getConfig('security_login_route_name'));
 	}
-
 }

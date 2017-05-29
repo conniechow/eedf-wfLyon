@@ -12,7 +12,8 @@ class DefaultController extends Controller
 	 */
 	public function home()
 	{
-		$this->show('default/home');
+		$loggedUser = $this->getUser();
+		$this->show('default/home',['role'=>$loggedUser['role'],'user'=>$loggedUser]);
 	}
 	/**
 	 * Page de contact
@@ -36,11 +37,17 @@ class DefaultController extends Controller
 		$data = '2016-01_EEDF_Patinoire';
 		$this->show('default/gallery', ['data'=>$data,'path'=>'assets/images/']);
 	}
+
+	public function documents()
+	{
+		$this->show('default/documents');
+	}
 	/**
 	 * Page des événements
 	 */
 	public function events()
 	{
 		$this->show('default/events');
+
 	}
 }
