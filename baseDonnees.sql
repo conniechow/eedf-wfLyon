@@ -17,7 +17,7 @@ CREATE TABLE `photo` (
 );
 
 CREATE TABLE `users` (
-	`id_user` INT (4) NOT NULL AUTO_INCREMENT,
+	`id` INT (4) NOT NULL AUTO_INCREMENT,
 	`username` varchar(60) NOT NULL,
 	`email` varchar(255) NOT NULL UNIQUE,
 	`phone` varchar(10) NOT NULL UNIQUE,
