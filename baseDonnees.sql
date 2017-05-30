@@ -1,9 +1,7 @@
 DROP DATABASE `wflyon`;
 CREATE DATABASE `wflyon` COLLATE `utf8_general_ci`;
 USE `wflyon`;
-INSERT INTO `users` (`username`, `email`, `phone`, `password`, `role`) VALUES ('nordine', 'nordine', '1', '$2y$10$iCI5Bmf5SlqF.oKuNt6feOW.OHOoC0772gmY3mVrQ46PhbgCGVg26', 'superadmin');
-INSERT INTO `users` (`username`, `email`, `phone`, `password`, `role`) VALUES ('fregevu', 'fregevuf@yahoo.fr', '0643163491', '$2y$10$cFMjZxLjZZHee0Jj7CRHWumafMGZyTshanTZH237f0SvvwW6t2mOW', 'admin');
-INSERT INTO `users` (`username`, `email`, `phone`, `password`, `role`) VALUES ('andre', 'estherandre07@orange.fr', '0', '$2y$10$cFMjZxLjZZHee0Jj7CRHWumafMGZyTshanTZH237f0SvvwW6t2mOW', 'adherent');
+
 /******************** Création des tables ********************/
 /* CREATE TABLE Crée une nouvelle table SQL  */
 /*************************************************************/
@@ -29,7 +27,9 @@ CREATE TABLE `users` (
 	PRIMARY KEY (`id`)
 );
 
-INSERT INTO `users` (`id_user`, `username`, `email`, `phone`, `password`, `role`, `token`, `motivation`) VALUES (NULL, 'nordine', 'nordine', '1', '$2y$10$iCI5Bmf5SlqF.oKuNt6feOW.OHOoC0772gmY3mVrQ46PhbgCGVg26', 'superadmin', '', '');
+INSERT INTO `users` (`username`, `email`, `phone`, `password`, `role`) VALUES ('nordine', 'nordine', '1', '$2y$10$iCI5Bmf5SlqF.oKuNt6feOW.OHOoC0772gmY3mVrQ46PhbgCGVg26', 'superadmin');
+INSERT INTO `users` (`username`, `email`, `phone`, `password`, `role`) VALUES ('fregevu', 'fregevuf@yahoo.fr', '0643163491', '$2y$10$cFMjZxLjZZHee0Jj7CRHWumafMGZyTshanTZH237f0SvvwW6t2mOW', 'admin');
+INSERT INTO `users` (`username`, `email`, `phone`, `password`, `role`) VALUES ('andre', 'estherandre07@orange.fr', '0', '$2y$10$cFMjZxLjZZHee0Jj7CRHWumafMGZyTshanTZH237f0SvvwW6t2mOW', 'adherent');
 
 CREATE TABLE `participant` (
 	`id_participant` INT (4) NOT NULL AUTO_INCREMENT,
