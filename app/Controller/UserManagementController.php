@@ -41,6 +41,19 @@ class UserManagementController extends Controller {
     $this->currentUser->delete($id);
     $this->show('admin/manageUsers');
   }
+  public function detailsUser($id){
+    $user = $this->currentUser->find($id);
+    $this->show('admin/manageUsers',['user'=>$user]);
+  }
+  public function editDetailsUser(){
+    $this->currentUser->update($_POST,$_POST['id']);
+    $user = $this->currentUser->find($_POST['id']);
+    $this->show('admin/manageUsers',['user'=>$user]);
+  }
+  public function editDetailsUserForm($id){
+    $user = $this->currentUser->find($id);
+    $this->show('admin/manageUsers',['user'=>$user]);
+  }
   public function loginUser(){
     if($this->auth->isValidLoginInfo($_POST['email'], $_POST['password'])){
       $utilisateur = $this->currentUser->getUserByUsernameOrEmail($_POST['email']);
