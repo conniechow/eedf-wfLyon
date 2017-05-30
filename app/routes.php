@@ -25,6 +25,7 @@
 		['GET','/ajouterAdmin','UserManagement#addAdminForm','userManagement_add_user_admin_form'],
 		['POST','/ajouterAdmin','UserManagement#addAdmin','userManagement_add_user_admin'],
 		['GET','/voirSession','UserManagement#getLoggedUser','userManagement_get_logged_user'],
+		['GET','/ajouterAdminForm','UserManagement#addAdminForm','userManagement_add_user_admin_form'],
   	['GET|POST','/inscription','userManagement#inscription','admin_inscription'],
 		['GET|POST','/connexion','userManagement#connexion','login'],
 		['GET|POST','/deconnexion','userManagement#deconnexion','admin_deconnexion'],
