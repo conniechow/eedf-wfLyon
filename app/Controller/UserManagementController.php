@@ -6,6 +6,10 @@ use \W\Controller\Controller;
 use \W\Security\AuthentificationModel;
 use \W\Security\StringUtils;
 use \Model\AdherentModel;
+<<<<<<< HEAD
+=======
+use \Model\AdminModel;
+>>>>>>> refs/remotes/origin/master
 use \Model\Globals;
 
 class UserManagementController extends Controller {
@@ -14,6 +18,7 @@ class UserManagementController extends Controller {
   protected $auth;
   protected $utils;
   protected $mail;
+  protected $adminUser;
 
   public function __construct(){
     //$this->currentUser = new AdherentModel;
@@ -21,17 +26,29 @@ class UserManagementController extends Controller {
     $this->auth        = new AuthentificationModel;
     $this->mail        = new \PHPMailer();
     $this->utils       = new StringUtils;
+    $this->adminUser   = new AdminModel;
   }
 
   public function listAdmins(){
     $data = array('role'=>Globals::ADMIN);
+<<<<<<< HEAD
     $usersList = $this->currentUser->findAll($data);
+=======
+    $usersList = $this->currentUser->search($data);
+>>>>>>> refs/remotes/origin/master
     $this->show('admin/manageUsers',['usersList'=>$usersList]);
   }
   public function listUsers(){
     $data = array('role'=>Globals::ADHERENT);
     $usersList = $this->currentUser->search($data);
     $this->show('admin/manageUsers',['usersList'=>$usersList]);
+<<<<<<< HEAD
+=======
+  }
+  public function deleteUser($id){
+    $this->currentUser->delete($id);
+    $this->show('admin/manageUsers');
+>>>>>>> refs/remotes/origin/master
   }
   public function loginUser(){
     if($this->auth->isValidLoginInfo($_POST['email'], $_POST['password'])){
@@ -118,7 +135,9 @@ class UserManagementController extends Controller {
   public function getLoggedUser(){
     $this->show('admin/manageUsers', ['logged'=>$this->auth->getLoggedUser()]);
   }
-
+  public function addAdminForm(){
+    $this->show('admin/manageUsers');
+  }
   public function addAdmin(){
     $_POST['role'] = Globals::ADMIN;
     $_POST['password'] = $this->auth->hashPassword($_POST['password']);
@@ -133,7 +152,7 @@ class UserManagementController extends Controller {
     // Update on the database
     $data = array('confirm'=>1);
     $this->currentUser->update($data, $_GET['id']);
-    $this->show('dev/output',['result'=>$result]);
+    $this->show('admin/manageUsers');
   }
 
 // UTILITIES
