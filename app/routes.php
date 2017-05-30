@@ -19,6 +19,7 @@
 		['GET','/listUsers','UserManagement#listUsers','userManagement_list_users'],
 		['GET','/listAdmins','UserManagement#listAdmins','userManagement_list_admins'],
 		['GET|POST','/deleteUser/[:id]','UserManagement#deleteUser','userManagement_delete_user'],
+		['GET','/ajouterAdmin','UserManagement#addAdminForm','userManagement_add_user_admin_form'],
 		['POST','/ajouterAdmin','UserManagement#addAdmin','userManagement_add_user_admin'],
 		['GET','/voirSession','UserManagement#getLoggedUser','userManagement_get_logged_user'],
   	['GET|POST','/inscription','userManagement#inscription','admin_inscription'],
@@ -26,7 +27,6 @@
 		['GET|POST','/deconnexion','userManagement#deconnexion','admin_deconnexion'],
 		['GET','/confirmation','userManagement#confirmation','admin_confirmation'],
     ['POST','/login','userManagement#loginUser','userManagement_login'],
-  	['POST','/login','userManagement#loginUser','userManagement_login'],
 		['GET','/listUsers','userManagement#listUsers','guillermo_userManagement_list'],
 		['GET|POST', '/admin/photos', 'photo#photos', 'photo_photos'],
 	);

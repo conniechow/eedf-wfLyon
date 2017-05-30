@@ -9,24 +9,13 @@
   <li><a href="<?= $this->url('userManagement_add_user_admin_form'); ?>">Ajouter Admins</a></li>
 </ul>
 
-<<<<<<< HEAD
-<h2>Manage Utilisateurs</h2>
 
-=======
->>>>>>> refs/remotes/origin/master
 <?php if(isset($user)): ?>
   <p>Salut, <?php print $user['username'] ?></p>
   <p><a href="<?= $this->url('admin_deconnexion');  ?>">deconnexion</a></p>
 <?php endif ?>
 </p>
-<<<<<<< HEAD
-<ul>
-  <li><a href="<?= $this->url('admin_inscription')?>">Ajouter Adherent</a></li>
-  <li><a href="<?= $this->url('default_home'); ?>">Accueil</a></li>
-</ul>
 
-=======
->>>>>>> refs/remotes/origin/master
 
 <!-- LIST ADHERENTS -->
 
@@ -73,11 +62,9 @@
 
 <!-- ADD ADMINS -->
 
-<<<<<<< HEAD
-<?php if($w_current_route == 'userManagement_add_user_admin'):?>
-=======
+
 <?php if($w_current_route == 'userManagement_add_user_admin_form'):?>
->>>>>>> refs/remotes/origin/master
+
 <h3>Ajouter un admin</h3>
 <form class="" action="<?= $this->url('userManagement_add_user_admin') ?>" method="post">
   <label for="username">Nom</label>

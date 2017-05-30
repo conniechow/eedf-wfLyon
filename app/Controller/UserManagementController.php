@@ -6,10 +6,7 @@ use \W\Controller\Controller;
 use \W\Security\AuthentificationModel;
 use \W\Security\StringUtils;
 use \Model\AdherentModel;
-<<<<<<< HEAD
-=======
 use \Model\AdminModel;
->>>>>>> refs/remotes/origin/master
 use \Model\Globals;
 
 class UserManagementController extends Controller {
@@ -21,7 +18,6 @@ class UserManagementController extends Controller {
   protected $adminUser;
 
   public function __construct(){
-    //$this->currentUser = new AdherentModel;
     $this->currentUser = new AdherentModel;
     $this->auth        = new AuthentificationModel;
     $this->mail        = new \PHPMailer();
@@ -31,24 +27,19 @@ class UserManagementController extends Controller {
 
   public function listAdmins(){
     $data = array('role'=>Globals::ADMIN);
-<<<<<<< HEAD
-    $usersList = $this->currentUser->findAll($data);
-=======
+
     $usersList = $this->currentUser->search($data);
->>>>>>> refs/remotes/origin/master
     $this->show('admin/manageUsers',['usersList'=>$usersList]);
   }
   public function listUsers(){
     $data = array('role'=>Globals::ADHERENT);
     $usersList = $this->currentUser->search($data);
     $this->show('admin/manageUsers',['usersList'=>$usersList]);
-<<<<<<< HEAD
-=======
+
   }
   public function deleteUser($id){
     $this->currentUser->delete($id);
     $this->show('admin/manageUsers');
->>>>>>> refs/remotes/origin/master
   }
   public function loginUser(){
     if($this->auth->isValidLoginInfo($_POST['email'], $_POST['password'])){
