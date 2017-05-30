@@ -27,14 +27,13 @@ class UserManagementController extends Controller {
 
   public function listAdmins(){
     $data = array('role'=>Globals::ADMIN);
-
     $usersList = $this->currentUser->search($data);
-    $this->show('admin/manageUsers',['usersList'=>$usersList]);
+    $this->show('admin/manageUsers',['usersList'=>$usersList,'loggedUser'=>$this->auth->getLoggedUser()]);
   }
   public function listUsers(){
     $data = array('role'=>Globals::ADHERENT);
     $usersList = $this->currentUser->search($data);
-    $this->show('admin/manageUsers',['usersList'=>$usersList]);
+    $this->show('admin/manageUsers',['usersList'=>$usersList,'loggedUser'=>$this->auth->getLoggedUser()]);
 
   }
   public function deleteUser($id){
@@ -43,16 +42,16 @@ class UserManagementController extends Controller {
   }
   public function detailsUser($id){
     $user = $this->currentUser->find($id);
-    $this->show('admin/manageUsers',['user'=>$user]);
+    $this->show('admin/manageUsers',['user'=>$user,'loggedUser'=>$this->auth->getLoggedUser()]);
   }
   public function editDetailsUser(){
     $this->currentUser->update($_POST,$_POST['id']);
     $user = $this->currentUser->find($_POST['id']);
-    $this->show('admin/manageUsers',['user'=>$user]);
+    $this->show('admin/manageUsers',['user'=>$user,'loggedUser'=>$this->auth->getLoggedUser()]);
   }
   public function editDetailsUserForm($id){
     $user = $this->currentUser->find($id);
-    $this->show('admin/manageUsers',['user'=>$user]);
+    $this->show('admin/manageUsers',['user'=>$user,'loggedUser'=>$this->auth->getLoggedUser()]);
   }
   public function loginUser(){
     if($this->auth->isValidLoginInfo($_POST['email'], $_POST['password'])){
@@ -60,10 +59,10 @@ class UserManagementController extends Controller {
       $this->auth->logUserIn($utilisateur);
       switch($utilisateur['role']){
         case Globals::SUPERADMIN:
-          $this->show('admin/manageUsers',['role'=>'superadmin']);
+          $this->show('admin/manageUsers',['role'=>'superadmin','loggedUser'=>$this->auth->getLoggedUser()]);
         break;
         case Globals::ADMIN:
-          $this->show('admin/manageUsers',['role'=>'admin']);
+          $this->show('admin/manageUsers',['role'=>'admin','loggedUser'=>$this->auth->getLoggedUser()]);
         break;
         case Globals::ADHERENT:
           $this->redirectToRoute('default_home');
@@ -137,7 +136,7 @@ class UserManagementController extends Controller {
   }
 
   public function getLoggedUser(){
-    $this->show('admin/manageUsers', ['logged'=>$this->auth->getLoggedUser()]);
+    $this->show('admin/manageUsers', ['loggedUser'=>$this->auth->getLoggedUser()]);
   }
   public function addAdminForm(){
     $this->show('admin/manageUsers');

@@ -1,5 +1,6 @@
 <?php $this->layout('layout-user-management',['title'=>'Dashboard']); ?>
 <?php $this->start('main_content') ?>
+<p><?php print 'hello '.$loggedUser['username'] ?></p>
 <h2>Index</h2>
 <ul>
   <li><a href="<?= $this->url('default_home'); ?>">Accueil</a></li>
@@ -11,8 +12,7 @@
 
 
 <?php if(isset($user)): ?>
-  <p>Salut, <?php print $user['username'] ?></p>
-  <p><a href="<?= $this->url('admin_deconnexion');  ?>">deconnexion</a></p>
+  <p><a href="<?= $this->url('admin_deconnexion'); ?>">deconnexion</a></p>
 <?php endif ?>
 </p>
 
