@@ -1,6 +1,9 @@
 <?php $this->layout('layout', ['title' => 'Inscription']) ?>
 
 <?php $this->start('main_content') ?>
+<?php if(isset($message)): ?>
+	<p><?= $message  ?></p>
+<?php endif ?>
 <div class="container">
 	<div class="row">
 		<div class="col-md-4 col-md-offset-4">
@@ -18,22 +21,22 @@
 							<div class="alert alert-warning">
 	  						<strong>Ce email est deja enregistré.</strong> Click ici pour entrer comme utilisateur.
 							</div>
-						<?php endIf ?>
-						<div class="form-group">
-							<input class="form-control" type="email" name="email" placeholder="E-mail" value="eedf@gonzalez.rocks">
-						</div>
-						<div class="form-group">
-							<input class="form-control" type="text" name="phone" placeholder="Téléphone" value="123456789">
-						</div>
-						<div class="form-group">
-							<input class="form-control" type="password" name="password" placeholder="Mot de passe">
-						</div>
-						<div class="form-group">
-							<textarea class="form-control" placeholder="Votre motivation" name="motivation"></textarea>
-						</div>
-						<div class="form-group text-center">
-							<button class="btn btn-lg btn-success">S'inscrire</button>
-						</div>
+							<?php endIf ?>
+							<div class="form-group">
+								<input class="form-control" type="email" name="email" placeholder="E-mail" value="eedf@gonzalez.rocks">
+							</div>
+							<div class="form-group">
+								<input class="form-control" type="text" name="phone" placeholder="Téléphone" value="123456789">
+							</div>
+							<div class="form-group">
+								<input class="form-control" type="password" name="password" placeholder="Mot de passe">
+							</div>
+							<div class="form-group">
+								<textarea class="form-control" placeholder="Votre motivation" name="motivation"></textarea>
+							</div>
+							<div class="form-group text-center">
+								<button class="btn btn-lg btn-success">S'inscrire</button>
+							</div>
 					</form>
 				</div>
 			</div>

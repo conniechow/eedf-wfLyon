@@ -72,6 +72,7 @@
 						<li><a href="<?= $this->url('userManagement_list');?>">Liste Adherents</a></li>
 						<li><a href="<?= $this->url('userManagement_list_admins');?>">Liste Admins</a></li>
 						<li><a href="<?= $this->url('userManagement_get_logged_user');?>">Voir connexion</a></li>
+						<li><a href="<?= $this->url('admin_deconnexion');  ?>">deconnexion</a></li>
 					</ul>
 				</div>
 				<!-- /.sidebar-collapse -->
