@@ -33,7 +33,7 @@ class DocumentController extends Controller {
 			$document = $this->documentsModel->search($id);
 			$document = $document[0];
 		}
-		$this->show('document_documents', ['document' => $document]);
+		$this->show('document_documents', ['documents' => $document]);
 	}
 
 
@@ -50,12 +50,21 @@ class DocumentController extends Controller {
 		}
 	}
 
-	public function edit_documents(){
-		$this->show('document/edit_documents');
+	public function edit_documents($id){
+		//$this->allowTo('admin');
+		if($_SERVER['REQUEST_METHOD'] == 'GET'){
+			$document = $this->documentsModel->find($id);
+			$this->show('document/edit_documents', ['documents' => $document]);
+		}else{
+			$this->documentsModel->update_documents($_POST, $id);
+			$this->redirectToRoute('document_documents');
+		}
 	}
 
 	public function delete_documents(){
-		$this->show('document/delete_documents');
+		$this->show('document/delete_documents', ['documents' => $document]);
+		$this->documentsModel->delete($_POST, $id);
+		$this->redirectToRoute('document_documents');
 	}
 }
 

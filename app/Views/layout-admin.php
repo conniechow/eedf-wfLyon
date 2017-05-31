@@ -32,11 +32,11 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="index.html">Administration :: <?= $this->e($title) ?></a>
+				<a class="navbar-brand" href="<?= $this->url('admin_dashboard'); ?>">Administration :: <?= $this->e($title) ?></a>
 			</div>
 			<!-- /.navbar-header -->
 
-			<ul class="nav navbar-top-links navbar-right">
+			<ul class="nav navbar-top-links navbar-right" id="navright">
 				<li>
 					<a class=""  href="<?= $this->url('admin_dashboard'); ?>">
 						Accueil
@@ -49,30 +49,46 @@
 			<div class="navbar-default sidebar" role="navigation">
 				<div class="sidebar-nav navbar-collapse">
 					<ul class="nav" id="side-menu">
-						<li><a href="<?= $this->url('default_home');?>">Accueil</a></li>
+						<li>
+							<a href="<?= $this->url('default_home');?>">Accueil</a>
+						</li>
 						<li>
 							<a href="<?= $this->url('document_documents'); ?>" class="text-uppercase"><i class="fa fa-dashboard fa-fw"></i> Document</a>
 							<ul>
-								<li><a href="<?= $this->url('document_add_documents'); ?>">Ajout Document <i class="fa fa-plus-circle fa-lg"></i></a></li>
+								<li>
+									<a href="<?= $this->url('document_add_documents'); ?>">Ajout Document <i class="fa fa-plus-circle fa-lg"></i></a>
+								</li>
 							</ul>
 						</li>
 						<li>
 							<a href="<?= $this->url('admin_dashboard'); ?>" class="text-uppercase"><i class="fa fa-dashboard fa-fw"></i> Photos</a>
 							<ul>
-								<li><a href="<?= $this->url('document_add_documents'); ?>">Ajout Photos <i class="fa fa-plus-circle fa-lg"></i></a></li>
+								<li>
+									<a href="<?= $this->url('document_add_documents'); ?>">Ajout Photos <i class="fa fa-plus-circle fa-lg"></i></a>
+								</li>
 							</ul>
 						</li>
 						<li>
 							<a href="<?= $this->url('admin_dashboard'); ?>" class="text-uppercase"><i class="fa fa-dashboard fa-fw"></i> Evenements</a>
 							<ul>
-								<li><a href="<?= $this->url('document_add_documents'); ?>">Ajout Evenement <i class="fa fa-plus-circle fa-lg"></i></a></li>
+								<li>
+									<a href="<?= $this->url('document_add_documents'); ?>">Ajout Evenement <i class="fa fa-plus-circle fa-lg"></i></a>
+								</li>
 							</ul>
 						</li>
-						<li><a href="<?= $this->url('userManagement_inscription');?>">Inscription</a></li>
-						<li><a href="<?= $this->url('userManagement_list');?>">Liste Adherents</a></li>
-						<li><a href="<?= $this->url('userManagement_list_admins');?>">Liste Admins</a></li>
-						<li><a href="<?= $this->url('userManagement_get_logged_user');?>">Voir connexion</a></li>
-						<li><a href="<?= $this->url('admin_deconnexion');  ?>">deconnexion</a></li>
+						<li><a href="<?= $this->url('userManagement_inscription');?>">Inscription</a>
+						</li>
+						<li>
+							<a href="<?= $this->url('userManagement_list');?>">Liste Adherents</a>
+						</li>
+						<li>
+							<a href="<?= $this->url('userManagement_list_admins');?>">Liste Admins</a>
+						</li>
+						<li>
+							<a href="<?= $this->url('userManagement_get_logged_user');?>">Voir connexion</a></li>
+						<li>
+							<a href="<?= $this->url('admin_deconnexion');  ?>">deconnexion</a>
+						</li>
 					</ul>
 				</div>
 				<!-- /.sidebar-collapse -->
