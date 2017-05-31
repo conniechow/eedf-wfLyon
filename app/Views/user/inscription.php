@@ -1,46 +1,66 @@
-<?php $this->layout('layout', ['title' => 'Inscription']) ?>
+<?php $this->layout('layout-material-design', ['title' => 'Inscription']) ?>
 
 <?php $this->start('main_content') ?>
-<?php if(isset($message)): ?>
-	<p><?= $message  ?></p>
-<?php endif ?>
-<div class="container">
-	<div class="row">
-		<div class="col-md-4 col-md-offset-4">
-			<div class="login-panel panel panel-default">
-				<div class="panel-heading">
-					<a href="<?= $this->url('default_home'); ?>">Accueil</a>
-					<h3>Inscription</h3>
-				</div>
-				<div class="panel-body">
-					<form method="POST" action="<?= $this->url('userManagement_inscription') ?>">
-						<div class="form-group">
-							<input class="form-control" type="text" name="username" placeholder="Nom">
-						</div>
-						<?php if(isset($error) && $error == 'emailExists'): ?>
-							<div class="alert alert-warning">
-	  						<strong>Ce email est deja enregistré.</strong> Click ici pour entrer comme utilisateur.
-							</div>
-							<?php endIf ?>
-							<div class="form-group">
-								<input class="form-control" type="email" name="email" placeholder="E-mail" value="eedf@gonzalez.rocks">
-							</div>
-							<div class="form-group">
-								<input class="form-control" type="text" name="phone" placeholder="Téléphone" value="123456789">
-							</div>
-							<div class="form-group">
-								<input class="form-control" type="password" name="password" placeholder="Mot de passe">
-							</div>
-							<div class="form-group">
-								<textarea class="form-control" placeholder="Votre motivation" name="motivation"></textarea>
-							</div>
-							<div class="form-group text-center">
-								<button class="btn btn-lg btn-success">S'inscrire</button>
-							</div>
-					</form>
-				</div>
-			</div>
-		</div>
+<hgroup>
+<h1>Material Design Form</h1>
+<h3>Inscription</h3>
+<?php if(isset($message) && $message == 'ok'): ?>
+	<script type="text/javascript">
+		console.log('ok');
+	</script>
+	<div class="checkmark-circle">
+	  <div class="background"></div>
+	  <div class="checkmark draw"></div>
 	</div>
-</div>
+<?php endif ?>
+</hgroup>
+<form id="form" method="POST" action="<?= $this->url('userManagement_inscription') ?>">
+	<!-- USERNAME -->
+	<div class="group">
+		<input type="text" name="username"><span class="highlight"></span><span class="bar"></span>
+		<label>Nom</label>
+	</div>
+	<!-- ERROR USERNAME -->
+	<?php if(isset($error) && $error == 'usernameExists'): ?>
+		<div>
+			<strong>Ce email est deja enregistré.</strong> Click ici pour entrer comme utilisateur.
+		</div>
+	<?php endIf ?>
+	<!-- EMAIL -->
+	<div class="group">
+		<input type="text" name="email"><span class="highlight"></span><span class="bar"></span>
+		<label>eMail</label>
+	</div>
+	<!-- ERROR EMAIL -->
+	<?php if(isset($error) && $error == 'emailExists'): ?>
+		<div>
+			<strong>Ce email est deja enregistré.</strong> Click ici pour entrer comme utilisateur.
+		</div>
+	<?php endIf ?>
+	<!-- PHONE -->
+	<div class="group">
+		<input type="text" name="phone"><span class="highlight"></span><span class="bar"></span>
+		<label>Phone</label>
+	</div>
+	<!-- ERROR PHONE -->
+	<?php if(isset($error) && $error == 'phoneExists'): ?>
+		<div>
+			<strong>Ce email est deja enregistré.</strong> Click ici pour entrer comme utilisateur.
+		</div>
+	<?php endIf ?>
+	<!-- PASSWORD -->
+	<div class="group">
+		<input type="text" name="password"><span class="highlight"></span><span class="bar"></span>
+		<label>Password</label>
+	</div>
+	<!-- ERROR PASSWORD -->
+	<?php if(isset($error) && $error == 'emailExists'): ?>
+		<div>
+			<strong>Ce email est deja enregistré.</strong> Click ici pour entrer comme utilisateur.
+		</div>
+	<?php endIf ?>
+	<button id="buttonSubmit" type="button" class="button buttonBlue">S'inscrire
+		<div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+	</button>
+</form>
 <?php $this->stop('main_content') ?>

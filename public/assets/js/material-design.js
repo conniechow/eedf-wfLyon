@@ -8,6 +8,11 @@ $(window, document, undefined).ready(function() {
       $this.removeClass('used');
   });
 
+  $('input').focus(function(){
+    console.log('hide');
+    $('.checkmark-circle').hide();
+  })
+
   var $ripples = $('.ripples');
 
   $ripples.on('click.Ripples', function(e) {
@@ -30,6 +35,10 @@ $(window, document, undefined).ready(function() {
 
   $ripples.on('animationend webkitAnimationEnd mozAnimationEnd oanimationend MSAnimationEnd', function(e) {
   	$(this).removeClass('is-active');
+  });
+
+  $('#buttonSubmit').click(function(){
+    document.getElementById("form").submit();
   });
 
 });
