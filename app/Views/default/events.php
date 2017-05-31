@@ -44,10 +44,11 @@
 
       // On récupère tout le contenu de la table events
       $reponse = $bdd->query('SELECT * FROM events');
-      //var_dump($reponse);
+      var_dump($reponse);
 
         while($donnees = $reponse->fetch()){ ?>
-                <?php if(($donnees['idevent']) < 4){ ?>
+                <?php if($donnees['idevent'] < 4){ ?>
+                      <?php var_dump($donnees); ?>
                         <div class="container">
                             <p>
                               <strong>Sortie : "</strong>  <?php echo $donnees['title']; ?><strong> "</strong><br />
@@ -57,6 +58,8 @@
                             </p>
                         <div>
                 <?php }else{ ?>
+                  <?php var_dump($donnees); ?>
+
                   <div id="event" class="container hidden">
                       <p>
                         <strong>Sortie : "</strong>  <?php echo $donnees['title']; ?><strong> "</strong><br />
