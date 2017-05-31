@@ -6,13 +6,16 @@
 		<div id="docprincipaux">
 			<?php foreach ($documents as $key => $document) {
 				if($document['id_categorie'] == '1'){ ?>
-				<h3><?= $document['docname'].'<br />';?> </h3>
-				<h5><?= $document['docdescription'].'<br />';?></h5>
-					<?= '<a href="'. $this->assetUrl($document['docfile']).'" target="_blank"><i class="material-icons">cloud_download</i></a>
-					<br />
-					<a href="" class="btn btn-xs btn-success">Modifier</a>
-					<a href="" class="btn btn-xs btn-danger">Supprimer</a>';
-
+				<div class="col-md-6 text-center">
+					<h4><?= $document['docname'].'<br />';?> </h4>
+					<h5><?= $document['docdescription'].'<br />';?></h5>
+						<?= '<a href="'. $this->assetUrl($document['docfile']).'" target="_blank"><i class="material-icons">cloud_download</i></a>
+						<br />
+						<div id=btndoc>
+						<a href="'. $this->url('document_edit_documents', ['id' => $document['id']]).'" class="btn btn-xs btn-success">Modifier</a>
+						<a href="documents"  onclick="return confirm(\'Voulez-vous vraiment supprimer le fichier ?\');" class="btn btn-xs btn-danger">Supprimer</a>
+						</div>';
+					?></div><?php
 				}
 			} 
 			?>
@@ -23,9 +26,16 @@
 		<div id="docsecondaires">
 			<?php foreach ($documents as $key => $document) {
 				if($document['id_categorie'] == '2'){ ?>
-					<h3><?= $document['docname'].'<br />';?></h3>
+				<div class="col-md-6 text-center">
+					<h4><?= $document['docname'].'<br />';?></h4>
 					<h5><?= $document['docdescription'].'<br />';?></h5>
-					<?= '<a href="'. $this->assetUrl($document['docfile']).'" target="_blank"><i class="material-icons">cloud_download</i></a>';
+					<?= '<a href="'. $this->assetUrl($document['docfile']).'" target="_blank"><i class="material-icons">cloud_download</i></a>
+						<br />
+						<div id=btndoc>
+						<a href="'. $this->url('document_edit_documents', ['id' => $document['id']]).'" class="btn btn-xs btn-success">Modifier</a>
+						<a href="documents"  onclick="return confirm(\'Voulez-vous vraiment supprimer le fichier ?\');" class="btn btn-xs btn-danger">Supprimer</a>
+						</div>';
+					?></div><?php
 				}
 			} 
 			?>
