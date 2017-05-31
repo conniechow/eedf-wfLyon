@@ -25,11 +25,16 @@
 		['GET','/ajouterAdmin','UserManagement#addAdminForm','userManagement_add_user_admin_form'],
 		['POST','/ajouterAdmin','UserManagement#addAdmin','userManagement_add_user_admin'],
 		['GET','/voirSession','UserManagement#getLoggedUser','userManagement_get_logged_user'],
-  	['GET|POST','/inscription','userManagement#inscription','admin_inscription'],
+  	        ['GET|POST','/inscription','userManagement#inscription','admin_inscription'],
 		['GET|POST','/connexion','userManagement#connexion','login'],
 		['GET|POST','/deconnexion','userManagement#deconnexion','admin_deconnexion'],
 		['GET','/confirmation','userManagement#confirmation','admin_confirmation'],
-    ['POST','/login','userManagement#loginUser','userManagement_login'],
+                ['POST','/login','userManagement#loginUser','userManagement_login'],
 		['GET','/listUsers','userManagement#listUsers','guillermo_userManagement_list'],
 		['GET|POST', '/admin/photos', 'photo#photos', 'photo_photos'],
+		//documents
+		['GET|POST', '/admin/documents', 'Document#documents', 'document_documents'],
+		['GET|POST', '/admin/ajout-documents', 'Document#add_documents', 'document_add_documents'],
+		['GET|POST', '/admin/modif-documents/[:id]', 'Document#edit_documents', 'document_edit_documents'],
+		['GET', '/admin/voir_participants', 'participant#participants', 'participant_voir_participants'],
 	);
