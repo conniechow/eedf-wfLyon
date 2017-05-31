@@ -5,20 +5,20 @@ header nav.navbar{
 }
 header nav.navbar a.navbar-brand{
 	color: black;
-	font-size: 27px;
+	font-size: 25px;
 }
 
-header #sidebar ul{
-	background-color: #34495e;
-
+header nav.navbar ul#navright li a{
+	color: black;
+	font-size: 17px;
 }
+
 header #sidebar ul li a{
-	color: #fff; 
 	list-style: none;
 }
 
 header #sidebar ul li ul li{
-	margin-bottom: 15px;
+	margin-bottom: 14px;
 	list-style: none;
 }
 header #sidebar ul li ul:hover{
@@ -28,10 +28,58 @@ header #sidebar ul li ul:hover{
 }
 header #sidebar ul li ul li a:hover{
 	color: black;
+
 }
 
 
+header ul#side-menu li{
+	margin: 5px 0px 5px 5px;
+}
+header ul#side-menu li a.text-uppercase{
+	font-weight: bold;
+}
 
+
+// ACCUEIL ADMIN
+#homepage{}
+#homepage .col-lg-4{
+	padding-top: 50px;
+	padding-bottom: 30px;
+	color: #fff;
+}
+#homepage #blocevent{
+	background: #2e8ece;
+	border: 1px solid #2e8ece;
+	border-radius: 5px;
+}
+#homepage #blocphoto{
+	background: #e67e22;
+	border: 1px solid #e67e22;
+	border-radius: 5px;
+}
+#homepage #blocdoc{
+	background: #87D37C;
+	border: 1px solid #87D37C;
+	border-radius: 5px;
+}
+#homepage #blocinscription{
+	background: #f1c40f;
+	border: 1px solid #f1c40f;
+	border-radius: 5px;
+}
+#homepage #blocadherent{
+	background: #19b698;
+	border: 1px solid #19b698;
+	border-radius: 5px;
+}
+#homepage #blocadmin{
+	background: #e74c3c;
+	border: 1px solid #e74c3c;
+	border-radius: 5px;
+}
+#homepage a span{
+	color: #2C3E50;
+}
 // DOCUMENTS
 #zonenoire{}
 #zonenoire{
@@ -41,17 +89,28 @@ header #sidebar ul li ul li a:hover{
 
 #zonenoire #docprincipaux a i{
 	font-size: 150px;
-	color: white;
+	color: #fff;
 }
 
 #zoneblanche #docsecondaires a i{
 	font-size: 150px;
+}
+#docprincipaux #btndoc,
+#docsecondaires #btndoc{
+	padding-bottom: 60px;
+}
+#zonenoire h3,
+#zoneblanche h3{
+	font-family: 'Fjalla One', sans-serif;
 }
 
 
 // AJOUT DOCUMENT
 
 form#ajoutdocform{}
+#formulairedoc{
+	text-align: center;
+}
 form#ajoutdocform label{
 	font-size: 18px;
 	margin: 20px 0px 10px 0px;
@@ -68,4 +127,7 @@ button[type=submit]#btnadddoc{
 form select#id_categorie{ //changer l'id en categorie sur le html
 	font-weight: bold;
 	margin: 5px 0px 5px 0px;
+}
+h3#titredoc{
+	left: 50px;
 }

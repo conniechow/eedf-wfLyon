@@ -6,6 +6,8 @@ use \W\Controller\Controller;
 use \W\Security\AuthentificationModel;
 use \W\Security\StringUtils;
 use \Model\AdherentModel;
+use \Model\AdminModel;
+use \Model\Globals;
 
 class UserManagementController extends Controller {
 
@@ -13,28 +15,68 @@ class UserManagementController extends Controller {
   protected $auth;
   protected $utils;
   protected $mail;
+  protected $adminUser;
 
   public function __construct(){
-    //$this->currentUser = new AdherentModel;
     $this->currentUser = new AdherentModel;
     $this->auth        = new AuthentificationModel;
     $this->mail        = new \PHPMailer();
     $this->utils       = new StringUtils;
+    $this->adminUser   = new AdminModel;
   }
 
+  public function listAdmins(){
+    $data = array('role'=>Globals::ADMIN);
+    $usersList = $this->currentUser->search($data);
+    $this->show('admin/manageUsers',['usersList'=>$usersList,'loggedUser'=>$this->auth->getLoggedUser()]);
+  }
   public function listUsers(){
+    $data = array('role'=>Globals::ADHERENT);
+    $usersList = $this->currentUser->search($data);
+    $this->show('admin/manageUsers',['usersList'=>$usersList,'loggedUser'=>$this->auth->getLoggedUser()]);
 
+  }
+  public function deleteUser($id){
+    $this->currentUser->delete($id);
     $this->show('admin/manageUsers');
+  }
+  public function detailsUser($id){
+    $user = $this->currentUser->find($id);
+    $this->show('admin/manageUsers',['user'=>$user,'loggedUser'=>$this->auth->getLoggedUser()]);
+  }
+  public function editDetailsUser(){
+    $this->currentUser->update($_POST,$_POST['id']);
+    $user = $this->currentUser->find($_POST['id']);
+    $this->show('admin/manageUsers',['user'=>$user,'loggedUser'=>$this->auth->getLoggedUser()]);
+  }
+  public function editDetailsUserForm($id){
+    $user = $this->currentUser->find($id);
+    $this->show('admin/manageUsers',['user'=>$user,'loggedUser'=>$this->auth->getLoggedUser()]);
   }
   public function loginUser(){
     if($this->auth->isValidLoginInfo($_POST['email'], $_POST['password'])){
       $utilisateur = $this->currentUser->getUserByUsernameOrEmail($_POST['email']);
       $this->auth->logUserIn($utilisateur);
-      $this->show('admin/manageUsers',['email'=>$_POST['email'], 'password'=>$_POST['password'], 'logged'=>$this->auth->getLoggedUser()]);
+      switch($utilisateur['role']){
+        case Globals::SUPERADMIN:
+          $this->show('admin/manageUsers',['role'=>'superadmin','loggedUser'=>$this->auth->getLoggedUser()]);
+        break;
+        case Globals::ADMIN:
+          $this->show('admin/manageUsers',['role'=>'admin','loggedUser'=>$this->auth->getLoggedUser()]);
+        break;
+        case Globals::ADHERENT:
+          $this->redirectToRoute('default_home');
+        break;
+        default:
+          $this->redirectToRoute('default_home');
+        break;
+      }
+      // USER LOGIN IS NOT VALID
     } else {
-      $this->show('admin/manageUsers', ['error'=>'incorrect']);
+    $this->show('default/home',['message'=>'login incorrect']);
     }
   }
+
   public function inscription(){
     if($_SERVER['REQUEST_METHOD'] == 'GET'){
       $this->show('user/inscription');
@@ -47,11 +89,9 @@ class UserManagementController extends Controller {
         $duplicates = true;
       }
       if(!$duplicates){
-
         $_POST['password'] = $this->auth->hashPassword($_POST['password']);
-        $_POST['role'] = 'admin';
+        $_POST['role'] = Globals::ADHERENT;
         $_POST['token'] = $randString = $this->utils->randomString();
-
         try{
           $newUser = $this->currentUser->insertAdherent($_POST);
         }
@@ -66,12 +106,11 @@ class UserManagementController extends Controller {
           // not a MySQL exception
           $e->getMessage();
         }
-
-        $this->auth->logUserIn($newUser);
-        $isSentEmail = $this->sendEmail($_POST['email'], $newUser['id_user'], $_POST['token']);
-        $this->show('dev/output',['result'=>'email sent','id'=>$newUser['id_user']]);
+        //$this->auth->logUserIn($newUser);
+        $isSentEmail = $this->sendEmail($_POST['email'], $newUser['id'], $_POST['token']);
+        $this->show('user/inscription',['message'=>'ok']);
       } else {
-        $this->show('dev/output',['result'=>'duplicate fields']);
+        $this->show('user/inscription',['message'=>'duplicate']);
       }
     }
   }
@@ -96,14 +135,19 @@ class UserManagementController extends Controller {
     $this->redirectToRoute('default_home');
   }
 
-  public function login(){
-    $this->show('admin/login');
+  public function getLoggedUser(){
+    $this->show('admin/manageUsers', ['loggedUser'=>$this->auth->getLoggedUser()]);
   }
-
-  public function confirmation(){
-    $result = array();
-    if($_GET['token']){
-      $result['token'] = $_GET['token'];
+  public function addAdminForm(){
+    $this->show('admin/manageUsers');
+  }
+  public function addAdmin(){
+    $_POST['role'] = Globals::ADMIN;
+    $_POST['password'] = $this->auth->hashPassword($_POST['password']);
+    if($newAdmin = $this->adminUser->insertAdmin($_POST)){
+      $this->show('admin/manageUsers', ['newAdmin'=>$newAdmin]);
+    }else{
+      $this->show('admin/manageUsers', ['error'=>'incorrect']);
     }
     if($_GET['id']){
       $result['id'] = $_GET['id'];
@@ -111,8 +155,10 @@ class UserManagementController extends Controller {
     // Update on the database
     $data = array('confirm'=>1);
     $this->currentUser->update($data, $_GET['id']);
-    $this->show('dev/output',['result'=>$result]);
+    $this->show('admin/manageUsers');
   }
+
+// UTILITIES
 
   private function sendEmail($address,$userId,$token){
     $this->mail->isSMTP();
@@ -129,11 +175,15 @@ class UserManagementController extends Controller {
     $url = $this->generateTokenUrl($userId,$token);
     $bodyContent = '<p>Verification</p><a href="'.$url.'">'.$token.' '.$userId.'</a><p></p>';
     $this->mail->Body = $bodyContent;
-    if (!$this->mail->send()) {
-        return "Mailer Error: " . $this->mail->ErrorInfo;
-    } else {
-        return "Message sent!";
-    }
+
+    // if (!$this->mail->send()) {
+    //     return "Mailer Error: " . $this->mail->ErrorInfo;
+    // } else {
+    //     return "Message sent!";
+    // }
+
+    return true;
+
   }
 
   private function generateTokenUrl($userId, $token){
