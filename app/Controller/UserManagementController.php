@@ -77,6 +77,14 @@ class UserManagementController extends Controller {
     }
   }
 
+  public function inscription_bk(){
+    if($_SERVER['REQUEST_METHOD'] == 'GET'){
+      $this->show('user/inscription');
+    }else{
+      $this->show('user/inscription',['output'=>$_POST]);
+    }
+  }
+
   public function inscription(){
     if($_SERVER['REQUEST_METHOD'] == 'GET'){
       $this->show('user/inscription');
