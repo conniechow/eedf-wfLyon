@@ -45,6 +45,7 @@
 		<li><a href="<?= $this->url('userManagement_inscription');?>">Inscription</a></li>
 		<li><a href="<?= $this->url('default_events'); ?>">Calendrier/Evénements</a></li>
 		<li><a href="<?= $this->url('userManagement_list_users'); ?>">Adherents Management</a></li>
+		<li><a href="<?= $this->url('events_events'); ?>">Evénements/Calendrier</a></li>
 	</ul>
 <?php endif ?>
 
