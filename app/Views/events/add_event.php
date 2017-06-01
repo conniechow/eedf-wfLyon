@@ -1,35 +1,32 @@
-<?php $this->layout('layout-admin', ['title'=>'Ajout de document']); ?>
+<?php $this->layout('layout-admin', ['title'=>'Ajout d\'événement']); ?>
 
 <?php $this->start('main_content') ?>
 <div class="container-fluid">
-<h3 id="titredoc"> Ajout de document</h3>
-<div id="formulairedoc">
+<h3 id="titreElem"> Ajout d'événement</h3>
+<div id="formulaireElem">
   <div class="col-md-3"></div>
-  <form class="col-md-6 jumbotron" action="<?= $this->url('document_add_documents') ?>" method="post" enctype="multipart/form-data" id="ajoutdocform">
-      <div class="form-group text-center" id="formdoc2">
-          <label for="docname" class="control-label text-center">Titre du document</label>
-          <input type="text" class="form-control" name="docname" id="docname" value="" required>
+  <form class="col-md-6 jumbotron" action="<?= $this->url('event_add_event') ?>" method="post" enctype="multipart/form-data" id="ajoutElemForm">
+      <div class="form-group text-center" id="formElem2">
+          <label for="elemName" class="control-label text-center">Titre de l'événement</label>
+          <input type="text" class="form-control" name="elemName" id="elemName" value="" required>
     </div>
+
+    <div class="form-group text-center" id="startdate">
+      <label for="startdate" class="control-label text-center">Date de début</label>
+      <input type="date" class="form-control" name="startdate" name="startdate" value="<?= date('Y-m-d h:i:s'); ?>" required>
+    </div>
+    <div class="form-group text-center" id="enddate">
+        <label for="enddate" class="control-label text-center">Date de fin</label>
+        <input type="date" class="form-control" name="enddate" name="enddate" value="<?= date('Y-m-d h:i:s'); ?>" required>
+    </div>
+
     <div class="form-group text-center">
-          <label for="docdescription" class="control-label">Description du document</label>
-          <textarea id="docdescription" class="form-control" name="docdescription"></textarea>
+          <label for="elemDescription" class="control-label">Description de l'événement</label>
+          <textarea id="elemDescription" class="form-control" name="elemDescription"></textarea>
     </div>
-    <div class="form-group text-center">
-        <label for="id_categorie" class="control-label">Catégorie de document</label>
-        <div>
-           <select id="id_categorie" name="id_categorie" class="form-control" required>
-              <option disabled selected required>-- Sélectionner un type de doc --</option>
-              <option value="1" id="id_categorie" required>Document principal</option>
-              <option value="2" id="id_categorie" required>Document de sortie</option>
-            </select>
-        </div>
-    </div>
-    <!-- Ajout fichier -->
-    <div class="form-group text-center">
-          <label for="docfile" class="control-label">Fichier</label>
-          <input type="file" name="docfile" class="form-control" id="docfile" required>
-    </div>
-    <!-- -->
+
+
+    
     <div class="form-group text-center">
           <div class="">
               <input type="hidden" name="date" value="<?= date('Y-m-d h:i:s'); ?>">

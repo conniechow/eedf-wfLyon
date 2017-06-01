@@ -9,11 +9,11 @@
           <input type="text" class="form-control" name="docname" id="docname" value="<?php echo $documents['docname']?>" required>
     </div>
     <div class="form-group text-center">
-          <label for="docdescription" class="control-label">Description e l'événement</label>
+          <label for="docdescription" class="control-label">Description de l'événement</label>
           <textarea id="docdescription" class="form-control" name="docdescription"><?php echo $documents['docdescription']?></textarea>
     </div>
     <div class="form-group text-center">
-        <label for="id_categorie" class="control-label">Catégorie e l'événement</label>
+        <label for="id_categorie" class="control-label">Catégorie de l'événement</label>
         <div>
            <select id="id_categorie" name="id_categorie" class="form-control">
               <option disabled>-- Sélectionner un type de doc --</option>
