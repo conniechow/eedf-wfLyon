@@ -40,5 +40,8 @@
 		['GET|POST', '/admin/documents', 'Document#documents', 'document_documents'],
 		['GET|POST', '/admin/ajout-documents', 'Document#add_documents', 'document_add_documents'],
 		['GET|POST', '/admin/modif-documents/[:id]', 'Document#edit_documents', 'document_edit_documents'],
+		['GET|POST', '/admin/delete-documents/[:id]', 'Document#delete_documents', 'document_delete_documents'],
+
 		['GET', '/admin/voir_participants', 'participant#participants', 'participant_voir_participants'],
+
 	);
