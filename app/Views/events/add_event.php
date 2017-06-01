@@ -26,7 +26,7 @@
     </div>
 
 
-    
+
     <div class="form-group text-center">
           <div class="">
               <input type="hidden" name="date" value="<?= date('Y-m-d h:i:s'); ?>">
