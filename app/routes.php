@@ -14,7 +14,7 @@
 		['GET', '/articles/[i:id]','Blog#voirArticle','blog_id_article'],
 		['GET', '/articles/[a:slug]','Blog#voirArticle','blog_slug_article'],
 		['GET|POST','/admin/edit-article/[:id]','Blog#editArticle', 'Blog_EditArticle'],
-		['GET|POST', '/admin/addMember', 'member#addMember', 'member_addMember'],
+		
 		//user management
 		['GET|POST','/inscription','UserManagement#inscription','userManagement_inscription'],
 		['GET','/listUsers','UserManagement#listUsers','userManagement_list_users'],
@@ -38,5 +38,7 @@
 		['GET|POST', '/admin/documents', 'Document#documents', 'document_documents'],
 		['GET|POST', '/admin/ajout-documents', 'Document#add_documents', 'document_add_documents'],
 		['GET|POST', '/admin/modif-documents/[:id]', 'Document#edit_documents', 'document_edit_documents'],
+		//members
+		['GET|POST', '/admin/addMember', 'member#addMember', 'member_addMember'],
 		['GET', '/admin/voir_members', 'Member#members', 'member_showMembers'],
 	);
