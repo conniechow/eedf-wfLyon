@@ -27,7 +27,7 @@
 
     	<h2>Prochains Evénements</h2>
 
-      <input id="afficheElements" type="button" value="Afficher plus d'éléments" class="btn-info btn-md">
+
 
 <?php try
       {
@@ -49,7 +49,7 @@
         while($donnees = $reponse->fetch()){ ?>
                 <?php if($donnees['idevent'] < 4){ ?>
 
-                        <div class="container">
+                        <div class="container col-md-4">
                             <p>
                               <strong>Sortie : "</strong>  <?php echo $donnees['title']; ?><strong> "</strong><br />
                               Durée de l'événement: du <?php echo $donnees['startdate']; ?> au <?php echo $donnees['enddate']; ?>.<br />
@@ -59,7 +59,7 @@
                         </div>
                 <?php }else{ ?>
 
-                  <div class="container event hidden">
+                  <div class="container col-md-4 event hidden">
                       <p>
                         <strong>Sortie : "</strong>  <?php echo $donnees['title']; ?><strong> "</strong><br />
                         Durée de l'événement: du <?php echo $donnees['startdate']; ?> au <?php echo $donnees['enddate']; ?>.<br />
@@ -73,7 +73,7 @@
       $reponse->closeCursor(); ?>  <!--fin de la boucle, le tableau contient toute la BDD -->
 
 
-
+      <input id="afficheElements" type="button" value="Afficher plus d'éléments" class="btn-info btn-md">
 
 
 <?php $this->stop('main_content') ?>
