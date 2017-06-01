@@ -3,7 +3,7 @@
 namespace Model;
 use \W\Model\ConnectionModel;
 
-class ParticipantModel extends \W\Model\Model{
+class MembersModel extends \W\Model\Model{
  
   /*
   function __construct(){
