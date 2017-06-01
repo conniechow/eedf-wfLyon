@@ -34,7 +34,7 @@ CREATE TABLE `members` (
 	`id_user` INT NOT NULL,
 	`name` varchar(255) NOT NULL,
 	`firstname` varchar(255) NOT NULL,
-	`pseudo` varchar(255),
+	`totem` varchar(255),
 	`infosup` varchar(255),
 	`register` BOOLEAN NULL DEFAULT NULL,
 	PRIMARY KEY (`id`)
