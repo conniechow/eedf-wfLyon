@@ -6,6 +6,8 @@
 		['GET', '/cgv', 'Default#cgv', 'default_cgv'],
 		['GET', '/gallery', 'Default#gallery', 'default_gallery'],
 		['GET', '/events', 'Events#events', 'events_events'],
+		['GET|POST', '/add_event', 'Events#add_event', 'events_add_event'],
+		['GET|POST', '/edit_event', 'Events#edit_event', 'events_edit_event'],
 		['GET', '/admin', 'Admin#dashboard', 'admin_dashboard'],
 		['GET|POST', '/admin/ajout-article', 'Blog#addArticle', 'blog_addArticle'],
 		['GET', '/admin/articles', 'Blog#listArticles', 'blog_listArticles'],

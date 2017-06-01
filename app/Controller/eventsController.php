@@ -20,4 +20,12 @@ class EventsController extends Controller
 	public function events(){
 		$this->show('events/events');
 	}
+
+	public function add_event(){
+		$this->show('events/add_event');
+	}
+
+	public function edit_event(){
+		$this->show('events/edit_event');
+	}
 }
