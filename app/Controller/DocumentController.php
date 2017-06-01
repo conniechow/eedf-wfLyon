@@ -61,9 +61,11 @@ class DocumentController extends Controller {
 		}
 	}
 
-	public function delete_documents(){
-		$this->show('document/delete_documents', ['documents' => $document]);
-		$this->documentsModel->delete($_POST, $id);
+	public function delete_documents($id){
+		$document = $this->documentsModel->find($id);
+		$this->documentsModel->delete($id);
+		$chemindoc = '../public/assets/'.$document['docfile'];
+		unlink($chemindoc); /* suppression de la photo */
 		$this->redirectToRoute('document_documents');
 	}
 }
