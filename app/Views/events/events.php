@@ -56,17 +56,17 @@
                               Description :  <?php echo $donnees['description']; ?>.<br />
                               Les participants déjà inscrits sont : <?php echo $donnees['id_participant']; ?>
                             </p>
-                        <div>
+                        </div>
                 <?php }else{ ?>
 
-                  <div id="event" class="container hidden">
+                  <div class="container event hidden">
                       <p>
                         <strong>Sortie : "</strong>  <?php echo $donnees['title']; ?><strong> "</strong><br />
                         Durée de l'événement: du <?php echo $donnees['startdate']; ?> au <?php echo $donnees['enddate']; ?>.<br />
                         Description :  <?php echo $donnees['description']; ?>.<br />
                         Les participants déjà inscrits sont : <?php echo $donnees['id_participant']; ?>
                       </p>
-                  <div>
+                  </div>
 
                <?php }
       }
@@ -82,7 +82,7 @@
 <script src="<?= $this->assetUrl('js/home.js') ?>" type="text/javascript"></script>
 <script>
     $('#afficheElements').on('click',function(){
-    		  $('#event').removeClass('hidden');
+    		  $('.event').removeClass('hidden');
     });
 </script>
 <?php $this->stop('script') ?>
