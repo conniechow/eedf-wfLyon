@@ -6,12 +6,11 @@ use \W\Controller\Controller;
 
 class EventsController extends Controller
 {
+	protected $eventsModel;
 
-	/**
-	 * Page d'accueil par défaut
-	 */
-	public function home(){
-		$this->show('default/home');
+
+	public function __construct(){
+		$this->eventsModel = new events;
 	}
 
 	/**
