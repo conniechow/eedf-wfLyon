@@ -2,7 +2,7 @@
 
 <?php $this->start('main_content') ?>
 <div class="container-fluid">
-<h3 id="titredoc"> Ajout de document</h3>
+<h3 id="titredoc" class="text-center"> Ajout de document</h3>
 <div id="formulairedoc">
   <div class="col-md-3"></div>
   <form class="col-md-6 jumbotron" action="<?= $this->url('document_add_documents') ?>" method="post" enctype="multipart/form-data" id="ajoutdocform">

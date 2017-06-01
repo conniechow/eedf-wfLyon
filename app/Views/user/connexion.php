@@ -1,37 +1,21 @@
-<?php $this->layout('layout', ['title' => 'Connexion']) ?>
+<?php $this->layout('layout-material-design', ['title' => 'Connexion']) ?>
 
 <?php $this->start('main_content') ?>
-<div class="container">
-	<div class="row">
-		<div class="col-md-4 col-md-offset-4">
-      <?php if(isset($_SESSION['error'])){ ?>
-        <p class="bg-danger"><?= $_SESSION['error'] ?></p>
-        <?php unset($_SESSION['error']);
-      }?>
-      <pre>
-        <?php var_dump($_SESSION) ?>
-        <?#php unset($_SESSION['user']); ?>
-      </pre>
-			<div class="login-panel panel panel-default">
-				<div class="panel-heading">
-					<h3>Connexion</h3>
-				</div>
-				<div class="panel-body">
-					<form method="POST" action="<?= $this->url('admin_inscription') ?>">
-						<div class="form-group">
-							<input class="form-control" type="text" name="username" placeholder="Identifiant ou E-mail">
-						</div>
-						<div class="form-group">
-							<input class="form-control" type="password" name="password" placeholder="Mot de passe">
-						</div>
-						<div class="form-group text-center">
-							<button class="btn btn-lg btn-success">S'inscrire</button>
-              <a href="<?= $this->url('admin_deconnexion') ?>">Deconnexion</a>
-						</div>
-					</form>
-				</div>
-			</div>
+		<hgroup>
+		<h1>Material Design Form</h1>
+		<h3>Connexion</h3>
+	</hgroup>
+	<form method="POST" action="<?= $this->url('userManagement_inscription') ?>">
+		<div class="group">
+			<input type="text" name="username"><span class="highlight"></span><span class="bar"></span>
+			<label>Username</label>
 		</div>
-	</div>
-</div>
+		<div class="group">
+			<input type="email" name="password"><span class="highlight"></span><span class="bar"></span>
+			<label>Password</label>
+		</div>
+		<button type="button" class="button buttonBlue">Se Connecter
+			<div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+		</button>
+	</form>
 <?php $this->stop('main_content') ?>
