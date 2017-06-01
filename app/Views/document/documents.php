@@ -33,7 +33,7 @@
 						<br />
 						<div id=btndoc>
 						<a href="'. $this->url('document_edit_documents', ['id' => $document['id']]).'" class="btn btn-xs btn-success">Modifier</a>
-						<a href="documents"  onclick="return confirm(\'Voulez-vous vraiment supprimer le fichier ?\');" class="btn btn-xs btn-danger">Supprimer</a>
+						<a href="'. $this->url('document_delete_documents', ['id' => $document['id']]).'"  onclick="return confirm(\'Voulez-vous vraiment supprimer le fichier ?\');" class="btn btn-xs btn-danger">Supprimer</a>
 						</div>';
 					?></div><?php
 				}
