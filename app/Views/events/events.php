@@ -27,12 +27,12 @@
 
     	<h2>Prochains Evénements</h2>
 
-      <input id="afficheElements" type="button" value="Afficher plus d'éléments" class="btn-info btn-md"></input>
+      <input id="afficheElements" type="button" value="Afficher plus d'éléments" class="btn-info btn-md">
 
 <?php try
       {
         // On se connecte à MySQL
-        $bdd = new PDO('mysql:host=localhost;dbname=wflyon;charset=utf8', 'root', '');
+        $bdd = new PDO('mysql:host=localhost;dbname=webforce3;charset=utf8', 'root', '');
       }
       catch(Exception $e)
       {
@@ -44,10 +44,10 @@
 
       // On récupère tout le contenu de la table events
       $reponse = $bdd->query('SELECT * FROM events');
-      //var_dump($reponse);
+      var_dump($reponse);
 
         while($donnees = $reponse->fetch()){ ?>
-                <?php if($donnees['id_event'] < 4){ ?>
+                <?php if($donnees['idevent'] < 4){ ?>
                       <?php var_dump($donnees); ?>
                         <div class="container">
                             <p>
