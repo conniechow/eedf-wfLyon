@@ -18,6 +18,6 @@ class EventsController extends Controller
 	 * Page des événements
 	 */
 	public function events(){
-		$this->show('default/events');
+		$this->show('events/events');
 	}
 }

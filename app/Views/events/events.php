@@ -19,7 +19,7 @@
     		<li><a href="<?= $this->url('default_gallery');  ?>">Gallerie</a></li>
     		<li><a href="<?= $this->url('admin_dashboard');  ?>">Dashboard</a></li>
     		<li><a href="<?= $this->url('admin_inscription');?>">Inscription</a></li>
-    		<li><a href="<?= $this->url('default_events'); ?>">Calendrier/Evénements</a></li>
+    		<li><a href="<?= $this->url('events_events'); ?>">Calendrier/Evénements</a></li>
     	</ul>
 
     	<h2>Calendrier des événements</h2>
