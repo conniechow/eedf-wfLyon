@@ -32,8 +32,7 @@
 		['GET','/confirmation','userManagement#confirmation','admin_confirmation'],
     	['POST','/login','userManagement#loginUser','userManagement_login'],
 		['GET','/listUsers','userManagement#listUsers','guillermo_userManagement_list'],
-		//photos
-		['GET|POST', '/admin/photos', 'photo#photos', 'photo_photos'],
+		
 		//documents
 		['GET|POST', '/admin/documents', 'Document#documents', 'document_documents'],
 		['GET|POST', '/admin/ajout-documents', 'Document#add_documents', 'document_add_documents'],
@@ -41,4 +40,10 @@
 		//members
 		['GET|POST', '/admin/addMember', 'member#addMember', 'member_addMember'],
 		['GET', '/admin/voir_members', 'Member#members', 'member_showMembers'],
+
+		// photos
+		['GET|POST', '/admin/photos', 'photo#showPhotos', 'photo_photos'],
+		['GET|POST', '/admin/add-photos', 'photo#addPhotos', 'photo_add_photos'],
+		['GET|POST', '/admin/edit-photos', 'photo#editPhotos', 'photo_edit_photos'], 
+		['GET|POST', '/admin/album-photos', 'photo#albumPhotos', 'photo_album_example'],
 	);
