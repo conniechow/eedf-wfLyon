@@ -30,8 +30,6 @@ class EventsModel extends \W\Model\Model{
     return $text;
   }
 
-
-  
 }
 
 ?>

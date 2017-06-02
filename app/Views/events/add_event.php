@@ -35,11 +35,3 @@
   </div>
 </div>
 <?php $this->stop('main_content') ?>
-
-<?php $this->start('script') ?>
-<script>
-    $('#AddEvent').on('click', insert(array $data, $stripTags = true){
-      
-    });
-</script>
-<?php $this->stop('script') ?>
