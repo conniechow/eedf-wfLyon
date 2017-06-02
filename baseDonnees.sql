@@ -86,7 +86,7 @@ CREATE TABLE `documents` (
 /**************************************************************/
 
 ALTER TABLE `gallery` ADD INDEX(`id_event`);
-ALTER TABLE `photo` ADD INDEX(`id_event`);
+ALTER TABLE `photos` ADD INDEX(`id_event`);
 ALTER TABLE `events` ADD INDEX(`id_member`);
 ALTER TABLE `members` ADD INDEX(`id_section`);
 ALTER TABLE `members` ADD INDEX(`id_user`);
@@ -101,7 +101,7 @@ ALTER TABLE `Documents` ADD INDEX(`id_categorie`);
 ALTER TABLE `listemembers` ADD CONSTRAINT `listemembers_member` FOREIGN KEY (`id_member`) REFERENCES `members`(`id`);
 ALTER TABLE `listemembers` ADD CONSTRAINT `listemembers_event` FOREIGN KEY (`id_event`) REFERENCES `events`(`id`);
 ALTER TABLE `gallery` ADD CONSTRAINT `gallery_events` FOREIGN KEY (`id_event`) REFERENCES `events`(`id`);
-ALTER TABLE `photo` ADD CONSTRAINT `Photo_events` FOREIGN KEY (`id_event`) REFERENCES `events`(`id`);
+ALTER TABLE `photos` ADD CONSTRAINT `Photo_events` FOREIGN KEY (`id_event`) REFERENCES `events`(`id`);
 ALTER TABLE `members` ADD CONSTRAINT `member_users` FOREIGN KEY (`id_user`) REFERENCES `users`(`id`);
 ALTER TABLE `members` ADD CONSTRAINT `member_sections` FOREIGN KEY (`id_section`) REFERENCES `sections`(`id`);
 
