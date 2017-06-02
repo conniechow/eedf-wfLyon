@@ -10,113 +10,200 @@
   <a class="mdl-navigation__link" href="<?= $this->url('userManagement_list_admins'); ?>"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>List Admins</a>
   <a class="mdl-navigation__link" href="<?= $this->url('userManagement_add_user_admin_form'); ?>"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">add</i>Ajouter Admins</a>
   <a class="mdl-navigation__link" href="<?= $this->url('admin_deconnexion'); ?>"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">exit_to_app</i>Deconnexion</a>
-  <div class="mdl-layout-spacer"></div>
-  <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>
 </nav>
 <?php $this->stop('sidenav_content') ?>
 
 <?php $this->start('main_content') ?>
 
-
-
-<?php if(isset($user)): ?>
-  <p><a href="<?= $this->url('admin_deconnexion'); ?>">deconnexion</a></p>
+<?php if(isset($newAdmin)): ?>
+  <p><? var_dump($newAdmin); ?></p>
 <?php endif ?>
+
 </p>
 
-
 <!-- LIST ADHERENTS -->
+
 <?php if($w_current_route == 'userManagement_list_users'):?>
-<table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
-  <thead>
-    <tr>
-      <th>Nom</th>
-      <th>email</th>
-      <th>Phone</th>
-      <th>Delete</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-  <?php foreach ($usersList as $key => $value): ?>
-    <tr>
-      <td><?= $value['username'] ?></td>
-      <td><?= $value['email'] ?></td>
-      <td><?= $value['phone'] ?></td>
-      <td><a href="<?= $this->url('userManagement_delete_user',['id'=>$value['id']]) ?>">Delete</a></td>
-      <td><a href="<?= $this->url('userManagement_details_user',['id'=>$value['id']]) ?>">Details</a></td>
-  <?php endforeach ?>
-</tbody>
-</table>
+  <div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--middle">
+    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>email</th>
+          <th>Phone</th>
+          <th></th>
+          <th>Details</th>
+        </tr>
+      </thead>
+      <tbody>
+      <?php foreach ($usersList as $key => $value): ?>
+        <tr>
+          <td><?= $value['username'] ?></td>
+          <td><?= $value['email'] ?></td>
+          <td><?= $value['phone'] ?></td>
+          <td><a style="color:red" href="<?= $this->url('userManagement_delete_user',['id'=>$value['id']]) ?>"><i class="material-icons">delete</i></a></a></td>
+          <td><a href="<?= $this->url('userManagement_details_user',['id'=>$value['id']]) ?>">Details</a></td>
+      <?php endforeach ?>
+    </tbody>
+    </table>
+  </div>
+</div>
 <?php endif ?>
 
 <!-- LIST ADMINS -->
 
 <?php if($w_current_route == 'userManagement_list_admins'):?>
-<table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
-  <thead>
-    <tr>
-      <th>Nom</th>
-      <th>email</th>
-      <th>phone</th>
-      <th>actions</th>
-    </tr>
-  </thead>
-  <?php foreach ($usersList as $key => $value): {
-    print '<tr>';
-    print '<td>'.$value['username'].'</td>';
-    print '<td>'.$value['email'].'</td>';
-    print '<td>00000000000</td>';
-    print '<td><a href="'.$this->url('userManagement_delete_user',['id'=>$value['id']]).'">Delete</a></td>';
-    print '</tr>';
-  } ?>
-<?php endforeach ?>
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--middle">
+    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>email</th>
+          <th>phone</th>
+          <th></th>
+        </tr>
+      </thead>
+      <?php foreach ($usersList as $key => $value):?>
+        <tr>
+        <td><?=$value['username']?></td>
+        <td><?=$value['email']?></td>
+        <td>000000</td>
+        <td><a style="color:red" href="<?=$this->url('userManagement_delete_user',['id'=>$value['id']])?>"><i class="material-icons">delete</i></a></td>
+        </tr>
+    <?php endforeach ?>
+    </table>
+  </div>
+</div>
 <?php endif ?>
-</table>
 
 <!-- ADD ADMINS -->
 
-
 <?php if($w_current_route == 'userManagement_add_user_admin_form'):?>
-
-<h3>Ajouter un admin</h3>
-<form class="" action="<?= $this->url('userManagement_add_user_admin') ?>" method="post">
-  <label for="username">Nom</label>
-  <input type="text" name="username" value=""><br>
-  <label for="email">email</label>
-  <input type="text" name="email" value=""><br>
-  <label for="password">Password</label>
-  <input type="text" name="password" value="">
-  <input type="submit" name="" value="Ajouter Admin">
-</form>
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--middle">
+    <form action="<?= $this->url('userManagement_add_user_admin') ?>" method="POST">
+      <!-- username -->
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="text" name="username">
+        <label class="mdl-textfield__label" for="username">username</label>
+      </div>
+      <!-- email -->
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="text" name="email">
+        <label class="mdl-textfield__label" for="email">email</label>
+      </div>
+      <!-- password -->
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="text" name="password">
+        <label class="mdl-textfield__label" for="password">password</label>
+      </div>
+      <div>
+        <input style="color:#FFF" type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" value="ajouter admin">
+      </div>
+  </div>
+</div>
 <?php endif ?>
 
 <!-- SHOW DETAILS ADMIN -->
 
 <?php if($w_current_route == 'userManagement_details_user'): ?>
-  <ul style="border:1px solid #DDD">
-    <li>Username: <?= $user['username'] ?></li>
-    <li>Email : <?= $user['email'] ?></li>
-    <li>Phone : <?= $user['phone'] ?></li>
-    <li>Motivation : <?= $user['motivation'] ?></li>
-  </ul>
-  <a href="<?= $this->url('userManagement_edit_user_details_form',['id'=>$user['id']]) ?>">Edit Details</a>
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--middle">
+      <div class="mdl-card mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__title">
+          <h2 class="mdl-card__title">
+            <?= $user['username'] ?>
+          </h2>
+        </div>
+        <ul class="demo-list-item mdl-list">
+          <li class="mdl-list__item mdl-list__item--two-line">
+            <span class="mdl-list__item-primary-content">
+            <i class="material-icons mdl-list__item-avatar">person</i>
+            <span><?= $user['username'] ?></span>
+            <span class="mdl-list__item-sub-title"><?= $user['role'] ?></span>
+            </span>
+          <span class="mdl-list__item-secondary-content">
+            <span class="mdl-list__item-secondary-info">Confirmé</span>
+            <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">check</i></a>
+          </span>
+        </li>
+        <li class="mdl-list__item">
+          <span class="mdl-list__item-primary-content">
+            Email : <?= $user['email'] ?>
+          </span>
+        </li>
+        <li class="mdl-list__item">
+          <span class="mdl-list__item-primary-content">
+            Tél : <?= $user['phone'] ?>
+          </span>
+        </li>
+        <li class="mdl-list__item">
+          <span class="mdl-list__item-primary-content">
+            <?= $user['motivation'] ?>
+          </span>
+        </li>
+        </ul>
+      <div class="mdl-card__menu">
+        <a href="<?= $this->url('userManagement_edit_user_details_form',['id'=>$user['id']]) ?>">
+          <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+            <i class="material-icons">edit</i>
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
 <?php endif ?>
 
 <!-- EDIT DETAILS FORM -->
 
 <?php if($w_current_route == 'userManagement_edit_user_details_form'): ?>
-  <form class="" action="<?= $this->url('userManagement_edit_user_details') ?>" method="post">
-    <input type="hidden" name="id" value="<?= $user['id'] ?>">
-    <label for="username">Username</label><br>
-    <input type="text" name="username" value="<?= $user['username'] ?>"><br>
-    <label for="email">Phone</label><br>
-    <input type="text" name="email" value="<?= $user['email'] ?>"><br>
-    <label for="phone">Phone</label><br>
-    <input type="text" name="phone" value="<?= $user['phone'] ?>"><br>
-    <label for="motivation">Motivation</label><br>
-    <textarea name="motivation" rows="8" cols="80"><?= $user['motivation'] ?></textarea><br>
-    <input type="submit" name="" value="Edit Details">
-  </form>
+  <div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--middle">
+        <div class="mdl-card mdl-card mdl-shadow--2dp">
+          <div class="mdl-card__title">
+            <h2 class="mdl-card__title">
+              <?= $user['username'] ?>
+            </h2>
+          </div>
+          <form action="<?= $this->url('userManagement_edit_user_details'); ?>" method="POST">
+            <input type="text" value="<?=$user['id']?>" hidden name="id">
+            <ul class="demo-list-item mdl-list">
+              <li class="mdl-list__item mdl-list__item--two-line">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type="text" name="username" value="<?=$user['username']?>">
+                  <label class="mdl-textfield__label" for="username"></label>
+                </div>
+              </li>
+              <li class="mdl-list__item">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type="text" name="email" value="<?=$user['email']?>">
+                  <label class="mdl-textfield__label" for="email">email</label>
+                </div>
+              </li>
+              <li class="mdl-list__item">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type="text" name="phone" value="<?=$user['phone']?>"?>
+                  <label class="mdl-textfield__label" for="telephone">telephone</label>
+                </div>
+              </li>
+              <li class="mdl-list__item">
+                <div class="mdl-textfield mdl-js-textfield">
+                  <textarea class="mdl-textfield__input" type="text" rows= "3"><?=$user['motivation']?></textarea>
+                  <label class="mdl-textfield__label" for="sample5">Plus d'infos</label>
+                </div>
+              </li>
+              <li class="mdl-list__item">
+                <div>
+                  <input style="color:#FFF" type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" value="Enregistrer">
+                </div>
+              </li>
+            </ul>
+          </form>
+      </div>
+    </div>
+  </div>
 <?php endif ?>
 <?php $this->stop('main_content') ?>

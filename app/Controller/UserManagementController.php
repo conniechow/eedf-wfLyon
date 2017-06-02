@@ -47,7 +47,7 @@ class UserManagementController extends Controller {
   public function editDetailsUser(){
     $this->currentUser->update($_POST,$_POST['id']);
     $user = $this->currentUser->find($_POST['id']);
-    $this->show('admin/manageUsers',['user'=>$user,'loggedUser'=>$this->auth->getLoggedUser()]);
+    $this->show('admin/manageUsers',['user'=>$user,'loggedUser'=>$this->auth->getLoggedUser(),'w_current_route'=>'userManagement_details_user']);
   }
   public function editDetailsUserForm($id){
     $user = $this->currentUser->find($id);
@@ -153,13 +153,15 @@ class UserManagementController extends Controller {
     $_POST['password'] = $this->auth->hashPassword($_POST['password']);
     if($newAdmin = $this->adminUser->insertAdmin($_POST)){
       $this->show('admin/manageUsers', ['newAdmin'=>$newAdmin]);
+      //$this->show('dev/output',['newAdmin'=>$newAdmin]);
     }else{
+      //$this->show('dev/output',['var'=>'error']);
       $this->show('admin/manageUsers', ['error'=>'incorrect']);
     }
     if($_GET['id']){
       $result['id'] = $_GET['id'];
     }
-    // Update on the database
+    // Confirm account on the database
     $data = array('confirm'=>1);
     $this->currentUser->update($data, $_GET['id']);
     $this->show('admin/manageUsers');

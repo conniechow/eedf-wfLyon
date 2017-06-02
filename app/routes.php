@@ -1,5 +1,4 @@
 <?php
-
 	$w_routes = array(
 		['GET', '/', 'Default#home', 'default_home'],
 		['GET', '/contact', 'Default#contact', 'default_contact'],
@@ -29,7 +28,7 @@
 		['GET|POST','/connexion','userManagement#connexion','userManagement_connexion'],
 		['GET|POST','/deconnexion','userManagement#deconnexion','admin_deconnexion'],
 		['GET','/confirmation','userManagement#confirmation','admin_confirmation'],
-    	['POST','/login','userManagement#loginUser','userManagement_login'],
+    ['POST','/login','userManagement#loginUser','userManagement_login'],
 		['GET','/listUsers','userManagement#listUsers','guillermo_userManagement_list'],
 		//photos
 		['GET|POST', '/admin/photos', 'photo#photos', 'photo_photos'],
