@@ -7,7 +7,7 @@ use \Model\EventsModel as events;
 
 class EventsController extends Controller
 {
-	private $eventsModel;
+	protected $eventsModel;
 
 	public function __construct(){
 		$this->eventsModel = new events;
@@ -20,18 +20,18 @@ class EventsController extends Controller
 		$this->show('events/events');
 	}
 
-	public function editEvent($id){
+	public function edit_event($id){
 		//$this->allowTo('admin');
 		if($_SERVER['REQUEST_METHOD'] == 'GET'){
 			$member = $this->eventsModel->find($id);
-			$this->show('events/edit_events', ['events' => $events]);
+			$this->show('events/edit_event', ['events' => $events]);
 		}else{
 			$this->eventsModel->update($_POST, $id);
-			$this->redirectToRoute('events_edit_events');
+			$this->redirectToRoute('events_edit_event');
 		}
 	}
 
-	public function addEvent(){
+	public function add_event(){
 		if($_SERVER['REQUEST_METHOD'] == 'GET'){
 		//Si method GET afficher le formulaire
 	    $this->show('events/add_event');
