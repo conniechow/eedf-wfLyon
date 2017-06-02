@@ -1,14 +1,22 @@
-<?php $this->layout('layout-user-management',['title'=>'Dashboard']); ?>
+<?php $this->layout('layout-user-management',['title'=>'Users Management','username'=>$loggedUser['username']]); ?>
+<?php $this->start('header_content') ?>
+
+<?php $this->stop('header_content') ?>
+<?php $this->start('sidenav_content') ?>
+<nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
+  <a class="mdl-navigation__link" href="<?= $this->url('default_home'); ?>"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Accueil</a>
+  <a class="mdl-navigation__link" href="<?= $this->url('userManagement_inscription'); ?>"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person</i>Inscription</a>
+  <a class="mdl-navigation__link" href="<?= $this->url('userManagement_list_users'); ?>"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>List Users</a>
+  <a class="mdl-navigation__link" href="<?= $this->url('userManagement_list_admins'); ?>"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>List Admins</a>
+  <a class="mdl-navigation__link" href="<?= $this->url('userManagement_add_user_admin_form'); ?>"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">add</i>Ajouter Admins</a>
+  <a class="mdl-navigation__link" href="<?= $this->url('admin_deconnexion'); ?>"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">exit_to_app</i>Deconnexion</a>
+  <div class="mdl-layout-spacer"></div>
+  <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>
+</nav>
+<?php $this->stop('sidenav_content') ?>
+
 <?php $this->start('main_content') ?>
-<p><?php print 'hello '.$loggedUser['username'] ?></p>
-<h2>Index</h2>
-<ul>
-  <li><a href="<?= $this->url('default_home'); ?>">Accueil</a></li>
-  <li><a href="<?= $this->url('userManagement_inscription'); ?>">Inscription</a></li>
-  <li><a href="<?= $this->url('userManagement_list_users'); ?>">Lister Users</a></li>
-  <li><a href="<?= $this->url('userManagement_list_admins'); ?>">Lister Admins</a></li>
-  <li><a href="<?= $this->url('userManagement_add_user_admin_form'); ?>">Ajouter Admins</a></li>
-</ul>
+
 
 
 <?php if(isset($user)): ?>
@@ -18,17 +26,18 @@
 
 
 <!-- LIST ADHERENTS -->
-
 <?php if($w_current_route == 'userManagement_list_users'):?>
-<h3>Users list:</h3>
-<table>
-  <tr>
-    <th>Nom</th>
-    <th>email</th>
-    <th>phone</th>
-    <th>Delete</th>
-    <th>Details</th>
-  </tr>
+<table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>email</th>
+      <th>Phone</th>
+      <th>Delete</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
   <?php foreach ($usersList as $key => $value): ?>
     <tr>
       <td><?= $value['username'] ?></td>
@@ -37,24 +46,27 @@
       <td><a href="<?= $this->url('userManagement_delete_user',['id'=>$value['id']]) ?>">Delete</a></td>
       <td><a href="<?= $this->url('userManagement_details_user',['id'=>$value['id']]) ?>">Details</a></td>
   <?php endforeach ?>
-<?php endif ?>
+</tbody>
 </table>
+<?php endif ?>
 
 <!-- LIST ADMINS -->
 
 <?php if($w_current_route == 'userManagement_list_admins'):?>
-<h3>Admins list:</h3>
-<table>
-  <tr>
-    <th>Nom</th>
-    <th>email</th>
-    <th>phone</th>
-    <th>actions</th>
-  </tr>
+<table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>email</th>
+      <th>phone</th>
+      <th>actions</th>
+    </tr>
+  </thead>
   <?php foreach ($usersList as $key => $value): {
     print '<tr>';
     print '<td>'.$value['username'].'</td>';
     print '<td>'.$value['email'].'</td>';
+    print '<td>00000000000</td>';
     print '<td><a href="'.$this->url('userManagement_delete_user',['id'=>$value['id']]).'">Delete</a></td>';
     print '</tr>';
   } ?>
