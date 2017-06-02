@@ -10,11 +10,7 @@
 		
 	<h4>Photos</h4>
 	
-	<?php foreach ($photos as $key => $photo) {
-		if($photo['id_categorie'] == '1'){ 
-		}
-		
-	}?>
+		<?php foreach ($photos as $key => $photo) {}?>
 
 	</div>
 		
