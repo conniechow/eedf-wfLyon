@@ -19,6 +19,13 @@ class EventsController extends Controller{
 		$this->show('events/events');
 	}
 
+	public function events_admin(){
+ 		$data = $this->eventsModel->findAll();
+ 		//print_r($data[0]['id_section']);
+ 		//$this->allowTo('admin'); // seulement visible par l'admin
+		$this->show('events/events_admin', ['events' => $data]);
+	}
+
 	public function edit_event($id){
 		//$this->allowTo('admin');
 		if($_SERVER['REQUEST_METHOD'] == 'GET'){
@@ -42,10 +49,10 @@ class EventsController extends Controller{
 	  }
 	}
 
-	// public function deleteEvent($id){
-	// 	$member = $this->eventsModel->find($id);
+	// public function delete_event($id){
+	// 	$events = $this->eventsModel->find($id);
 	// 	$this->eventsModel->delete($id);
-	// 	$this->redirectToRoute('events_delete_event');
+	// 	$this->redirectToRoute('events_events_admin');
 	// }
 
 }
