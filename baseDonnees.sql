@@ -8,6 +8,7 @@ USE `wf3lyon`;
 
 CREATE TABLE `photos` (
 	`id` INT(4) NOT NULL AUTO_INCREMENT,
+	`id_event` INT(4) NOT NULL,
 	`photoname` varchar(255) NOT NULL,
 	`photodescription` varchar(500) NOT NULL,
 	`date` DATE NOT NULL,
