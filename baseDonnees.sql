@@ -1,6 +1,6 @@
-DROP DATABASE `wflyon`;
-CREATE DATABASE `wflyon` COLLATE `utf8_general_ci`;
-USE `wflyon`;
+﻿DROP DATABASE `wf3lyon`;
+CREATE DATABASE `wf3lyon` COLLATE `utf8_general_ci`;
+USE `wf3lyon`;
 
 /******************** Création des tables ********************/
 /* CREATE TABLE Crée une nouvelle table SQL  */
