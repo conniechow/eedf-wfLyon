@@ -5,7 +5,7 @@
 <h3 id="titreElem" class="text-center"> Ajout d'événement</h3>
 <div id="formulaireElem">
   <div class="col-md-3"></div>
-  <form class="col-md-6 jumbotron" action="<?= $this->url('events_edit_event', ['id' => $events['idevent']]) ?>" method="post" enctype="multipart/form-data" id="ajoutElemForm">
+  <form class="col-md-6 jumbotron" action="<?= $this->url('events_edit_event', ['id' => $events['id']]) ?>" method="post" enctype="multipart/form-data" id="ajoutElemForm">
       <div class="form-group text-center" id="formElem2">
           <label for="title" class="control-label text-center">Titre de l'événement</label>
           <input type="text" class="form-control" name="title" id="title" value="<?php echo $events['title'] ?>" required>
