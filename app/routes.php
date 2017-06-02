@@ -44,4 +44,8 @@
 		['GET|POST', '/admin/addMember', 'Member#addMember', 'member_addMember'],
 		['GET|POST', '/admin/edit_members/[:id]', 'Member#editMember', 'member_editMember'],
 		['GET|POST', '/admin/delete-members/[:id]', 'Member#deleteMembers', 'member_deleteMembers'],
+
+		['GET', '/accueil', 'Default#accueil', 'default_accueil'],
+		['GET', '/documents', 'Default#documents', 'default_documents'],
+		['GET', '/quisommesnous', 'Default#quisommesnous', 'default_quisommesnous'],
 	);
