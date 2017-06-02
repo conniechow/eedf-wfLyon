@@ -45,5 +45,5 @@
 		['GET|POST', '/admin/photos', 'photo#showPhotos', 'photo_photos'],
 		['GET|POST', '/admin/add-photos', 'photo#addPhotos', 'photo_add_photos'],
 		['GET|POST', '/admin/edit-photos', 'photo#editPhotos', 'photo_edit_photos'],
-
+		
 	);

@@ -25,11 +25,9 @@ class PhotoController extends Controller {
     //$this->allowTo('admin'); // seulement visible par l'admin
     if($_SERVER['REQUEST_METHOD'] == 'GET'){
       $this->show('photo/add_photos');
-    }else{
-            // $this->photosModel->insert($_POST);
-            // $this->redirectToRoute('photo_photos');                                        
-            $this->photosModel->add_photos($_POST);
-            $this->redirectToRoute('photo_photos');
+    }else{                                     
+      $this->photosModel->add_photos($_POST);
+      $this->redirectToRoute('photo_photos');
     }
 
 

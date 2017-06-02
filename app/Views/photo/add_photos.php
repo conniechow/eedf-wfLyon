@@ -21,7 +21,7 @@
               <option value="">-- Sélectionner Catégorie --</option>
                  <option value="1" id="id_categorie">2017</option>
                  <option value="2" id="id_categorie">2016</option>
-                 <option value="2" id="id_categorie">2016</option>
+                 <option value="2" id="id_categorie">2015</option>
             </select>
         </div>
     </div>
