@@ -6,7 +6,6 @@
 		<h3 class="text-center">Albums photo</h3>
 	</div>
 	
-
 	<div><!-- Dynamic display of photos -->
 		
 	<h4>Photos</h4>
@@ -14,6 +13,7 @@
 	<?php foreach ($photos as $key => $photo) {
 		if($photo['id_categorie'] == '1'){ 
 		}
+		
 	}?>
 
 	</div>
