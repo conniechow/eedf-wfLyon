@@ -14,9 +14,13 @@ class MemberController extends Controller {
 
  	public function members(){
  		$data = $this->membersModel->findAll();
+ 		//print_r($data[0]['id_section']);
+ 		$section['rank'] = $this->membersModel->findSection($data[0]['id_section']);
+ 		print_r($section['rank']);
  		//$this->allowTo('admin'); // seulement visible par l'admin
 		$this->show('member/members', ['members' => $data]);
 	}
+
 /*
 	public function showMembers(){
 		if(is_numeric($id)){
