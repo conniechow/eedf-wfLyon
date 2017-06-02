@@ -45,17 +45,17 @@ class PhotosModel extends \W\Model\Model{
 			}
 		}
 	}
-	public function update_documents($args, $id){
+	public function update_photos($args, $id){
 		/* Récupération de la photo */
-		if(isset($_FILES['docfile']) && $_FILES['docfile']['size'] !== 0 ){
-			$repertoire = 'documents/'; // le répertoire de destination de l'image
-			$fichier = $this->slugify($_FILES['docfile']['name']); // le nom de la photo
-			$tmpName = $_FILES['docfile']['tmp_name']; // le nom provisoire
-			$args['size'] = $_FILES['docfile']['size']; // taille du fichier
+		if(isset($_FILES['photofile']) && $_FILES['photofile']['size'] !== 0 ){
+			$repertoire = 'photos/'; // le répertoire de destination de l'image
+			$fichier = $this->slugify($_FILES['photofile']['name']); // le nom de la photo
+			$tmpName = $_FILES['photofile']['tmp_name']; // le nom provisoire
+			$args['size'] = $_FILES['photofile']['size']; // taille du fichier
 			// déplacement
 			if(move_uploaded_file($tmpName, 'assets/'.$repertoire.$fichier))
 			{
-				$args['docfile'] = $repertoire.$fichier;
+				$args['photofile'] = $repertoire.$fichier;
 				$this->update($args,$id);
 			}
 		}else{
