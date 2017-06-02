@@ -3,6 +3,7 @@
 namespace Model;
 
 class EventsModel extends \W\Model\Model{
+
   public function slugify($text)
   {
   // replace non letter or digits by -
@@ -28,35 +29,9 @@ class EventsModel extends \W\Model\Model{
     }
     return $text;
   }
-  public function add_event($args){
-
-    	$repertoire = 'documents/'; // le répertoire de destination de l'image
-			$args['docfilename'] = $_FILES['docfile']['name']; // le nom de la photo
-			$fichier = $this->slugify($_FILES['docfile']['name']); // le nom de la photo slugifié
-			$tmpName = $_FILES['docfile']['tmp_name']; // le nom provisoire
-			$args['size'] = $_FILES['docfile']['size']; // taille du fichier
 
 
-		}
-	}
-	public function update_events($args, $id){
-
-			$repertoire = 'documents/'; // le répertoire de destination de l'image
-			$fichier = $this->slugify($_FILES['docfile']['name']); // le nom de la photo
-			$tmpName = $_FILES['docfile']['tmp_name']; // le nom provisoire
-			$args['size'] = $_FILES['docfile']['size']; // taille du fichier
-			// déplacement
-			if(move_uploaded_file($tmpName, 'assets/'.$repertoire.$fichier))
-			{
-				$args['docfile'] = $repertoire.$fichier;
-				$this->update($args,$id);
-			}
-		}else{
-			$this->update($args,$id);
-		}
-	}
-
-
+  
 }
 
 ?>

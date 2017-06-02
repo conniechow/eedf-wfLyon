@@ -28,10 +28,18 @@
       <div class="form-group text-center">
           <div class="">
               <input type="hidden" name="date" value="<?= date('Y-m-d h:i:s'); ?>">
-              <button type="submit" class="btn btn-success" id="btnadddoc">Ajouter</button>
+              <button type="submit" class="btn btn-success" id="AddEvent">Ajouter</button>
           </div>
       </div>
   </form>
   </div>
 </div>
 <?php $this->stop('main_content') ?>
+
+<?php $this->start('script') ?>
+<script>
+    $('#AddEvent').on('click', insert(array $data, $stripTags = true){
+      
+    });
+</script>
+<?php $this->stop('script') ?>
