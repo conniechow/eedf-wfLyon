@@ -11,7 +11,7 @@ class EventsController extends Controller
 
 
 	public function __construct(){
-		$this->eventsModel = new events;
+		$this->eventsModel = new event;
 	}
 
 	/**
