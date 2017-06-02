@@ -4,15 +4,7 @@ namespace Model;
 
 class PhotosModel extends \W\Model\Model{
 	
-	//public function showPhoto($args){
-		{
-    // todo
-  		}
-
-  	//public function photos(){
-  		{
-    // todo
-  		}
+	
 
 	public function add_photos($args){
 		

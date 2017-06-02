@@ -11,19 +11,9 @@ class PhotoController extends Controller {
   public function __construct(){
     $this->photosModel = new PhotosModel;
   }
-  
-  public function showPhoto(){
-    // Test Code for show
-    if(is_numeric($id)){
-      $photo = $this->photosModel->find($id);
-    }else{
-      $photo = $this->photosModel->search($id);
-      $photo = $photo[0];
-    }
-  	$this->show('photo/photo');
-  }
 
-  public function photos(){
+
+ public function showPhotos(){
     $data = $this->photosModel->findAll();
     //$this->allowTo('admin'); // seulement visible par l'admin
     $this->show('photo/photos', ['photos' => $data]);
