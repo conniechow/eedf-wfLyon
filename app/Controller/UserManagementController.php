@@ -127,13 +127,12 @@ class UserManagementController extends Controller {
     if($_SERVER['REQUEST_METHOD'] == 'GET'){
       $this->show('user/connexion');
     } else {
-      $user = $this->auth->isValidLoginInfo($_POST['usernameOrEmail'], $_POST['password']);
+      $user = $this->auth->isValidLoginInfo($_POST['username'], $_POST['password']);
       if($user != 0){
-        $this->auth->logerUserIn($this->currentUser->find($user));
+        $this->auth->logUserIn($this->currentUser->find($user));
         $this->redirectToRoute('default_home');
       }else{
         $_SESSION['error'] = "Identifiant ou mot de passe incorrect";
-        $this->redirectToRoute('login');
       }
     }
   }
