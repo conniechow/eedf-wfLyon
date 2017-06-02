@@ -13,7 +13,7 @@ class PhotoController extends Controller {
   }
 
 
- public function showPhotos(){
+  public function showPhotos(){
     $data = $this->photosModel->findAll();
     //$this->allowTo('admin'); // seulement visible par l'admin
     $this->show('photo/photos', ['photos' => $data]);
@@ -31,6 +31,8 @@ class PhotoController extends Controller {
             $this->photosModel->add_photos($_POST);
             $this->redirectToRoute('photo_photos');
     }
+
+
   }
 }
 
