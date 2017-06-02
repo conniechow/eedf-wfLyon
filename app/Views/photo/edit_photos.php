@@ -30,20 +30,28 @@
     <div class="form-group text-center">
     	<a href="<?= $this->assetUrl($photos['photofile']) ?>" target="_blank"><i class="material-icons">cloud_download</i></a>
           <label for="photofile" class="control-label">Ajouter photo</label>
-          <input type="file" name="photofile" class="form-control" id="docfile" value="">
+          <input type="file" name="photofile" class="form-control" id="addphoto" value="">
     </div>
     <!-- Supprimer image -->
     <div class="form-group text-center">
       <a href="<?= $this->assetUrl($photos['photofile']) ?>" target="_blank"><i class="material-icons">cloud_download</i></a>
           <label for="photofile" class="control-label">Supprimer photo</label>
-          <input type="file" name="photofile" class="form-control" id="docfile" value="">
+          <input type="file" name="photofile" class="form-control" id="supphoto" value="">
     </div>
     <!-- Bouton modifier -->
+   <div class="form-group text-center">
+          <div class="">
+              <input type="hidden" name="date" value="<?= date('Y-m-d h:i:s'); ?>">
+              <button type="submit" class="btn btn-success" id="btnaddphoto">Modifier Album</button>
+          </div>
+    </div>
+    <!-- Bouton supprimer -->
     <div class="form-group text-center">
           <div class="">
               <input type="hidden" name="date" value="<?= date('Y-m-d h:i:s'); ?>">
-              <button type="submit" class="btn btn-success" id="btnadddoc">Modifier</button>
-        </div>
+              <button type="submit" class="btn btn-danger" id="btnsupalbum">Supprimer Album</button>
+          </div>
+    </div>
   </div>
   </form>
 </div>
