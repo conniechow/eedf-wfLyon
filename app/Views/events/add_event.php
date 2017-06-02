@@ -1,10 +1,10 @@
 
 
-<?php $this->layout('layout-admin', ['title'=>'Modification d\'événement']); ?>
+<?php $this->layout('layout-admin', ['title'=>'Ajout d\'événement']); ?>
 
 <?php $this->start('main_content') ?>
 <div class="container-fluid">
-<h3 id="titreElem" class="text-center"> Modification de l'événement</h3>
+<h3 id="titreElem" class="text-center"> Ajout d'événement</h3>
 <div id="formulaireElem">
   <div class="col-md-3"></div>
   <form class="col-md-6 jumbotron" action="<?= $this->url('events_add_event') ?>" method="post" enctype="multipart/form-data" id="ajoutElemForm">

@@ -5,9 +5,8 @@ namespace Controller;
 use \W\Controller\Controller;
 use \Model\EventsModel as events;
 
-class EventsController extends Controller
-{
-	protected $eventsModel;
+class EventsController extends Controller{
+	private $eventsModel;
 
 	public function __construct(){
 		$this->eventsModel = new events;

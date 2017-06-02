@@ -1,8 +1,8 @@
-<?php $this->layout('layout-admin', ['title'=>'Ajout d\'événement']); ?>
+<?php $this->layout('layout-admin', ['title'=>'Modification d\'événement']); ?>
 
 <?php $this->start('main_content') ?>
 <div class="container-fluid">
-<h3 id="titreElem" class="text-center"> Ajout d'événement</h3>
+<h3 id="titreElem" class="text-center">Modification de l'événement</h3>
 <div id="formulaireElem">
   <div class="col-md-3"></div>
   <form class="col-md-6 jumbotron" action="<?= $this->url('events_edit_event', ['id' => $events['id']]) ?>" method="post" enctype="multipart/form-data" id="ajoutElemForm">
@@ -22,7 +22,7 @@
 
       <div class="form-group text-center">
           <label for="description" class="control-label">Description de l'événement</label>
-          <textarea id="description" class="form-control" name="description"> <?php echo $events['description'] ?> </textarea>
+          <textarea id="description" class="form-control" name="description" value="<?php echo $events['description'] ?>"></textarea>
       </div>
 
       <div class="form-group text-center">
