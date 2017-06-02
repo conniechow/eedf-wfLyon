@@ -3,10 +3,15 @@
 namespace Controller;
 
 use \W\Controller\Controller;
+use DocumentController;
+use \Model\DocumentsModel as document;
 
-class DefaultController extends Controller
-{
+class DefaultController extends Controller{
+	protected $docModel;
 
+	public function __construct(){
+		$this->docModel = new document;
+	}
 	/**
 	 * Page d'accueil par défaut
 	 */
@@ -40,7 +45,18 @@ class DefaultController extends Controller
 
 	public function documents()
 	{
-		$this->show('default/documents');
+		$data = $this->docModel->findAll();
+		$this->show('default/documents', ['documents' => $data]);
+
+	}
+	public function voir_documents(){
+		if(is_numeric($id)){
+			$document = $this->docModel->find($id);
+		}else{
+			$document = $this->docModel->search($id);
+			$document = $document[0];
+		}
+		$this->show('default_documents', ['documents' => $document]);
 	}
 	/**
 	 * Page des événements
@@ -48,6 +64,18 @@ class DefaultController extends Controller
 	public function events()
 	{
 		$this->show('default/events');
+
+	}
+
+	public function accueil()
+	{
+		$this->show('default/accueil');
+
+	}
+
+	public function quisommesnous()
+	{
+		$this->show('default/quisommesnous');
 
 	}
 }

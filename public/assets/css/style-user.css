@@ -1,0 +1,215 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300,300i,400,400i,500,700i,800|Arya:400,700|Bubbler+One|El+Messiri:400,500,600,700|Lobster|Patrick+Hand+SC|Yesteryear');
+
+/*
+font-family: 'Bubbler One', sans-serif;
+font-family: 'El Messiri', sans-serif;
+font-family: 'Lobster', cursive;
+font-family: 'Alegreya Sans SC', sans-serif;
+font-family: 'Yesteryear', cursive;
+font-family: 'Patrick Hand SC', cursive;
+font-family: 'Arya', sans-serif;
+*/
+
+header{
+  background: linear-gradient(
+  rgba(0, 0, 0, 0.30), 
+  rgba(0, 0, 0, 0.30)
+  ),url('../img/eedfindex.png') center center no-repeat;
+  background-size: cover;
+  text-align: center;
+}
+// header:hover{
+//    background:  linear-gradient(
+//   rgba(0, 0, 0, 0.20), 
+//   rgba(0, 0, 0, 0.20)
+//   )url('img/eedfindex.png') center center no-repeat;
+// }
+
+
+#logobas {
+position:relative;
+-webkit-transform-style: preserve-3d;
+-webkit-transform-origin: 100% 75px;
+-webkit-transition: all 0.7s ease;
+transform-style: preserve-3d;
+transform-origin: 100% 75px;
+transition: all 0.7s ease;
+}
+.container:hover #logobas {
+-webkit-transform: rotateX(-180deg);
+transform: rotateX(-180deg);
+}
+.devantphoto, .derrierephoto {
+position:absolute; left:0; 
+-webkit-backface-visibility:hidden;
+backface-visibility:hidden;
+}
+.derrierephoto {
+margin-top:0px;
+-webkit-transform: rotateX(180deg);
+transform: rotateX(180deg);
+}
+#logobas a i{
+  font-size: 40px;
+}
+
+
+nav.navbar{
+background: none;
+border: none;
+}
+nav.navbar .collapse ul li a{
+  color: white;
+  font-size: 17px;
+
+}
+nav.navbar .collapse ul li a:hover{
+  background: #f2f2f2;
+
+}
+
+header a#logo img{
+  -webkit-transition: all 0.7s ease;
+transition: all 0.7s ease;
+
+}
+header a#logo img:hover{
+  -webkit-transform:scale(1.2);
+  transform:scale(1.2);
+  cursor: pointer;
+}
+header h1{
+  margin: 10px 0px 30px 0px;
+  font-size: 60px;
+  color: #fff;
+  font-family: 'Lobster', cursive;
+}
+header h3{
+  margin: 20px 0px 50px 0px;
+}
+header h2,
+header h3{
+  color: #fff;
+  font-family: 'Alegreya Sans SC', sans-serif;
+  word-spacing: 6px;
+  letter-spacing: 1px;
+
+}
+
+/* effets apparition text header */
+
+.vignets {
+    opacity: 0;
+   
+    -webkit-transition: opacity 1s ease-in;
+    -moz-transition: opacity 1s ease-in;
+    -o-transition: opacity 1s ease-in;
+    -ms-transition: opacity 1s ease-in;
+    transition: opacity 1s ease-in;
+}
+.vignets.load {
+    opacity: 1;
+}
+.vignets2 {
+    opacity: 0;
+   
+    -webkit-transition: opacity 3s ease-in;
+    -moz-transition: opacity 3s ease-in;
+    -o-transition: opacity 3s ease-in;
+    -ms-transition: opacity 3s ease-in;
+    transition: opacity 3s ease-in;
+}
+.vignets2.load {
+    opacity: 1;
+}
+
+/* fin header */
+
+section#texteintro{
+  margin-top: 50px; 
+   font-family: 'Alegreya Sans SC', sans-serif;
+}
+section#texteintro h4.textdesc{
+  margin: 20px 0px 20px 50px;
+  font-size: 20px;
+  
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+section#texteintro ul{
+  margin: 30px 0px 80px 20px;
+}
+section#texteintro ul li{
+  list-style: square;
+}
+section#texteintro img{
+  margin-top: 40px;
+}
+
+section#texteintro #bloctext ul{
+  border: 3px solid #E3FF55;
+  box-shadow: 0px 0px 4px 3px rgba(0,0,0,0.16); 
+  
+}
+section#texteintro #bloctext ul h4{
+  margin-bottom: 15px;
+}
+section#texteintro #bloctext ul li{
+  margin-bottom: 5px;
+}
+
+/* Bouton 'en savoir plus' */
+section#texteintro #bloctext ul #btnsavoirplus{
+  margin: 15px 0px 10px 0px;
+}
+section#texteintro #bloctext ul a{
+  border: 2px solid #E3FF55;
+  border-radius: 10px;
+  background: #E3FF55;
+  color: black;
+  text-decoration: none;
+  padding: 5px 5px 5px 5px;
+
+}
+section#texteintro #bloctext ul a:hover{
+  border: 2px solid #E3FF55;
+  background: #fff;
+  color: #000;
+  font-style: italic;
+}
+
+/* Carousel */
+
+
+
+section#carousel h3{
+  font-family: 'Lobster', cursive;
+}
+
+
+
+/* footer */
+
+footer{
+  margin-top: 100px;
+  background: #809462;
+  color: #fff;
+  width: 100%;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  // position: fixed;
+  left: 0px;
+  bottom: 0px;
+}
+footer a{
+  color:  #fff;
+  text-decoration: none;
+}
+footer a:hover{
+  color:  #000;
+  text-decoration: none;
+  font-size: 15px
+}
