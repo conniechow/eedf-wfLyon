@@ -9,7 +9,6 @@ $(window, document, undefined).ready(function() {
   });
 
   $('input').focus(function(){
-    console.log('hide');
     $('.checkmark-circle').hide();
   })
 
