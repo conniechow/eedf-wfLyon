@@ -76,6 +76,14 @@
 								</li>
 							</ul>
 						</li>
+						<li>
+							<a href="<?= $this->url('member_members'); ?>" class="text-uppercase"><i class="fa fa-dashboard fa-fw"></i>Adhérents</a>
+							<ul>
+								<li>
+									<a href="<?= $this->url('member_addMember'); ?>">Ajout Adhérent <i class="fa fa-plus-circle fa-lg"></i></a>
+								</li>
+							</ul>
+						</li>
 						<li><a href="<?= $this->url('userManagement_inscription');?>">Inscription</a>
 						</li>
 						<li>

@@ -19,7 +19,7 @@
     		<li><a href="<?= $this->url('default_gallery');  ?>">Gallerie</a></li>
     		<li><a href="<?= $this->url('admin_dashboard');  ?>">Dashboard</a></li>
     		<li><a href="<?= $this->url('admin_inscription');?>">Inscription</a></li>
-    		<li><a href="<?= $this->url('default_events'); ?>">Calendrier/Evénements</a></li>
+    		<li><a href="<?= $this->url('events_events'); ?>">Calendrier/Evénements</a></li>
     	</ul>
 
     	<h2>Calendrier des événements</h2>
@@ -27,12 +27,12 @@
 
     	<h2>Prochains Evénements</h2>
 
-      <input id="afficheElements" type="button" value="Afficher plus d'éléments" class="btn-info btn-md"></input>
+
 
 <?php try
       {
         // On se connecte à MySQL
-        $bdd = new PDO('mysql:host=localhost;dbname=wflyon;charset=utf8', 'root', '');
+        $bdd = new PDO('mysql:host=localhost;dbname=webforce3;charset=utf8', 'root', '');
       }
       catch(Exception $e)
       {
@@ -47,34 +47,33 @@
       //var_dump($reponse);
 
         while($donnees = $reponse->fetch()){ ?>
-                <?php if($donnees['id_event'] < 4){ ?>
-                      <?php var_dump($donnees); ?>
-                        <div class="container">
+                <?php if($donnees['idevent'] < 4){ ?>
+
+                        <div class="container col-md-4">
                             <p>
                               <strong>Sortie : "</strong>  <?php echo $donnees['title']; ?><strong> "</strong><br />
                               Durée de l'événement: du <?php echo $donnees['startdate']; ?> au <?php echo $donnees['enddate']; ?>.<br />
                               Description :  <?php echo $donnees['description']; ?>.<br />
                               Les participants déjà inscrits sont : <?php echo $donnees['id_participant']; ?>
                             </p>
-                        <div>
+                        </div>
                 <?php }else{ ?>
-                  <?php var_dump($donnees); ?>
 
-                  <div id="event" class="container hidden">
+                  <div class="container col-md-4 event hidden">
                       <p>
                         <strong>Sortie : "</strong>  <?php echo $donnees['title']; ?><strong> "</strong><br />
                         Durée de l'événement: du <?php echo $donnees['startdate']; ?> au <?php echo $donnees['enddate']; ?>.<br />
                         Description :  <?php echo $donnees['description']; ?>.<br />
                         Les participants déjà inscrits sont : <?php echo $donnees['id_participant']; ?>
                       </p>
-                  <div>
+                  </div>
 
                <?php }
       }
       $reponse->closeCursor(); ?>  <!--fin de la boucle, le tableau contient toute la BDD -->
 
 
-
+      <input id="afficheElements" type="button" value="Afficher plus d'éléments" class="btn-info btn-md">
 
 
 <?php $this->stop('main_content') ?>
@@ -83,7 +82,7 @@
 <script src="<?= $this->assetUrl('js/home.js') ?>" type="text/javascript"></script>
 <script>
     $('#afficheElements').on('click',function(){
-    		  $('#event').removeClass('hidden');
+    		  $('.event').removeClass('hidden');
     });
 </script>
 <?php $this->stop('script') ?>
