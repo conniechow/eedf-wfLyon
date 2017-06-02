@@ -9,7 +9,11 @@
 		<div><!-- Dynamic display of photos-->
 		<h4>Photos</h4>
 		
+		<?php foreach ($photos as $key => $photo) {
+				if($photo['id_categorie'] == '2'){ 
+			}
+		}?>
+		</div>
+	</div>
 		
-
-	
 <?php $this->stop('main_content') ?>
