@@ -6,12 +6,14 @@ USE `wflyon`;
 /* CREATE TABLE Crée une nouvelle table SQL  */
 /*************************************************************/
 
-CREATE TABLE `photo` (
-	`id` INT (4) NOT NULL AUTO_INCREMENT,
-	`id_event` INT NOT NULL,
-	`urlphoto` varchar(100) NOT NULL,
-	`namephoto` varchar(50) NOT NULL,
-	`descphoto` varchar(255) NOT NULL,
+CREATE TABLE `photos` (
+	`id` INT(4) NOT NULL AUTO_INCREMENT,
+	`photoname` varchar(255) NOT NULL,
+	`photodescription` varchar(500) NOT NULL,
+	`date` DATE NOT NULL,
+	`photofilename` varchar(255) NOT NULL,
+	`size` INT(4) NOT NULL,
+	`id_categorie` INT(11) NOT NULL,
 	PRIMARY KEY (`id`)
 );
 

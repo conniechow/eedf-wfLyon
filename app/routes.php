@@ -32,20 +32,25 @@
 		['GET','/confirmation','userManagement#confirmation','admin_confirmation'],
     	['POST','/login','userManagement#loginUser','userManagement_login'],
 		['GET','/listUsers','userManagement#listUsers','guillermo_userManagement_list'],
-		//photos
-		['GET|POST', '/admin/photos', 'photo#photos', 'photo_photos'],
+		
 		//documents
 		['GET|POST', '/admin/documents', 'Document#documents', 'document_documents'],
 		['GET|POST', '/admin/ajout-documents', 'Document#add_documents', 'document_add_documents'],
 		['GET|POST', '/admin/modif-documents/[:id]', 'Document#edit_documents', 'document_edit_documents'],
 		['GET|POST', '/admin/delete-documents/[:id]', 'Document#delete_documents', 'document_delete_documents'],
-		//members
+		
+    //members
 		['GET', '/admin/members', 'Member#members', 'member_members'],
 		['GET|POST', '/admin/addMember', 'Member#addMember', 'member_addMember'],
 		['GET|POST', '/admin/edit_members/[:id]', 'Member#editMember', 'member_editMember'],
 		['GET|POST', '/admin/delete-members/[:id]', 'Member#deleteMembers', 'member_deleteMembers'],
-
-		['GET', '/accueil', 'Default#accueil', 'default_accueil'],
+    
+    		// photos
+		['GET|POST', '/admin/photos', 'photo#showPhotos', 'photo_photos'],
+		['GET|POST', '/admin/add-photos', 'photo#addPhotos', 'photo_add_photos'],
+		['GET|POST', '/admin/edit-photos', 'photo#editPhotos', 'photo_edit_photos'],
+    
+    ['GET', '/accueil', 'Default#accueil', 'default_accueil'],
 		['GET', '/documents', 'Default#documents', 'default_documents'],
 		['GET', '/quisommesnous', 'Default#quisommesnous', 'default_quisommesnous'],
 	);
