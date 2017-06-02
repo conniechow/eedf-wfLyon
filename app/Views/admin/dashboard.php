@@ -108,7 +108,7 @@
 						</div>
 					</div>
 				</div>
-				<a href="<?= $this->url('document_documents');?>">
+				<a href="<?= $this->url('member_members');?>">
 					<div class="panel-footer">
 						<span class="pull-left">Voir les détails</span>
 						<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
