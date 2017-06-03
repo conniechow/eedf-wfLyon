@@ -2,12 +2,13 @@
 
 <?php $this->start('main_content') ?>
 <div class="container-fluid">
-<h3 class="text-center">Modifier L'événement</h3>
-<div class="col-md-3"></div>
-  <form class="col-md-6 jumbotron" action="<?= $this->url('events_add_event', ['id' => $events['id']]) ?>" method="post" enctype="multipart/form-data" id="ajoutElemForm">
+<h3 id="titreElem" class="text-center">Modification de l'événement</h3>
+<div id="formulaireElem">
+  <div class="col-md-3"></div>
+  <form class="col-md-6 jumbotron" action="<?= $this->url('events_edit_event', ['id' => $events['id']]) ?>" method="post" enctype="multipart/form-data" id="ajoutElemForm">
       <div class="form-group text-center" id="formElem2">
-          <label for="elemName" class="control-label text-center">Titre de l'événement</label>
-          <input type="text" class="form-control" name="elemName" id="elemName" value="<?php echo $events['title']?>" required>
+          <label for="title" class="control-label text-center">Titre de l'événement</label>
+          <input type="text" class="form-control" name="title" id="title" value="<?php echo $events['title'] ?>" required>
       </div>
 
       <div class="form-group text-center" id="startdate">
@@ -20,18 +21,21 @@
       </div>
 
       <div class="form-group text-center">
-          <label for="elemDescription" class="control-label">Description de l'événement</label>
-          <textarea id="elemDescription" class="form-control" name="elemDescription"><?php echo $events['description']?></textarea>
+          <label for="description" class="control-label">Description de l'événement</label>
+          <textarea id="description" class="form-control" name="description" value="<?php echo $events['description'] ?>"></textarea>
+      </div>
+
+      <div class="form-group text-center">
+        <label for="id_participant" class="control-label text-center">Participants</label>
+        <input type="text" class="form-control" name="id_participant" id="id_participant" value="<?php echo $events['id_participant'] ?>" required>
       </div>
 
       <div class="form-group text-center">
           <div class="">
-              <input type="hidden" name="date" value="<?= date('Y-m-d h:i:s'); ?>">
-              <button type="submit" class="btn btn-success" id="btnadddoc">Modifier</button>
+              <button type="submit" class="btn btn-success">Modifier l'événement</button>
           </div>
       </div>
   </form>
-
-
+  </div>
 </div>
 <?php $this->stop('main_content') ?>

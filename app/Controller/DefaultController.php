@@ -63,7 +63,7 @@ class DefaultController extends Controller{
 	 */
 	public function events()
 	{
-		$this->show('default/events');
+		$this->show('events/events');
 
 	}
 

@@ -5,7 +5,10 @@
 		['GET', '/contact', 'Default#contact', 'default_contact'],
 		['GET', '/cgv', 'Default#cgv', 'default_cgv'],
 		['GET', '/gallery', 'Default#gallery', 'default_gallery'],
-		['GET', '/events', 'Events#events', 'default_events'],
+		['GET', '/events', 'Events#events', 'events_events'],
+		['GET', '/events_admin', 'Events#events_admin', 'events_events_admin'],
+		['GET|POST', '/add_event', 'Events#add_event', 'events_add_event'],
+		['GET|POST', '/edit_event/[:id]', 'Events#edit_event', 'events_edit_event'],
 		['GET', '/admin', 'Admin#dashboard', 'admin_dashboard'],
 		['GET|POST', '/admin/ajout-article', 'Blog#addArticle', 'blog_addArticle'],
 		['GET', '/admin/articles', 'Blog#listArticles', 'blog_listArticles'],
@@ -14,7 +17,7 @@
 		['GET', '/articles/[i:id]','Blog#voirArticle','blog_id_article'],
 		['GET', '/articles/[a:slug]','Blog#voirArticle','blog_slug_article'],
 		['GET|POST','/admin/edit-article/[:id]','Blog#editArticle', 'Blog_EditArticle'],
-		
+
 		//user management
 		['GET|POST','/inscription','UserManagement#inscription','userManagement_inscription'],
 		['GET','/listUsers','UserManagement#listUsers','userManagement_list_users'],

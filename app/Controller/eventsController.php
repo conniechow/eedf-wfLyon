@@ -3,49 +3,58 @@
 namespace Controller;
 
 use \W\Controller\Controller;
+use \Model\EventsModel as events;
 
-class EventsController extends Controller
-{
+class EventsController extends Controller{
+	private $eventsModel;
 
-	/**
-	 * Page d'accueil par défaut
-	 */
-	public function home(){
-		$this->show('default/home');
+	public function __construct(){
+		$this->eventsModel = new events;
 	}
 
 	/**
 	 * Page des événements
-	 */
+	 **/
 	public function events(){
 		$this->show('events/events');
 	}
 
-	public function add_event(){
-		//$this->allowTo('admin'); // seulement visible par l'admin
-		if($_SERVER['REQUEST_METHOD'] == 'GET'){
-			$this->show('events/add_event');
-		}else{
-            // $this->eventsModel->insert($_POST);
-            // $this->redirectToRoute('events_add_event');
-            $this->eventsModel->add_event($_POST);
-            $this->redirectToRoute('events_add_event');
-
-		}
+	public function events_admin(){
+ 		$data = $this->eventsModel->findAll();
+ 		//print_r($data[0]['id_section']);
+ 		//$this->allowTo('admin'); // seulement visible par l'admin
+		$this->show('events/events_admin', ['events' => $data]);
 	}
 
 	public function edit_event($id){
-		$this->show('events/edit_event');
 		//$this->allowTo('admin');
 		if($_SERVER['REQUEST_METHOD'] == 'GET'){
-			$event = $this->eventsModel->find($id);
-			$this->show('events/edit_event', ['events' => $event]);
+			$member = $this->eventsModel->find($id);
+			$this->show('events/edit_event', ['events' => $events]);
 		}else{
-			$this->eventsModel->update_events($_POST, $id);
+			$this->eventsModel->update($_POST, $id);
 			$this->redirectToRoute('events_edit_event');
 		}
 	}
 
+	public function add_event(){
+		if($_SERVER['REQUEST_METHOD'] == 'GET'){
+		//Si method GET afficher le formulaire
+	    $this->show('events/add_event');
+	}else{
+		//Si method POST envoyer les données à la bdd
+		$this->eventsModel->insert($_POST);
+		$this->redirectToRoute('events_add_event');
 
+	  }
+	}
+
+	// public function delete_event($id){
+	// 	$events = $this->eventsModel->find($id);
+	// 	$this->eventsModel->delete($id);
+	// 	$this->redirectToRoute('events_events_admin');
+	// }
 
 }
+
+?>
