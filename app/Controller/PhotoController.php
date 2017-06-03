@@ -40,7 +40,7 @@ public function show_photos(){
 			$photo = $this->PhotosModel->search($id);
 			$photo = $photo[0];
 		}
-		$this->show('document_documents', ['documents' => $document]);
+		$this->show('photo_photos', ['photos' => $photo]);
 	}
 
 public function addPhotos(){
